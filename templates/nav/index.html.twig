@@ -1,20 +1,17 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello NavController!{% endblock %}
-
+{% block title %}Hello NavController!
+{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1 class="he">Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li class="list">Your controller at <code><a href="{{ 'C:/Users/PC104-03-admin/document/CCiQuestionnaire/src/Controller/NavController.php'|file_link(0) }}">src/Controller/NavController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/PC104-03-admin/document/CCiQuestionnaire/templates/nav/index.html.twig'|file_link(0) }}">templates/nav/index.html.twig</a></code></li>
-    </ul>
-</div>
+	{% block nav %}
+		<div class="header1">
+			<div class="logo">
+				<img src="../img/Logo.png">
+				<div class="buttonnav">
+					<a href='#' class="profil">Mon profil</a>
+					<a href='#' class="deconnection">Se déconnecter</a>
+				</div>
+			</div>
+			<div class="line"></div>
+		</div>
+	{% endblock %}
 {% endblock %}
