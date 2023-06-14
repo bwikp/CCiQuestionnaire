@@ -60,7 +60,7 @@ class QuestionCompleter
 
     public function setType(?Type $type): static
     {
-        $this->typey = $type;
+        $this->type = $type;
 
         return $this;
     }
