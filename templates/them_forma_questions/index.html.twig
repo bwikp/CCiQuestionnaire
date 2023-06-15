@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ThemFormaQuestions index{% endblock %}
+
+{% block body %}
+    <h1>ThemFormaQuestions index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for them_forma_question in them_forma_questions %}
+            <tr>
+                <td>{{ them_forma_question.id }}</td>
+                <td>
+                    <a href="{{ path('app_them_forma_questions_show', {'id': them_forma_question.id}) }}">show</a>
+                    <a href="{{ path('app_them_forma_questions_edit', {'id': them_forma_question.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_them_forma_questions_new') }}">Create new</a>
+{% endblock %}

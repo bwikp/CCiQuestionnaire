@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ThemFormaQuestions{% endblock %}
+
+{% block body %}
+    <h1>Edit ThemFormaQuestions</h1>
+
+    {{ include('them_forma_questions/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_them_forma_questions_index') }}">back to list</a>
+
+    {{ include('them_forma_questions/_delete_form.html.twig') }}
+{% endblock %}

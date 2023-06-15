@@ -22,7 +22,7 @@ class ReponseCandidat
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Questions $question = null;
+    private ?Questions $questions = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -57,14 +57,14 @@ class ReponseCandidat
         return $this;
     }
 
-    public function getQuestion(): ?Questions
+    public function getQuestions(): ?Questions
     {
-        return $this->question;
+        return $this->questions;
     }
 
-    public function setQuestion(?Questions $question): static
+    public function setQuestions(?Questions $questions): static
     {
-        $this->question = $question;
+        $this->questions = $questions;
 
         return $this;
     }
