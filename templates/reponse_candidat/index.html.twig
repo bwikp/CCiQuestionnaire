@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ReponseCandidat index{% endblock %}
+
+{% block body %}
+    <h1>ReponseCandidat index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Reponse_candidat</th>
+                <th>Note</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reponse_candidat in reponse_candidats %}
+            <tr>
+                <td>{{ reponse_candidat.id }}</td>
+                <td>{{ reponse_candidat.reponseCandidat }}</td>
+                <td>{{ reponse_candidat.note }}</td>
+                <td>
+                    <a href="{{ path('app_reponse_candidat_show', {'id': reponse_candidat.id}) }}">show</a>
+                    <a href="{{ path('app_reponse_candidat_edit', {'id': reponse_candidat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_reponse_candidat_new') }}">Create new</a>
+{% endblock %}

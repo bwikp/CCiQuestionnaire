@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ThemFormaQuestions{% endblock %}
+
+{% block body %}
+    <h1>ThemFormaQuestions</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ them_forma_question.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_them_forma_questions_index') }}">back to list</a>
+
+    <a href="{{ path('app_them_forma_questions_edit', {'id': them_forma_question.id}) }}">edit</a>
+
+    {{ include('them_forma_questions/_delete_form.html.twig') }}
+{% endblock %}
