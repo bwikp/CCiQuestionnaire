@@ -20,6 +20,14 @@ class ReponseCandidat
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0')]
     private ?string $note = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Questions $questions = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Dossier $dossier = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +53,30 @@ class ReponseCandidat
     public function setNote(string $note): static
     {
         $this->note = $note;
+
+        return $this;
+    }
+
+    public function getQuestions(): ?Questions
+    {
+        return $this->questions;
+    }
+
+    public function setQuestions(?Questions $questions): static
+    {
+        $this->questions = $questions;
+
+        return $this;
+    }
+
+    public function getDossier(): ?Dossier
+    {
+        return $this->dossier;
+    }
+
+    public function setDossier(?Dossier $dossier): static
+    {
+        $this->dossier = $dossier;
 
         return $this;
     }
