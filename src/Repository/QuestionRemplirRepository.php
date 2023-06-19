@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\QuestionCompleter;
+use App\Entity\QuestionRemplir;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<QuestionCompleter>
+ * @extends ServiceEntityRepository<QuestionRemplir>
  *
- * @method QuestionCompleter|null find($id, $lockMode = null, $lockVersion = null)
- * @method QuestionCompleter|null findOneBy(array $criteria, array $orderBy = null)
- * @method QuestionCompleter[]    findAll()
- * @method QuestionCompleter[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method QuestionRemplir|null find($id, $lockMode = null, $lockVersion = null)
+ * @method QuestionRemplir|null findOneBy(array $criteria, array $orderBy = null)
+ * @method QuestionRemplir[]    findAll()
+ * @method QuestionRemplir[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class QuestionCompleterRepository extends ServiceEntityRepository
+class QuestionRemplirRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, QuestionCompleter::class);
+        parent::__construct($registry, QuestionRemplir::class);
     }
 
-    public function save(QuestionCompleter $entity, bool $flush = false): void
+    public function save(QuestionRemplir $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class QuestionCompleterRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(QuestionCompleter $entity, bool $flush = false): void
+    public function remove(QuestionRemplir $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class QuestionCompleterRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return QuestionCompleter[] Returns an array of QuestionCompleter objects
+//     * @return QuestionRemplir[] Returns an array of QuestionRemplir objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class QuestionCompleterRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?QuestionCompleter
+//    public function findOneBySomeField($value): ?QuestionRemplir
 //    {
 //        return $this->createQueryBuilder('q')
 //            ->andWhere('q.exampleField = :val')
