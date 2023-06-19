@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UsersCCI index{% endblock %}
+
+{% block body %}
+    <h1>UsersCCI index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for users_c_c_i in users_c_c_is %}
+            <tr>
+                <td>{{ users_c_c_i.id }}</td>
+                <td>{{ users_c_c_i.email }}</td>
+                <td>{{ users_c_c_i.roles ? users_c_c_i.roles|json_encode : '' }}</td>
+                <td>{{ users_c_c_i.password }}</td>
+                <td>
+                    <a href="{{ path('app_users_c_c_i_show', {'id': users_c_c_i.id}) }}">show</a>
+                    <a href="{{ path('app_users_c_c_i_edit', {'id': users_c_c_i.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_users_c_c_i_new') }}">Create new</a>
+{% endblock %}
