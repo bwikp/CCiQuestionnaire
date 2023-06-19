@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Type;
 
 use App\Entity\Type;
-use App\Form\TypeType;
+use App\Form\Type1Type;
 use App\Repository\TypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +25,7 @@ class TypeController extends AbstractController
     public function new(Request $request, TypeRepository $typeRepository): Response
     {
         $type = new Type();
-        $form = $this->createForm(TypeType::class, $type);
+        $form = $this->createForm(Type1Type::class, $type);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +51,7 @@ class TypeController extends AbstractController
     #[Route('/{id}/edit', name: 'app_type_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Type $type, TypeRepository $typeRepository): Response
     {
-        $form = $this->createForm(TypeType::class, $type);
+        $form = $this->createForm(Type1Type::class, $type);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -60,7 +60,7 @@ class TypeController extends AbstractController
             return $this->redirectToRoute('app_type_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('type/edit.html.twig', [
+        return $this->renderForm('type/edit.html.twig', [
             'type' => $type,
             'form' => $form,
         ]);
@@ -75,4 +75,6 @@ class TypeController extends AbstractController
 
         return $this->redirectToRoute('app_type_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    
 }
