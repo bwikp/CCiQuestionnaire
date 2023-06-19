@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\QuestionCompleterRepository;
+use App\Repository\QuestionRemplirRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: QuestionCompleterRepository::class)]
-class QuestionCompleter
+#[ORM\Entity(repositoryClass: QuestionRemplirRepository::class)]
+class QuestionRemplir
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -20,7 +20,7 @@ class QuestionCompleter
     #[ORM\Column(length: 255)]
     private ?string $reponse = null;
 
-    #[ORM\ManyToOne(inversedBy: 'type')]
+    #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Type $type = null;
 

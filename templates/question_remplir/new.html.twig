@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New QuestionRemplir{% endblock %}
+
+{% block body %}
+    <h1>Create new QuestionRemplir</h1>
+
+    {{ include('question_remplir/_form.html.twig') }}
+
+    <a href="{{ path('app_question_remplir_index') }}">back to list</a>
+{% endblock %}
