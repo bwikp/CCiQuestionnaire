@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ThemFormation index{% endblock %}
+
+{% block body %}
+    <h1>ThemFormation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for them_formation in them_formations %}
+            <tr>
+                <td>{{ them_formation.id }}</td>
+                <td>
+                    <a href="{{ path('app_them_formation_show', {'id': them_formation.id}) }}">show</a>
+                    <a href="{{ path('app_them_formation_edit', {'id': them_formation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_them_formation_new') }}">Create new</a>
+{% endblock %}
