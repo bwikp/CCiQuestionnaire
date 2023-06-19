@@ -107,16 +107,8 @@ class UsersCCI implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
-<<<<<<< HEAD
-
-public function __construct()
-{
-    $this->addRole("ROLE_USER");
-}
-=======
     public function __construct()
     {
         $this->addRoles("ROLE_USER");
     }
->>>>>>> 8c3fd65a7b8edb2ecd01210cb284379918862e77
 }

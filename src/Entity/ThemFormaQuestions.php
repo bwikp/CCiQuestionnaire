@@ -23,13 +23,8 @@ class ThemFormaQuestions
     #[ORM\JoinColumn(nullable: false)]
     private ?ThemFormation $them_formations = null;
 
-<<<<<<< HEAD
-    #[ORM\ManyToOne(inversedBy: 'themFormaQuestions')]
-    private ?Categorie $categorie = null;
-=======
     #[ORM\OneToMany(mappedBy: 'ThemFormationQuestions', targetEntity: Dossier::class)]
     private Collection $dossiers;
->>>>>>> 8c3fd65a7b8edb2ecd01210cb284379918862e77
 
     public function getId(): ?int
     {
@@ -64,19 +59,6 @@ class ThemFormaQuestions
         return $this;
     }
 
-<<<<<<< HEAD
-    public function getCategorie(): ?Categorie
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(?Categorie $categorie): static
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-=======
     /**
      * @return Collection<int, Dossier>
      */
@@ -113,5 +95,4 @@ class ThemFormaQuestions
         return $reponse;
     }
     
->>>>>>> 8c3fd65a7b8edb2ecd01210cb284379918862e77
 }

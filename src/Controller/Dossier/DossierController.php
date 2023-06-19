@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\dossier;
+namespace App\Controller\Dossier;
 
 use App\Entity\Dossier;
 use App\Form\Dossier2Type;
