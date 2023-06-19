@@ -34,7 +34,7 @@ class QuestionRemplirController extends AbstractController
             return $this->redirectToRoute('app_question_remplir_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('question_remplir/new.html.twig', [
+        return $this->render('question_remplir/new.html.twig', [
             'question_remplir' => $questionRemplir,
             'form' => $form,
         ]);
@@ -60,7 +60,7 @@ class QuestionRemplirController extends AbstractController
             return $this->redirectToRoute('app_question_remplir_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('question_remplir/edit.html.twig', [
+        return $this->render('question_remplir/edit.html.twig', [
             'question_remplir' => $questionRemplir,
             'form' => $form,
         ]);
