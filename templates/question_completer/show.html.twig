@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QuestionCompleter{% endblock %}
+
+{% block body %}
+    <h1>QuestionCompleter</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ question_completer.id }}</td>
+            </tr>
+            <tr>
+                <th>Detail</th>
+                <td>{{ question_completer.detail }}</td>
+            </tr>
+            <tr>
+                <th>Reponse</th>
+                <td>{{ question_completer.reponse }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_question_completer_index') }}">back to list</a>
+
+    <a href="{{ path('app_question_completer_edit', {'id': question_completer.id}) }}">edit</a>
+
+    {{ include('question_completer/_delete_form.html.twig') }}
+{% endblock %}
