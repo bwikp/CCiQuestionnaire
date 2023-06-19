@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/dossier')]
-class DossierModificatioController extends AbstractController
+class DossierModificationController extends AbstractController
 {
    
 
@@ -29,7 +29,7 @@ class DossierModificatioController extends AbstractController
                return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
           }
 
-            return $this->renderForm('dossier/edit.html.twig', [
+            return $this->render('dossier/edit.html.twig', [
              'dossier' => $dossier,
              'form' => $form,
            ]);
