@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PromoFormation index{% endblock %}
+
+{% block body %}
+    <h1>PromoFormation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for promo_formation in promo_formations %}
+            <tr>
+                <td>{{ promo_formation.id }}</td>
+                <td>
+                    <a href="{{ path('app_promo_formation_show', {'id': promo_formation.id}) }}">show</a>
+                    <a href="{{ path('app_promo_formation_edit', {'id': promo_formation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_promo_formation_new') }}">Create new</a>
+{% endblock %}
