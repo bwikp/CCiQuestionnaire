@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\QuestionCorriger;
 
 use App\Entity\QuestionCorriger;
 use App\Form\QuestionCorrigerType;
@@ -34,7 +34,7 @@ class QuestionCorrigerController extends AbstractController
             return $this->redirectToRoute('app_question_corriger_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('question_corriger/new.html.twig', [
+        return $this->render('question_corriger/new.html.twig', [
             'question_corriger' => $questionCorriger,
             'form' => $form,
         ]);
@@ -60,7 +60,7 @@ class QuestionCorrigerController extends AbstractController
             return $this->redirectToRoute('app_question_corriger_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('question_corriger/edit.html.twig', [
+        return $this->render('question_corriger/edit.html.twig', [
             'question_corriger' => $questionCorriger,
             'form' => $form,
         ]);
