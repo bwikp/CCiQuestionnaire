@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QuestionCompleter index{% endblock %}
+
+{% block body %}
+    <h1>QuestionCompleter index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Detail</th>
+                <th>Reponse</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for question_completer in question_completers %}
+            <tr>
+                <td>{{ question_completer.id }}</td>
+                <td>{{ question_completer.detail }}</td>
+                <td>{{ question_completer.reponse }}</td>
+                <td>
+                    <a href="{{ path('app_question_completer_show', {'id': question_completer.id}) }}">show</a>
+                    <a href="{{ path('app_question_completer_edit', {'id': question_completer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_question_completer_new') }}">Create new</a>
+{% endblock %}

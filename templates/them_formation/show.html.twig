@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ThemFormation{% endblock %}
+
+{% block body %}
+    <h1>ThemFormation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ them_formation.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_them_formation_index') }}">back to list</a>
+
+    <a href="{{ path('app_them_formation_edit', {'id': them_formation.id}) }}">edit</a>
+
+    {{ include('them_formation/_delete_form.html.twig') }}
+{% endblock %}

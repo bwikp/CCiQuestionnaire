@@ -19,6 +19,18 @@ class Dossier
     #[ORM\Column(length: 255)]
     private ?string $experience_pro = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Candidat $candidat = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ThemFormaQuestions $them_forma_questions = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?PromoFormation $promos_formation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +56,42 @@ class Dossier
     public function setExperiencePro(string $experience_pro): static
     {
         $this->experience_pro = $experience_pro;
+
+        return $this;
+    }
+
+    public function getCandidat(): ?Candidat
+    {
+        return $this->candidat;
+    }
+
+    public function setCandidat(?Candidat $candidat): static
+    {
+        $this->candidat = $candidat;
+
+        return $this;
+    }
+
+    public function getThemFormaQuestions(): ?ThemFormaQuestions
+    {
+        return $this->them_forma_questions;
+    }
+
+    public function setThemFormaQuestions(?ThemFormaQuestions $them_forma_questions): static
+    {
+        $this->them_forma_questions = $them_forma_questions;
+
+        return $this;
+    }
+
+    public function getPromosFormation(): ?PromoFormation
+    {
+        return $this->promos_formation;
+    }
+
+    public function setPromosFormation(?PromoFormation $promos_formation): static
+    {
+        $this->promos_formation = $promos_formation;
 
         return $this;
     }
