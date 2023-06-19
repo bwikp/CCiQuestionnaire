@@ -20,6 +20,10 @@ class Resultat
     #[ORM\Column]
     private ?bool $is_admis = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Dossier $dossier = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +49,18 @@ class Resultat
     public function setIsAdmis(bool $is_admis): static
     {
         $this->is_admis = $is_admis;
+
+        return $this;
+    }
+
+    public function getDossier(): ?Dossier
+    {
+        return $this->dossier;
+    }
+
+    public function setDossier(?Dossier $dossier): static
+    {
+        $this->dossier = $dossier;
 
         return $this;
     }

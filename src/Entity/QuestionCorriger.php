@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\QuestionsRepository;
+use App\Repository\QuestionCorrigerRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: QuestionsRepository::class)]
-class Questions
+#[ORM\Entity(repositoryClass: QuestionCorrigerRepository::class)]
+class QuestionCorriger
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,11 +17,8 @@ class Questions
     #[ORM\Column(type: Types::TEXT)]
     private ?string $detail = null;
 
-    #[ORM\Column(type: Types::BLOB)]
-    private $image = null;
-
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0')]
-    private ?string $note = null;
+    #[ORM\Column(length: 255)]
+    private ?string $reponse = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -44,26 +41,14 @@ class Questions
         return $this;
     }
 
-    public function getImage()
+    public function getReponse(): ?string
     {
-        return $this->image;
+        return $this->reponse;
     }
 
-    public function setImage($image): static
+    public function setReponse(string $reponse): static
     {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    public function getNote(): ?string
-    {
-        return $this->note;
-    }
-
-    public function setNote(string $note): static
-    {
-        $this->note = $note;
+        $this->reponse = $reponse;
 
         return $this;
     }
