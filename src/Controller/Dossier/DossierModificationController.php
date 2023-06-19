@@ -29,7 +29,7 @@ class DossierModificationController extends AbstractController
                return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
           }
 
-            return $this->renderForm('dossier/edit.html.twig', [
+            return $this->render('dossier/edit.html.twig', [
              'dossier' => $dossier,
              'form' => $form,
            ]);

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit QuestionRemplir{% endblock %}
+
+{% block body %}
+    <h1>Edit QuestionRemplir</h1>
+
+    {{ include('question_remplir/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_question_remplir_index') }}">back to list</a>
+
+    {{ include('question_remplir/_delete_form.html.twig') }}
+{% endblock %}

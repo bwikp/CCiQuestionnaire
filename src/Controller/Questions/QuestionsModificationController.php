@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Controller\Questions;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3c1aed39722ae8dff3efbaff7c8b4e98562946b5
 use App\Entity\Questions;
 use App\Form\QuestionsType;
 use App\Repository\QuestionsRepository;

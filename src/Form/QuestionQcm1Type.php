@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class QuestionQcmType extends AbstractType
+class QuestionQcm1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -20,7 +20,9 @@ class QuestionQcmType extends AbstractType
             ->add('detail_choix3')
             ->add('choix4')
             ->add('detail_choix4')
-            ->add('reponse');
+            ->add('reponse')
+            ->add('type')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
