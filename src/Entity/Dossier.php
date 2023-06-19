@@ -25,11 +25,11 @@ class Dossier
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?ThemFormaQuestions $them_forma_question = null;
+    private ?ThemFormaQuestions $them_forma_questions = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?PromoFormation $promo_formation = null;
+    private ?PromoFormation $promos_formation = null;
 
     public function getId(): ?int
     {
@@ -72,26 +72,26 @@ class Dossier
         return $this;
     }
 
-    public function getThemFormaQuestion(): ?ThemFormaQuestions
+    public function getThemFormaQuestions(): ?ThemFormaQuestions
     {
-        return $this->them_forma_question;
+        return $this->them_forma_questions;
     }
 
-    public function setThemFormaQuestion(?ThemFormaQuestions $them_forma_question): static
+    public function setThemFormaQuestions(?ThemFormaQuestions $them_forma_questions): static
     {
-        $this->them_forma_question = $them_forma_question;
+        $this->them_forma_questions = $them_forma_questions;
 
         return $this;
     }
 
-    public function getPromoFormation(): ?PromoFormation
+    public function getPromosFormation(): ?PromoFormation
     {
-        return $this->promo_formation;
+        return $this->promos_formation;
     }
 
-    public function setPromoFormation(?PromoFormation $promo_formation): static
+    public function setPromosFormation(?PromoFormation $promos_formation): static
     {
-        $this->promo_formation = $promo_formation;
+        $this->promos_formation = $promos_formation;
 
         return $this;
     }

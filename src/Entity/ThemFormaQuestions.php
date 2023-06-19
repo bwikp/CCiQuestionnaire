@@ -19,7 +19,7 @@ class ThemFormaQuestions
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?ThemFormation $them_formation = null;
+    private ?ThemFormation $them_formations = null;
 
     public function getId(): ?int
     {
@@ -38,14 +38,14 @@ class ThemFormaQuestions
         return $this;
     }
 
-    public function getThemFormation(): ?ThemFormation
+    public function getThemFormations(): ?ThemFormation
     {
-        return $this->them_formation;
+        return $this->them_formations;
     }
 
-    public function setThemFormation(?ThemFormation $them_formation): static
+    public function setThemFormations(?ThemFormation $them_formations): static
     {
-        $this->them_formation = $them_formation;
+        $this->them_formations = $them_formations;
 
         return $this;
     }

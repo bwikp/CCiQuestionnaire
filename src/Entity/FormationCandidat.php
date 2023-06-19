@@ -17,6 +17,10 @@ class FormationCandidat
     #[ORM\JoinColumn(nullable: false)]
     private ?Candidat $candidat = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Formation $Formation = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -30,6 +34,18 @@ class FormationCandidat
     public function setCandidat(?Candidat $candidat): static
     {
         $this->candidat = $candidat;
+
+        return $this;
+    }
+
+    public function getFormation(): ?Formation
+    {
+        return $this->Formation;
+    }
+
+    public function setFormation(?Formation $Formation): static
+    {
+        $this->Formation = $Formation;
 
         return $this;
     }
