@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit QuestionCompleter{% endblock %}
+
+{% block body %}
+    <h1>Edit QuestionCompleter</h1>
+
+    {{ include('question_completer/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_question_completer_index') }}">back to list</a>
+
+    {{ include('question_completer/_delete_form.html.twig') }}
+{% endblock %}

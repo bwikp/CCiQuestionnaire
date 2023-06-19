@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New UsersCCI{% endblock %}
+
+{% block body %}
+    <h1>Create new UsersCCI</h1>
+
+    {{ include('users_cci/_form.html.twig') }}
+
+    <a href="{{ path('app_users_c_c_i_index') }}">back to list</a>
+{% endblock %}
