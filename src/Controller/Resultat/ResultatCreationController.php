@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Dossier;
+namespace App\Controller\Resultat;
 
 use App\Entity\Resultat;
 use App\Form\ResultatType;
