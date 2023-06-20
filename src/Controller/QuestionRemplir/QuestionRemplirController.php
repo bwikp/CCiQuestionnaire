@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/question/remplir')]
+#[Route('/questions/remplir')]
 class QuestionRemplirController extends AbstractController
 {
     #[Route('/', name: 'app_question_remplir_index', methods: ['GET'])]

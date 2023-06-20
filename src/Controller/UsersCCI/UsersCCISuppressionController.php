@@ -1,6 +1,6 @@
 <?php
 
-namespace App\http\Controller\UsersCCI;
+namespace App\Controller\UsersCCI;
 
 use App\Entity\UsersCCI;
 use App\Form\UsersCCI1Type;
@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/users/c/c/i')]
+#[Route('/users/cci')]
 class UsersCCISuppressionController extends AbstractController
 {
     #[Route('/{id}', name: 'app_users_c_c_i_delete', methods: ['POST'])]

@@ -10,13 +10,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/users/c/c/i')]
+#[Route('/users/cci')]
 class UsersCCIController extends AbstractController
 {
     #[Route('/', name: 'app_users_c_c_i_index', methods: ['GET'])]
     public function index(UsersCCIRepository $usersCCIRepository): Response
     {
-        return $this->renderForm('users_cci/index.html.twig', [
+        return $this->render('users_cci/index.html.twig', [
             'users_c_c_is' => $usersCCIRepository->findAll(),
         ]);
     }
