@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/question/qcm')]
+#[Route('/questions/qcm')]
 class QuestionQcmController extends AbstractController
 {
     #[Route('/', name: 'app_question_qcm_index', methods: ['GET'])]

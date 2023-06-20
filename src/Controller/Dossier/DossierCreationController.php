@@ -28,7 +28,7 @@ class DossierCreationController extends AbstractController
                  return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
                  }
 
-              return $this->renderForm('dossier/new.html.twig', [
+              return $this->render('dossier/new.html.twig', [
                'dossier' => $dossier,
                'form' => $form,
              ]);
