@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\ThemFormationQuestions;
+namespace App\Controller\ThemFormaQuestions;
 
 use App\Entity\ThemFormaQuestions;
 use App\Form\ThemFormaQuestionsType;
@@ -11,13 +11,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/them/forma/questions')]
-class ThemFormaQuestionsModificationController extends AbstractController
+class ThemFormaQuestionsCreationController extends AbstractController
 {
     
-   
-    #[Route('/{id}/edit', name: 'app_them_forma_questions_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, ThemFormaQuestions $themFormaQuestion, ThemFormaQuestionsRepository $themFormaQuestionsRepository): Response
+
+    #[Route('/new', name: 'app_them_forma_questions_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, ThemFormaQuestionsRepository $themFormaQuestionsRepository): Response
     {
+        $themFormaQuestion = new ThemFormaQuestions();
         $form = $this->createForm(ThemFormaQuestionsType::class, $themFormaQuestion);
         $form->handleRequest($request);
 
@@ -27,11 +28,11 @@ class ThemFormaQuestionsModificationController extends AbstractController
             return $this->redirectToRoute('app_them_forma_questions_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('them_forma_questions/edit.html.twig', [
+        return $this->renderForm('them_forma_questions/new.html.twig', [
             'them_forma_question' => $themFormaQuestion,
             'form' => $form,
         ]);
     }
 
-   
+    
 }

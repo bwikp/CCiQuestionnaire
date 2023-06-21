@@ -60,7 +60,7 @@ class TypeController extends AbstractController
             return $this->redirectToRoute('app_type_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('type/edit.html.twig', [
+        return $this->render('type/edit.html.twig', [
             'type' => $type,
             'form' => $form,
         ]);

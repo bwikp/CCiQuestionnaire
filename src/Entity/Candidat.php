@@ -152,4 +152,9 @@ class Candidat
 
         return $this;
     }
+    public function __toString()
+        {
+            $reponse = "candidat:".$this->getId()." ".$this->getNom()." ".$this->getPrenom();
+            return $reponse;
+        }
 }
