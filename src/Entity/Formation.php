@@ -6,6 +6,7 @@ use App\Repository\FormationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use PHPUnit\TestFixture\ClassWithNonPublicAttributes;
 
 #[ORM\Entity(repositoryClass: FormationRepository::class)]
 class Formation
@@ -86,5 +87,11 @@ class Formation
         }
 
         return $this;
+    }
+    
+    public function __toString()
+    {
+        $reponse = "promo: ".$this->getNom();
+        return $reponse;
     }
 }

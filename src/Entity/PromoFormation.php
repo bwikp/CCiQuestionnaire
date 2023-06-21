@@ -49,4 +49,5 @@ class PromoFormation
 
         return $this;
     }
+    
 }
