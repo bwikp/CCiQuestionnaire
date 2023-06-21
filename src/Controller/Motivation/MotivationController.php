@@ -20,7 +20,4 @@ class MotivationController extends AbstractController
             'motivations' => $motivationRepository->findAll(),
         ]);
     }
-
-
-    
 }
