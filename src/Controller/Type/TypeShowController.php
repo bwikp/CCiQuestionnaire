@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/type')]
-class TypeController extends AbstractController
+class TypeShowController extends AbstractController
 {
-    #[Route('/', name: 'app_type_index', methods: ['GET'])]
-    public function index(TypeRepository $typeRepository): Response
+    #[Route('/{id}', name: 'app_type_show', methods: ['GET'])]
+    public function show(Type $type): Response
     {
-        return $this->render('type/index.html.twig', [
-            'types' => $typeRepository->findAll(),
+        return $this->render('type/show.html.twig', [
+            'type' => $type,
         ]);
     }
 }
