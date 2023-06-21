@@ -26,7 +26,7 @@ class PromoFormationCreationController extends AbstractController
             return $this->redirectToRoute('app_promo_formation_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('promo_formation/new.html.twig', [
+        return $this->render('promo_formation/new.html.twig', [
             'promo_formation' => $promoFormation,
             'form' => $form,
         ]);
