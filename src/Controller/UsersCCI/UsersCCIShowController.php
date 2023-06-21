@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/users/c/c/i')]
+#[Route('/users/cci')]
 class UsersCCIShowController extends AbstractController
 {
     #[Route('/{id}', name: 'app_users_c_c_i_show', methods: ['GET'])]

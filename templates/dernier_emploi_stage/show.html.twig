@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DernierEmploiStage{% endblock %}
+
+{% block body %}
+    <h1>DernierEmploiStage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dernier_emploi_stage.id }}</td>
+            </tr>
+            <tr>
+                <th>Annee</th>
+                <td>{{ dernier_emploi_stage.annee ? dernier_emploi_stage.annee|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Duree</th>
+                <td>{{ dernier_emploi_stage.duree }}</td>
+            </tr>
+            <tr>
+                <th>Nom_entreprise</th>
+                <td>{{ dernier_emploi_stage.nomEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ dernier_emploi_stage.ville }}</td>
+            </tr>
+            <tr>
+                <th>Poste_occupe</th>
+                <td>{{ dernier_emploi_stage.posteOccupe }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dernier_emploi_stage_index') }}">back to list</a>
+
+    <a href="{{ path('app_dernier_emploi_stage_edit', {'id': dernier_emploi_stage.id}) }}">edit</a>
+
+    {{ include('dernier_emploi_stage/_delete_form.html.twig') }}
+{% endblock %}

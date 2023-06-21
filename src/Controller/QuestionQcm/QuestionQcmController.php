@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\QuestionQcm;
 
 use App\Entity\QuestionQcm;
-use App\Form\QuestionQcmType;
+use App\Form\QuestionQcm1Type;
 use App\Repository\QuestionQcmRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/question/qcm')]
+#[Route('/questions/qcm')]
 class QuestionQcmController extends AbstractController
 {
     #[Route('/', name: 'app_question_qcm_index', methods: ['GET'])]
@@ -25,7 +25,7 @@ class QuestionQcmController extends AbstractController
     public function new(Request $request, QuestionQcmRepository $questionQcmRepository): Response
     {
         $questionQcm = new QuestionQcm();
-        $form = $this->createForm(QuestionQcmType::class, $questionQcm);
+        $form = $this->createForm(QuestionQcm1Type::class, $questionQcm);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -34,7 +34,7 @@ class QuestionQcmController extends AbstractController
             return $this->redirectToRoute('app_question_qcm_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('question_qcm/new.html.twig', [
+        return $this->renderForm('question_qcm/new.html.twig', [
             'question_qcm' => $questionQcm,
             'form' => $form,
         ]);
@@ -51,7 +51,7 @@ class QuestionQcmController extends AbstractController
     #[Route('/{id}/edit', name: 'app_question_qcm_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, QuestionQcm $questionQcm, QuestionQcmRepository $questionQcmRepository): Response
     {
-        $form = $this->createForm(QuestionQcmType::class, $questionQcm);
+        $form = $this->createForm(QuestionQcm1Type::class, $questionQcm);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -60,7 +60,7 @@ class QuestionQcmController extends AbstractController
             return $this->redirectToRoute('app_question_qcm_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('question_qcm/edit.html.twig', [
+        return $this->renderForm('question_qcm/edit.html.twig', [
             'question_qcm' => $questionQcm,
             'form' => $form,
         ]);
