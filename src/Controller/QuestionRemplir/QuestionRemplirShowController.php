@@ -10,15 +10,18 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/questions/remplir')]
+#[Route('/question/remplir')]
 class QuestionRemplirController extends AbstractController
 {
-    #[Route('/', name: 'app_question_remplir_index', methods: ['GET'])]
-    public function index(QuestionRemplirRepository $questionRemplirRepository): Response
+   
+
+    #[Route('/{id}', name: 'app_question_remplir_show', methods: ['GET'])]
+    public function show(QuestionRemplir $questionRemplir): Response
     {
-        return $this->render('question_remplir/index.html.twig', [
-            'question_remplirs' => $questionRemplirRepository->findAll(),
+        return $this->render('question_remplir/show.html.twig', [
+            'question_remplir' => $questionRemplir,
         ]);
     }
 
+   
 }

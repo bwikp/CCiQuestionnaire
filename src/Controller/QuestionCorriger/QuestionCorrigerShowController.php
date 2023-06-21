@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/questions/corriger')]
-class QuestionCorrigerController extends AbstractController
+class QuestionCorrigerShowController extends AbstractController
 {
 
-#[Route('/', name: 'app_question_corriger_index', methods: ['GET'])]
-    public function index(QuestionCorrigerRepository $questionCorrigerRepository): Response
+    #[Route('/{id}', name: 'app_question_corriger_show', methods: ['GET'])]
+    public function show(QuestionCorriger $questionCorriger): Response
     {
-        return $this->render('question_corriger/index.html.twig', [
-            'question_corrigers' => $questionCorrigerRepository->findAll(),
+        return $this->render('question_corriger/show.html.twig', [
+            'question_corriger' => $questionCorriger,
         ]);
     }
 }
