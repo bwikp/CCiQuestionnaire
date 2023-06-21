@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/question/remplir')]
-class QuestionRemplirController extends AbstractController
+class QuestionRemplirModificationController extends AbstractController
 {
 
     #[Route('/{id}/edit', name: 'app_question_remplir_edit', methods: ['GET', 'POST'])]
