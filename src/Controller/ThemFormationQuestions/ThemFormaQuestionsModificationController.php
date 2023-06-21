@@ -27,7 +27,7 @@ class ThemFormaQuestionsModificationController extends AbstractController
             return $this->redirectToRoute('app_them_forma_questions_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('them_forma_questions/edit.html.twig', [
+        return $this->render('them_forma_questions/edit.html.twig', [
             'them_forma_question' => $themFormaQuestion,
             'form' => $form,
         ]);
