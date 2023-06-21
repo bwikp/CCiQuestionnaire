@@ -13,8 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dossier')]
 class DossierCreationController extends AbstractController
 {
-  
-
     #[Route('/new', name: 'app_dossier_new', methods: ['GET', 'POST'])]
     public function new(Request $request, DossierRepository $dossierRepository): Response
         {

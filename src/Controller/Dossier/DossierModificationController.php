@@ -13,9 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dossier')]
 class DossierModificationController extends AbstractController
 {
-   
-
-
 
     #[Route('/{id}/edit', name: 'app_dossier_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Dossier $dossier, DossierRepository $dossierRepository): Response

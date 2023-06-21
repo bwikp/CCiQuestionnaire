@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit DernierEmploiStage{% endblock %}
+
+{% block body %}
+    <h1>Edit DernierEmploiStage</h1>
+
+    {{ include('dernier_emploi_stage/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_dernier_emploi_stage_index') }}">back to list</a>
+
+    {{ include('dernier_emploi_stage/_delete_form.html.twig') }}
+{% endblock %}
