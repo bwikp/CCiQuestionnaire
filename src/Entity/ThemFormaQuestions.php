@@ -13,18 +13,13 @@ class ThemFormaQuestions
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'ThemFormaQuestions')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Questions $questions = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'ThemFormaQuestions')]
     #[ORM\JoinColumn(nullable: false)]
     private ?ThemFormation $them_formations = null;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getQuestions(): ?Questions
     {
