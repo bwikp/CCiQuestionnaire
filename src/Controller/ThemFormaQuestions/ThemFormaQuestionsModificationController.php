@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\ThemFormationQuestions;
+namespace App\Controller\ThemFormaQuestions;
 
 use App\Entity\ThemFormaQuestions;
 use App\Form\ThemFormaQuestionsType;
@@ -27,7 +27,7 @@ class ThemFormaQuestionsModificationController extends AbstractController
             return $this->redirectToRoute('app_them_forma_questions_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('them_forma_questions/edit.html.twig', [
+        return $this->renderForm('them_forma_questions/edit.html.twig', [
             'them_forma_question' => $themFormaQuestion,
             'form' => $form,
         ]);
