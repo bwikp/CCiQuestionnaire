@@ -1,6 +1,6 @@
 <?php
 
-namespace App\http\Controller\UsersCCI;
+namespace App\Controller\UsersCCI;
 
 use App\Entity\UsersCCI;
 use App\Form\UsersCCI1Type;
