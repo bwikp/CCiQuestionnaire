@@ -13,9 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dossier')]
 class DossierModificationController extends AbstractController
 {
-   
-
-
 
     #[Route('/{id}/edit', name: 'app_dossier_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Dossier $dossier, DossierRepository $dossierRepository): Response
@@ -29,7 +26,7 @@ class DossierModificationController extends AbstractController
                return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
           }
 
-            return $this->renderForm('dossier/edit.html.twig', [
+            return $this->render('dossier/edit.html.twig', [
              'dossier' => $dossier,
              'form' => $form,
            ]);

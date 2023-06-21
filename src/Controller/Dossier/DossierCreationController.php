@@ -13,8 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dossier')]
 class DossierCreationController extends AbstractController
 {
-  
-
     #[Route('/new', name: 'app_dossier_new', methods: ['GET', 'POST'])]
     public function new(Request $request, DossierRepository $dossierRepository): Response
         {
@@ -28,7 +26,7 @@ class DossierCreationController extends AbstractController
                  return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
                  }
 
-              return $this->renderForm('dossier/new.html.twig', [
+              return $this->render('dossier/new.html.twig', [
                'dossier' => $dossier,
                'form' => $form,
              ]);

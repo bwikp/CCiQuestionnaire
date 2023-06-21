@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Dossier;
+namespace App\Controller\ReponseCandidat;
 
 use App\Entity\ReponseCandidat;
 use App\Form\ReponseCandidatType;

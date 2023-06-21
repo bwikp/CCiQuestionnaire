@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QuestionRemplir index{% endblock %}
+
+{% block body %}
+    <h1>QuestionRemplir index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Detail</th>
+                <th>Reponse</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for question_remplir in question_remplirs %}
+            <tr>
+                <td>{{ question_remplir.id }}</td>
+                <td>{{ question_remplir.detail }}</td>
+                <td>{{ question_remplir.reponse }}</td>
+                <td>
+                    <a href="{{ path('app_question_remplir_show', {'id': question_remplir.id}) }}">show</a>
+                    <a href="{{ path('app_question_remplir_edit', {'id': question_remplir.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_question_remplir_new') }}">Create new</a>
+{% endblock %}

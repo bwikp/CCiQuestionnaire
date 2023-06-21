@@ -15,12 +15,6 @@ class QuestionQcm
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $detail = null;
-
-    #[ORM\ManyToOne(inversedBy: 'type_id')]
-    private ?Type $type = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $choix1 = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -38,27 +32,22 @@ class QuestionQcm
     #[ORM\Column(type: Types::TEXT)]
     private ?string $detail_choix3 = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(length: 255)]
     private ?string $choix4 = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $detail_choix4 = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $reponse = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Type $type = null;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getType(): ?Type
-    {
-        return $this->type;
-    }
-
-    public function setType(?Type $type): static
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     public function getChoix1(): ?string
@@ -153,6 +142,30 @@ class QuestionQcm
     public function setDetailChoix4(string $detail_choix4): static
     {
         $this->detail_choix4 = $detail_choix4;
+
+        return $this;
+    }
+
+    public function getReponse(): ?string
+    {
+        return $this->reponse;
+    }
+
+    public function setReponse(string $reponse): static
+    {
+        $this->reponse = $reponse;
+
+        return $this;
+    }
+
+    public function getType(): ?Type
+    {
+        return $this->type;
+    }
+
+    public function setType(?Type $type): static
+    {
+        $this->type = $type;
 
         return $this;
     }
