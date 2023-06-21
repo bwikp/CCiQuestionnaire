@@ -27,7 +27,7 @@ class MotivationCreationController extends AbstractController
             return $this->redirectToRoute('app_motivation_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('motivation/new.html.twig', [
+        return $this->render('motivation/new.html.twig', [
             'motivation' => $motivation,
             'form' => $form,
         ]);

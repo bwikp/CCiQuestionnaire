@@ -21,6 +21,5 @@ class DossierController extends AbstractController
              ]);
          }
 
-    
 
 }
