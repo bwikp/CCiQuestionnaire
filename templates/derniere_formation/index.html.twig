@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DerniereFormation index{% endblock %}
+
+{% block body %}
+    <h1>DerniereFormation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Annee_scolaire</th>
+                <th>Classe_frequentee</th>
+                <th>Diplome_obtenu_ou_en_cours</th>
+                <th>Nom_localite_etablissement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for derniere_formation in derniere_formations %}
+            <tr>
+                <td>{{ derniere_formation.id }}</td>
+                <td>{{ derniere_formation.anneeScolaire ? derniere_formation.anneeScolaire|date('Y-m-d') : '' }}</td>
+                <td>{{ derniere_formation.classeFrequentee }}</td>
+                <td>{{ derniere_formation.diplomeObtenuOuEnCours }}</td>
+                <td>{{ derniere_formation.nomLocaliteEtablissement }}</td>
+                <td>
+                    <a href="{{ path('app_derniere_formation_show', {'id': derniere_formation.id}) }}">show</a>
+                    <a href="{{ path('app_derniere_formation_edit', {'id': derniere_formation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_derniere_formation_new') }}">Create new</a>
+{% endblock %}

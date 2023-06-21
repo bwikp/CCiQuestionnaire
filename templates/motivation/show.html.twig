@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Motivation{% endblock %}
+
+{% block body %}
+    <h1>Motivation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ motivation.id }}</td>
+            </tr>
+            <tr>
+                <th>Projet_pro_et_motivation</th>
+                <td>{{ motivation.projetProEtMotivation }}</td>
+            </tr>
+            <tr>
+                <th>Comprehension_sur_la_formation</th>
+                <td>{{ motivation.comprehensionSurLaFormation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_motivation_index') }}">back to list</a>
+
+    <a href="{{ path('app_motivation_edit', {'id': motivation.id}) }}">edit</a>
+
+    {{ include('motivation/_delete_form.html.twig') }}
+{% endblock %}
