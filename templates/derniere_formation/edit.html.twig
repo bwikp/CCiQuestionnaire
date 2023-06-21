@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit DerniereFormation{% endblock %}
+
+{% block body %}
+    <h1>Edit DerniereFormation</h1>
+
+    {{ include('derniere_formation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_derniere_formation_index') }}">back to list</a>
+
+    {{ include('derniere_formation/_delete_form.html.twig') }}
+{% endblock %}

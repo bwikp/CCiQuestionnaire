@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DernierEmploiStage index{% endblock %}
+
+{% block body %}
+    <h1>DernierEmploiStage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Annee</th>
+                <th>Duree</th>
+                <th>Nom_entreprise</th>
+                <th>Ville</th>
+                <th>Poste_occupe</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dernier_emploi_stage in dernier_emploi_stages %}
+            <tr>
+                <td>{{ dernier_emploi_stage.id }}</td>
+                <td>{{ dernier_emploi_stage.annee ? dernier_emploi_stage.annee|date('Y-m-d') : '' }}</td>
+                <td>{{ dernier_emploi_stage.duree }}</td>
+                <td>{{ dernier_emploi_stage.nomEntreprise }}</td>
+                <td>{{ dernier_emploi_stage.ville }}</td>
+                <td>{{ dernier_emploi_stage.posteOccupe }}</td>
+                <td>
+                    <a href="{{ path('app_dernier_emploi_stage_show', {'id': dernier_emploi_stage.id}) }}">show</a>
+                    <a href="{{ path('app_dernier_emploi_stage_edit', {'id': dernier_emploi_stage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_dernier_emploi_stage_new') }}">Create new</a>
+{% endblock %}

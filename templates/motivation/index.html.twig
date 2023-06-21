@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Motivation index{% endblock %}
+
+{% block body %}
+    <h1>Motivation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Projet_pro_et_motivation</th>
+                <th>Comprehension_sur_la_formation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for motivation in motivations %}
+            <tr>
+                <td>{{ motivation.id }}</td>
+                <td>{{ motivation.projetProEtMotivation }}</td>
+                <td>{{ motivation.comprehensionSurLaFormation }}</td>
+                <td>
+                    <a href="{{ path('app_motivation_show', {'id': motivation.id}) }}">show</a>
+                    <a href="{{ path('app_motivation_edit', {'id': motivation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_motivation_new') }}">Create new</a>
+{% endblock %}
