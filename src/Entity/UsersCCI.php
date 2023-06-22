@@ -66,13 +66,16 @@ class UsersCCI implements UserInterface, PasswordAuthenticatedUserInterface
         return array_unique($roles);
     }
 
-    public function setRoles(array $roles): static
+    public function setRoles(array $roles)
     {
         $this->roles = $roles;
 
         return $this;
     }
-
+    public  function addRoles(string $roles)
+        {
+            $this->roles[] = $roles;
+        }
     /**
      * @see PasswordAuthenticatedUserInterface
      */
@@ -95,5 +98,9 @@ class UsersCCI implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+    public function __construct()
+    {
+        $this->addRoles("ROLE_USER");
     }
 }

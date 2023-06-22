@@ -3,7 +3,7 @@
 namespace App\Controller\UsersCCI;
 
 use App\Entity\UsersCCI;
-use App\Form\UsersCCI1Type;
+use App\Form\UsersCCIType;
 use App\Repository\UsersCCIRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
