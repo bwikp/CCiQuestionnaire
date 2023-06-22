@@ -2,26 +2,28 @@
 
 namespace App\Form;
 
-use App\Entity\UsersCCI;
+use App\Entity\Dossier;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UsersCCI2Type extends AbstractType
+class Dossier1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
-            ->add('roles')
-            ->add('password')
+            ->add('formation_initiale')
+            ->add('experience_pro')
+            ->add('candidat')
+            ->add('promos_formation')
+            ->add('ThemFormationQuestions')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => UsersCCI::class,
+            'data_class' => Dossier::class,
         ]);
     }
 }

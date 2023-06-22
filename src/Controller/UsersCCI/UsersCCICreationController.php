@@ -18,7 +18,7 @@ class UsersCCICreationController extends AbstractController
     public function new(Request $request, UsersCCIRepository $usersCCIRepository): Response
     {
         $usersCCI = new UsersCCI();
-        $form = $this->createForm(UsersCCI1Type::class, $usersCCI);
+        $form = $this->createForm(UsersCCIType::class, $usersCCI);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

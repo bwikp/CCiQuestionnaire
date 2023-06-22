@@ -91,7 +91,7 @@ class Formation
     
     public function __toString()
     {
-        $reponse = "promo: ".$this->getNom();
+        $reponse = "".$this->getNom();
         return $reponse;
     }
 }
