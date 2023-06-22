@@ -121,7 +121,7 @@ class Questions
     }
     public function __toString()
     {
-        $reponse = "Question: ".$this->getDetail();
+        $reponse = "".$this->getDetail();
         return $reponse;
     }
 }
