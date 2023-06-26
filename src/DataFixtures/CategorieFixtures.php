@@ -2,7 +2,10 @@
 
 namespace App\DataFixtures;
 
+<<<<<<< HEAD
 use App\Entity\Categorie;
+=======
+>>>>>>> c4f6cfa3bfd40c1c80b8bc1365f6a22f13fbbf92
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -20,5 +23,9 @@ class CategorieFixtures extends Fixture
 
             $manager->flush();
         }
+<<<<<<< HEAD
     }
+=======
+}
+>>>>>>> c4f6cfa3bfd40c1c80b8bc1365f6a22f13fbbf92
 }

@@ -4,24 +4,23 @@ namespace App\DataFixtures;
 
 use App\Entity\Motivation;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 class MotivationFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        for ($i=0; $i <5 ; $i++) { 
-                        
-        $motivation = new Motivation();
-        $motivation->setCandidat($this->getReference("candidat".$i));
-        $motivation->setProjetProEtMotivation("hahahahaha yivuvbika ophbpcz");
-        $motivation->setComprehensionSurLaFormation("lnklnsldnvp*dnl  boùs^hùs flnù");
-        $manager->persist($motivation);
+        for($i = 1; $i <= 5; $i++){
+            $motivation = new Motivation();
+            $motivation->setProjetProEtMotivation('projet_motiv-'.$i);
+            $motivation->setComprehensionSurLaFormation('ComprehensionSurLaFormation-'.$i);
+            $motivation->setCandidat($this->getReference("Candidat". $i));
+            $manager->persist($motivation);
+        }
+
         $manager->flush();
     }
-}
-
     public function getDependencies()
     {
         return [
