@@ -1,7 +1,6 @@
 <?php
 
 namespace App\DataFixtures;
-
 use App\Entity\DerniereFormation;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -20,7 +19,7 @@ class DerniereFormationFixtures extends Fixture
             $manager->persist($derniereformation);
         }
 
-
+        
         $manager->flush();
     }
 }
