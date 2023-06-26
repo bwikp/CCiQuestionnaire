@@ -3,7 +3,7 @@
 namespace App\Controller\UsersCCI;
 
 use App\Entity\UsersCCI;
-use App\Form\UsersCCIType;
+use App\Form\UsersCCI1Type;
 use App\Repository\UsersCCIRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +17,7 @@ class UsersCCIModificationController extends AbstractController
     #[Route('/{id}/edit', name: 'app_users_c_c_i_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, UsersCCI $usersCCI, UsersCCIRepository $usersCCIRepository): Response
     {
-        $form = $this->createForm(UsersCCIType::class, $usersCCI);
+        $form = $this->createForm(UsersCCI1Type::class, $usersCCI);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

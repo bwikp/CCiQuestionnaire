@@ -11,14 +11,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/them/forma/questions')]
-class ThemFormaQuestionsController extends AbstractController
+class ThemFormaQuestionsShowController extends AbstractController
 {
-    #[Route('/', name: 'app_them_forma_questions_index', methods: ['GET'])]
-    public function index(ThemFormaQuestionsRepository $themFormaQuestionsRepository): Response
+   
+    #[Route('/{id}', name: 'app_them_forma_questions_show', methods: ['GET'])]
+    public function show(ThemFormaQuestions $themFormaQuestion): Response
     {
-        return $this->render('them_forma_questions/index.html.twig', [
-            'them_forma_questions' => $themFormaQuestionsRepository->findAll(),
+        return $this->render('them_forma_questions/show.html.twig', [
+            'them_forma_question' => $themFormaQuestion,
         ]);
     }
 
+   
 }

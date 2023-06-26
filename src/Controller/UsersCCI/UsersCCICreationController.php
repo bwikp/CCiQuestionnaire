@@ -3,7 +3,7 @@
 namespace App\Controller\UsersCCI;
 
 use App\Entity\UsersCCI;
-use App\Form\UsersCCIType;
+use App\Form\UsersCCI1Type;
 use App\Repository\UsersCCIRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +18,7 @@ class UsersCCICreationController extends AbstractController
     public function new(Request $request, UsersCCIRepository $usersCCIRepository): Response
     {
         $usersCCI = new UsersCCI();
-        $form = $this->createForm(UsersCCIType::class, $usersCCI);
+        $form = $this->createForm(UsersCCI1Type::class, $usersCCI);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

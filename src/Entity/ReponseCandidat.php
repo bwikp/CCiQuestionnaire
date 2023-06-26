@@ -5,7 +5,6 @@ namespace App\Entity;
 use App\Repository\ReponseCandidatRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use LDAP\Result;
 
 #[ORM\Entity(repositoryClass: ReponseCandidatRepository::class)]
 class ReponseCandidat

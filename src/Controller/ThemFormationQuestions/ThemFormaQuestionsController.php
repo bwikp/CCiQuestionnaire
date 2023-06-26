@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\ThemFormaQuestions;
+namespace App\Controller\ThemFormationQuestions;
 
 use App\Entity\ThemFormaQuestions;
 use App\Form\ThemFormaQuestionsType;

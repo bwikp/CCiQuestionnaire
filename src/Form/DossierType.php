@@ -15,8 +15,8 @@ class DossierType extends AbstractType
             ->add('formation_initiale')
             ->add('experience_pro')
             ->add('candidat')
-            ->add('promos_formation')
-            ->add('ThemFormationQuestions')
+            ->add('them_forma_question')
+            ->add('promo_formation')
         ;
     }
 

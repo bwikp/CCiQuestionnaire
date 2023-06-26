@@ -57,7 +57,7 @@ class Motivation
         return $this->candidat;
     }
 
-    public function setCandidat(?Candidat $candidat): self
+    public function setCandidat(?Candidat $candidat): static
     {
         $this->candidat = $candidat;
 

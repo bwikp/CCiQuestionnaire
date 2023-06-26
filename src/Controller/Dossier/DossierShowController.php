@@ -11,13 +11,19 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/dossier')]
-class DossierController extends AbstractController
+class DossierShowController extends AbstractController
 {
-    #[Route('/', name: 'app_dossier_index', methods: ['GET'])]
-    public function index(DossierRepository $dossierRepository): Response
-         {
-            return $this->render('dossier/index.html.twig', [
-            'dossiers' => $dossierRepository->findAll(),
-             ]);
+   
+
+    
+
+    #[Route('/{id}', name: 'app_dossier_show', methods: ['GET'])]
+    public function show(Dossier $dossier): Response
+        {
+            return $this->render('dossier/show.html.twig', [
+            'dossier' => $dossier,
+            ]);
          }
+
+    
 }

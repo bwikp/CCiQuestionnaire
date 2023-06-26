@@ -108,5 +108,5 @@ class DernierEmploiStage
         $this->candidat = $candidat;
 
         return $this;
-    }     
+    }
 }

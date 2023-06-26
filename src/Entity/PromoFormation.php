@@ -49,11 +49,5 @@ class PromoFormation
 
         return $this;
     }
-
-    public function __toString()
-    {
-        $reponse = "Promo: ".$this->getPromotion()."formation: ".$this->getFormation();
-        return $reponse;
-    }
     
 }
