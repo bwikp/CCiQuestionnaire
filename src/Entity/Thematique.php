@@ -63,4 +63,9 @@ class Thematique
 
         return $this;
     }
+    public function __toString()
+    {
+        $reponse = $this->getNom();
+        return $reponse;
+    }
 }
