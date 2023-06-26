@@ -9,8 +9,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UsersCCIFixtures extends Fixture
 {
-
-    private UserPasswordHasherInterface $hasher;
+   
+        private UserPasswordHasherInterface $hasher;
     public function __construct(UserPasswordHasherInterface $hasher)
     {
         $this->hasher = $hasher;
@@ -33,4 +33,5 @@ class UsersCCIFixtures extends Fixture
         $manager->persist($admin);
         $manager->flush();
     }
-}
+    }
+
