@@ -3,7 +3,7 @@
 namespace App\Controller\Questions;
 
 use App\Entity\Questions;
-use App\Form\Questions1Type;
+use App\Form\QuestionsType;
 use App\Repository\QuestionsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +20,7 @@ class QuestionsModificationController extends AbstractController
     #[Route('/{id}/edit', name: 'app_questions_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Questions $question, QuestionsRepository $questionsRepository): Response
     {
-        $form = $this->createForm(Questions1Type::class, $question);
+        $form = $this->createForm(QuestionsType::class, $question);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

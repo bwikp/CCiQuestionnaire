@@ -3,7 +3,7 @@
 namespace App\Controller\QuestionCorriger;
 
 use App\Entity\QuestionCorriger;
-use App\Form\QuestionCorriger1Type;
+use App\Form\QuestionCorrigerType;
 use App\Repository\QuestionCorrigerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +16,7 @@ class QuestionCorrigerEditController extends AbstractController
 #[Route('/{id}/edit', name: 'app_question_corriger_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, QuestionCorriger $questionCorriger, QuestionCorrigerRepository $questionCorrigerRepository): Response
     {
-        $form = $this->createForm(QuestionCorriger1Type::class, $questionCorriger);
+        $form = $this->createForm(QuestionCorrigerType::class, $questionCorriger);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
