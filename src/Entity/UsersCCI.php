@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use App\Repository\UsersCCIRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UsersCCIRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class UsersCCI implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -57,6 +59,12 @@ class UsersCCI implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @see UserInterface
      */
+
+    public function addRole(string $role)
+    {
+        $this->roles[] = $role;
+    }
+
     public function getRoles(): array
     {
         $roles = $this->roles;
@@ -96,4 +104,9 @@ class UsersCCI implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+public function __construct()
+{
+    $this->addRole("ROLE_USER");
+}
 }

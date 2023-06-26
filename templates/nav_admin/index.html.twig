@@ -4,7 +4,10 @@
 {% endblock %}
 
 {% block body %}
-	{% block nav_admin %}
+	{% block contenu %}
+		<p>
+			<a href="{{path('app_logout')}}">deconnection</a>
+		</p>
 		<nav>
 			<div class="header">
 				<div class="logo">
@@ -12,7 +15,7 @@
 				</div>
 				<ul class="menuItems">
 					<li>
-						<a class="active"  href='/admin'>Accueil</a>
+						<a class="active" href='/admin'>Accueil</a>
 					</li>
 					<li>
 						<a href='#'>Candidat</a>

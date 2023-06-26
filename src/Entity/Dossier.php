@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\DossierRepository;
 use Doctrine\ORM\Mapping as ORM;
+use LDAP\Result;
 
 #[ORM\Entity(repositoryClass: DossierRepository::class)]
 class Dossier
@@ -95,4 +96,9 @@ class Dossier
 
         return $this;
     }
+public function __toString()
+{
+    // $Result= $this->formation_initiale.$this->experience_pro;
+    // return (string) $Result;
+}
 }
