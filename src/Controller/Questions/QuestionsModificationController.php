@@ -2,6 +2,12 @@
 
 namespace App\Controller\Questions;
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 42d537e (ok)
 use App\Entity\Questions;
 use App\Form\QuestionsType;
 use App\Repository\QuestionsRepository;
