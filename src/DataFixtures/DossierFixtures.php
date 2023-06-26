@@ -17,7 +17,7 @@ class DossierFixtures extends Fixture implements DependentFixtureInterface
             $dosssier->setFormationInitiale("dev" . $i);
             $dosssier->setExperiencePro("dev" . $i);
             $dosssier->setCandidat($this->getReference("candidat" . rand(0, 4)));
-            $dosssier->setThemFormaQuestions($this->getReference("themformaquestion" . rand(0, 4)));
+            $dosssier->setThemFormationQuestions($this->getReference("themformaquestion" . rand(0, 4)));
             $dosssier->setPromosFormation($this->getReference("promoformation" . rand(1, 4)));
             $this->addReference("dossier" . $i, $dosssier);
             $manager->persist($dosssier);

@@ -17,7 +17,7 @@ class ThemFormaQuestionsFixtures extends Fixture implements DependentFixtureInte
             $this->addReference("themformaquestion" . $i, $themformaquestions);
             $themformaquestions->setQuestions($this->getReference("question" . rand(1, 9)));
             $themformaquestions->setThemFormations($this->getReference("themformation" . $i));
-            $themformaquestions->setCategorie($this->getReference("categorie" . rand(0, 4)));
+            // $themformaquestions->setCategorie($this->getReference("categorie" . rand(0, 4)));
             $manager->persist($themformaquestions);
             $manager->flush();
         }
