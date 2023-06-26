@@ -3,7 +3,7 @@
 namespace App\Controller\QuestionCorriger;
 
 use App\Entity\QuestionCorriger;
-use App\Form\QuestionCorriger1Type;
+use App\Form\QuestionCorrigerType;
 use App\Repository\QuestionCorrigerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
