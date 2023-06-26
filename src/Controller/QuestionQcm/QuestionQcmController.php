@@ -34,11 +34,7 @@ class QuestionQcmController extends AbstractController
             return $this->redirectToRoute('app_question_qcm_index', [], Response::HTTP_SEE_OTHER);
         }
 
-<<<<<<< HEAD
-        return $this->render('question_qcm/new.html.twig', [
-=======
         return $this->renderForm('question_qcm/new.html.twig', [
->>>>>>> ea86293ecc74fa983a02b63caad6d1ce0745f27b
             'question_qcm' => $questionQcm,
             'form' => $form,
         ]);
@@ -64,11 +60,7 @@ class QuestionQcmController extends AbstractController
             return $this->redirectToRoute('app_question_qcm_index', [], Response::HTTP_SEE_OTHER);
         }
 
-<<<<<<< HEAD
-        return $this->render('question_qcm/edit.html.twig', [
-=======
         return $this->renderForm('question_qcm/edit.html.twig', [
->>>>>>> ea86293ecc74fa983a02b63caad6d1ce0745f27b
             'question_qcm' => $questionQcm,
             'form' => $form,
         ]);
@@ -77,11 +69,7 @@ class QuestionQcmController extends AbstractController
     #[Route('/{id}', name: 'app_question_qcm_delete', methods: ['POST'])]
     public function delete(Request $request, QuestionQcm $questionQcm, QuestionQcmRepository $questionQcmRepository): Response
     {
-<<<<<<< HEAD
-        if ($this->isCsrfTokenValid('delete'.$questionQcm->getId(), $request->request->get('_token'))) {
-=======
         if ($this->isCsrfTokenValid('delete' . $questionQcm->getId(), $request->request->get('_token'))) {
->>>>>>> ea86293ecc74fa983a02b63caad6d1ce0745f27b
             $questionQcmRepository->remove($questionQcm, true);
         }
 
