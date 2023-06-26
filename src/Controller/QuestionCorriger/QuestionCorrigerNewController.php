@@ -3,7 +3,7 @@
 namespace App\Controller\QuestionCorriger;
 
 use App\Entity\QuestionCorriger;
-use App\Form\QuestionCorriger1Type;
+use App\Form\QuestionCorrigerType;
 use App\Repository\QuestionCorrigerRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +18,7 @@ class QuestionCorrigerNewController extends AbstractController
     public function new(Request $request, QuestionCorrigerRepository $questionCorrigerRepository): Response
     {
         $questionCorriger = new QuestionCorriger();
-        $form = $this->createForm(QuestionCorriger1Type::class, $questionCorriger);
+        $form = $this->createForm(QuestionCorrigerType::class, $questionCorriger);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
