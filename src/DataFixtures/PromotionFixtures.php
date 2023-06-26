@@ -11,7 +11,7 @@ class PromotionFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         for ($i = 0; $i < 3; $i++) {
-            # code...
+          
 
             $promotion = new Promotion();
             $promotion->setNom("promo-" . $i);
@@ -19,6 +19,5 @@ class PromotionFixtures extends Fixture
 
             $manager->persist($promotion);
         }
-        $manager->flush();
     }
 }
