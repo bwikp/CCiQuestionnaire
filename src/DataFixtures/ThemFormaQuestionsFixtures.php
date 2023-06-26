@@ -27,7 +27,7 @@ class ThemFormaQuestionsFixtures extends Fixture implements DependentFixtureInte
         return [
             QuestionsFixtures::class,
             ThemFormationFixtures::class,
-            CategorieFixtures::class
+            // CategorieFixtures::class
         ];
     }
 }

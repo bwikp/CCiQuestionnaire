@@ -27,5 +27,4 @@ class CandidatFixtures extends Fixture
 
         $manager->flush();
     }
-  
 }
