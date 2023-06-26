@@ -1,33 +1,25 @@
 <?php
 
-
 namespace App\DataFixtures;
-
-use DateTime;
 use App\Entity\DerniereFormation;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-
-class DerniereFormationfixtures extends Fixture
+class DerniereFormationFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        for ($j = 1; $j <= 1; $j++) {
+        for ($i = 0; $i < 5; $i++) {
             $derniereformation = new DerniereFormation();
-            $derniereformation->setAnneeScolaire(new DateTime());
-            $derniereformation->setClasseFrequentee('terminal'.$j);
-            $derniereformation->setDiplomeObtenuOuEnCours('bac s '.$j);
-            $derniereformation->setNomLocaliteEtablissement('lyon '.$j);
-            $derniereformation->setCandidat($this->getReference("Candidat". $j));
+            $derniereformation->setCandidat($this->getReference("candidat" . $i));
+            $derniereformation->setAnneeScolaire(new \DateTime());
+            $derniereformation->setClasseFrequentee("CP_ACP");
+            $derniereformation->setDiplomeObtenuOuEnCours("DEV");
+            $derniereformation->setNomLocaliteEtablissement("CCI-" . $i);
             $manager->persist($derniereformation);
-        } 
+        }
+
+        
         $manager->flush();
-    }
-    public function getDependencies()
-    {
-        return [
-            CandidatFixtures::class
-        ];
     }
 }

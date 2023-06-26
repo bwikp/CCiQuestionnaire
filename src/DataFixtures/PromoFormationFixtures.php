@@ -26,7 +26,6 @@ class PromoFormationFixtures extends Fixture implements DependentFixtureInterfac
         return [
             FormationFixtures::class,
             PromotionFixtures::class
-
         ];
     }
 }
