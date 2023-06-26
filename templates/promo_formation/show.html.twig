@@ -4,12 +4,19 @@
 
 {% block body %}
     <h1>PromoFormation</h1>
-
     <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ promo_formation.id }}</td>
+            </tr>
+            <tr>
+                <td>promotion</td>
+                <td>{{promo_formation.promotion}}</td>
+            </tr>
+            <tr>
+                <td>formation</td>
+                <td>{{promo_formation.formation}}</td>
             </tr>
         </tbody>
     </table>

@@ -20,7 +20,4 @@ class DossierController extends AbstractController
             'dossiers' => $dossierRepository->findAll(),
              ]);
          }
-
-    
-
 }
