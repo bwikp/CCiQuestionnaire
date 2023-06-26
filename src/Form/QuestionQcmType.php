@@ -20,7 +20,9 @@ class QuestionQcmType extends AbstractType
             ->add('detail_choix3')
             ->add('choix4')
             ->add('detail_choix4')
-            ->add('reponse');
+            ->add('reponse')
+            ->add('type')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
