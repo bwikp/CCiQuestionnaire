@@ -1,7 +1,7 @@
 <?php
 
 namespace App\DataFixtures;
-
+// dffd
 use App\Entity\DerniereFormation;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -19,7 +19,6 @@ class DerniereFormationFixtures extends Fixture
             $derniereformation->setNomLocaliteEtablissement("CCI-" . $i);
             $manager->persist($derniereformation);
         }
-
 
         $manager->flush();
     }
