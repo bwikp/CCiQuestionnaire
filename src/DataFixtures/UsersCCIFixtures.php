@@ -29,7 +29,6 @@ class UsersCCIFixtures extends Fixture
         $admin->setEmail("admin@gmail.com");
         $password = $this->hasher->hashPassword($admin, "admin");
         $admin->setPassword($password);
-        $admin->addRole("ROLE_ADMIN");
         $manager->persist($admin);
         $manager->flush();
     }
