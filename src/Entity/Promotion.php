@@ -32,4 +32,9 @@ class Promotion
 
         return $this;
     }
+    public function __toString()
+    {
+        $reponse = "promo: ".$this->getNom();
+        return $reponse;
+    }
 }

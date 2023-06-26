@@ -23,13 +23,15 @@ class Dossier
     #[ORM\JoinColumn(nullable: false)]
     private ?Candidat $candidat = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?ThemFormaQuestions $them_forma_questions = null;
+    
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?PromoFormation $promos_formation = null;
+
+    #[ORM\ManyToOne(inversedBy: 'dossiers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ThemFormaQuestions $ThemFormationQuestions = null;
 
     public function getId(): ?int
     {
@@ -72,18 +74,6 @@ class Dossier
         return $this;
     }
 
-    public function getThemFormaQuestions(): ?ThemFormaQuestions
-    {
-        return $this->them_forma_questions;
-    }
-
-    public function setThemFormaQuestions(?ThemFormaQuestions $them_forma_questions): static
-    {
-        $this->them_forma_questions = $them_forma_questions;
-
-        return $this;
-    }
-
     public function getPromosFormation(): ?PromoFormation
     {
         return $this->promos_formation;
@@ -94,5 +84,22 @@ class Dossier
         $this->promos_formation = $promos_formation;
 
         return $this;
+    }
+
+    public function getThemFormationQuestions(): ?ThemFormaQuestions
+    {
+        return $this->ThemFormationQuestions;
+    }
+
+    public function setThemFormationQuestions(?ThemFormaQuestions $ThemFormationQuestions): static
+    {
+        $this->ThemFormationQuestions = $ThemFormationQuestions;
+
+        return $this;
+    }
+    public function __toString()
+    {
+        $reponse = "id: ".$this->getId()."candidat ".$this->getCandidat();
+        return $reponse;
     }
 }
