@@ -3,7 +3,7 @@
 namespace App\Controller\Type;
 
 use App\Entity\Type;
-use App\Form\Type1Type;
+use App\Form\TypeType;
 use App\Repository\TypeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

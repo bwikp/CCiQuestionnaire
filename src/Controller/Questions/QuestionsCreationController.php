@@ -3,7 +3,7 @@
 namespace App\Controller\Questions;
 
 use App\Entity\Questions;
-use App\Form\Questions1Type;
+use App\Form\QuestionsType;
 use App\Repository\QuestionsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +19,7 @@ class QuestionsCreationController extends AbstractController
     public function new(Request $request, QuestionsRepository $questionsRepository): Response
     {
         $question = new Questions();
-        $form = $this->createForm(Questions1Type::class, $question);
+        $form = $this->createForm(QuestionsType::class, $question);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

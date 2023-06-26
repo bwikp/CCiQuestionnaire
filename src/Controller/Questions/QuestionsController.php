@@ -3,7 +3,7 @@
 namespace App\Controller\Questions;
 
 use App\Entity\Questions;
-use App\Form\Questions1Type;
+use App\Form\QuestionsType;
 use App\Repository\QuestionsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
