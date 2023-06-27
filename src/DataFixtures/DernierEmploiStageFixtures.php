@@ -11,14 +11,14 @@ class DernierEmploiStageFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        for($i = 1; $i <= 5; $i++){
+        for ($i = 0; $i < 5; $i++) {
             $dernieremploistage = new DernierEmploiStage();
             $dernieremploistage->setAnnee(new DateTime());
-            $dernieremploistage->setDuree('2 ans'.$i);
-            $dernieremploistage->setNomEntreprise('cci '.$i);
-            $dernieremploistage->setVille('lyon '.$i);
-            $dernieremploistage->setPosteOccupe('ingenieur '.$i);
-            $dernieremploistage->setCandidat($this->getReference("Candidat". $i));
+            $dernieremploistage->setDuree('2 ans' . $i);
+            $dernieremploistage->setNomEntreprise('cci ' . $i);
+            $dernieremploistage->setVille('lyon ' . $i);
+            $dernieremploistage->setPosteOccupe('ingenieur ' . $i);
+            $dernieremploistage->setCandidat($this->getReference("Candidat" . $i));
             $manager->persist($dernieremploistage);
         }
         $manager->flush();

@@ -12,7 +12,7 @@ class DerniereFormationFixtures extends Fixture
     {
         for ($i = 0; $i < 5; $i++) {
             $derniereformation = new DerniereFormation();
-            $derniereformation->setCandidat($this->getReference("candidat" . $i));
+            $derniereformation->setCandidat($this->getReference("candidat" . rand(1, 4)));
             $derniereformation->setAnneeScolaire(new \DateTime());
             $derniereformation->setClasseFrequentee("CP_ACP");
             $derniereformation->setDiplomeObtenuOuEnCours("DEV");
