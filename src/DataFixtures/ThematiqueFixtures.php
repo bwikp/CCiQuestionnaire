@@ -2,7 +2,6 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Thematique;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -17,8 +16,7 @@ class ThematiqueFixtures extends Fixture
             $thematique->setNom("tata" . $i);
             $this->addReference("thematique" .$i, $thematique);
             $manager->persist($thematique);
-
-            $manager->flush();
         }
+        $manager->flush();
     }
 }
