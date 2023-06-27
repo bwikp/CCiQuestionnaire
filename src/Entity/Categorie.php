@@ -26,9 +26,9 @@ class Categorie
         return $this->nom;
     }
 
-    public function setNom(string $nom): static
+    public function setNom(string $Nom): static
     {
-        $this->nom = $nom;
+        $this->nom = $Nom;
 
         return $this;
     }
