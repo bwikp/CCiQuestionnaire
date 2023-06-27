@@ -4,8 +4,9 @@
 
 {% block body %}
     <h1>Resultat</h1>
+	<div class="container">
 
-    <table class="table">
+    <table class="table table-bordered">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -21,7 +22,7 @@
             </tr>
         </tbody>
     </table>
-
+</div>
     <a href="{{ path('app_resultat_index') }}">back to list</a>
 
     <a href="{{ path('app_resultat_edit', {'id': resultat.id}) }}">edit</a>
