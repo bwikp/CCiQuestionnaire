@@ -26,6 +26,9 @@ class ThemFormaQuestions
     #[ORM\OneToMany(mappedBy: 'ThemFormationQuestions', targetEntity: Dossier::class)]
     private Collection $dossiers;
 
+    #[ORM\ManyToOne]
+    private ?Categorie $categorie = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,6 +96,17 @@ class ThemFormaQuestions
     {
         $reponse = "them".$this->getThemFormations();
         return $reponse;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): static
+    {
+        $this->categorie = $categorie;
+        return $this;
     }
     
 }
