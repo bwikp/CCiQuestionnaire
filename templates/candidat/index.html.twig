@@ -2,12 +2,17 @@
 
 {% block title %}Candidat index{% endblock %}
 
+
+
 {% block body %}
+
     <h1>Candidat index</h1>
 
-    <table class="table">
+     <div class="container">
+      
+      <table class="table table-bordered">
         <thead>
-            <tr>
+          <tr>
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
@@ -19,7 +24,7 @@
                 <th>Telephone_fixe</th>
                 <th>Telephone_portable</th>
                 <th>actions</th>
-            </tr>
+          </tr>
         </thead>
         <tbody>
         {% for candidat in candidats %}
@@ -45,7 +50,8 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+      </table>
+      <a href="{{ path('app_candidat_new') }}">Create new</a>
+{% endblock %} 
 
-    <a href="{{ path('app_candidat_new') }}">Create new</a>
-{% endblock %}
+
