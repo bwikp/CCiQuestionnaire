@@ -14,7 +14,11 @@ class Categorie
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+<<<<<<< HEAD
     private ?string $Nom = null;
+=======
+    private ?string $nom = null;
+>>>>>>> 1a33906cfcef83b03a62c5bfabf37433b9cc5e1c
 
     public function getId(): ?int
     {
@@ -28,7 +32,11 @@ class Categorie
 
     public function setNom(string $Nom): static
     {
+<<<<<<< HEAD
         $this->Nom = $Nom;
+=======
+        $this->nom = $nom;
+>>>>>>> 1a33906cfcef83b03a62c5bfabf37433b9cc5e1c
 
         return $this;
     }
