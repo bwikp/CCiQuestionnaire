@@ -34,4 +34,5 @@ class DossierFixtures extends Fixture implements DependentFixtureInterface
             PromoFormationFixtures::class
         ];
     }
-}
+    }
+
