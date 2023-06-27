@@ -1,13 +1,4 @@
-{% extends 'base.html.twig' %}
 
-{% block title %}Hello NavAdminController!
-{% endblock %}
-
-{% block body %}
-	{% block contenu %}
-		<p>
-			<a href="{{path('app_logout')}}">deconnection</a>
-		</p>
 		<nav>
 			<div class="header">
 				<div class="logo">
@@ -18,19 +9,19 @@
 						<a class="active" href='/admin'>Accueil</a>
 					</li>
 					<li>
-						<a href='#'>Candidat</a>
+						<a href='/candidat'>Candidat</a>
 					</li>
 					<li>
-						<a href='#'>Dossier</a>
+						<a href='/dossier'>Dossier</a>
 					</li>
 					<li>
-						<a href='#'>Formation</a>
+						<a href='/formation'>Formation</a>
 					</li>
 					<li>
-						<a href='#'>Test</a>
+						<a href='/thematique'>Test</a>
 					</li>
 					<li>
-						<a href='#'>Résultat</a>
+						<a href='/resultat'>Résultat</a>
 					</li>
 
 
@@ -38,11 +29,8 @@
 				<div class="button">
 					<a href='#' class="profil">Mon profil</a>
 
-					<a href='#' class="deconnection">Se déconnecter</a>
+					<a href="{{path('app_logout')}}" class="deconnection">Se déconnecter</a>
 				</div>
 			</nav>
 		</div>
 		<div class="line"></div>
-	{% endblock %}
-
-{% endblock %}
