@@ -11,7 +11,7 @@ class NavController extends AbstractController
     #[Route('/', name: 'app_nav')]
     public function index(): Response
     {
-        return $this->render('nav/index.html.twig', [
+        return $this->render('nav/nav.html.twig', [
             'controller_name' => 'NavController',
         ]);
     }

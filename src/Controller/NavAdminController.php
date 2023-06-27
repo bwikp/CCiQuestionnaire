@@ -11,7 +11,7 @@ class NavAdminController extends AbstractController
     #[Route('/admin', name: 'app_nav_admin')]
     public function index(): Response
     {
-        return $this->render('nav_admin/index.html.twig', [
+        return $this->render('nav_admin/nav_admin.html.twig', [
             'controller_name' => 'NavAdminController',
         ]);
     }

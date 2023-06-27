@@ -12,10 +12,11 @@
 		{% block javascripts %}{% endblock %}
 	</head>
 	<body>
+	{% block nav_admin %}
+				 {% include("./nav_admin/nav_admin.html.twig") %}
+	{% endblock %}
 		{% block body %}
-			{% block contenu %}
 			
-			{% endblock %}
 		{% endblock %}
 	</body>
 </html>
