@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\DossierRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use LDAP\Result;
 
@@ -24,7 +25,7 @@ class Dossier
     #[ORM\JoinColumn(nullable: false)]
     private ?Candidat $candidat = null;
 
-    
+
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -33,6 +34,9 @@ class Dossier
     #[ORM\ManyToOne(inversedBy: 'dossiers')]
     #[ORM\JoinColumn(nullable: false)]
     private ?ThemFormaQuestions $ThemFormationQuestions = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $annee = null;
 
     public function getId(): ?int
     {
@@ -100,7 +104,20 @@ class Dossier
     }
     public function __toString()
     {
-        $reponse = "id: ".$this->getId()."candidat ".$this->getCandidat();
+        $reponse = "id: " . $this->getId() . "candidat " . $this->getCandidat();
         return $reponse;
+    }
+
+    public function getAnnee(): ?string
+    {
+        $annee = "'" . $this->annee . "'";
+        return $annee;
+    }
+
+    public function setAnnee(\DateTimeInterface $annee): static
+    {
+        $this->annee = $annee;
+
+        return $this;
     }
 }
