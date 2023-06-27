@@ -25,6 +25,9 @@ class Formation
     #[ORM\OneToMany(mappedBy: 'formation', targetEntity: ThemFormation::class)]
     private Collection $thematique;
 
+    #[ORM\Column(length: 255)]
+    private ?string $ville = null;
+
     public function __construct()
     {
         $this->thematique = new ArrayCollection();
@@ -88,10 +91,22 @@ class Formation
 
         return $this;
     }
-    
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): static
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
     public function __toString()
     {
         $reponse = "".$this->getNom();
         return $reponse;
     }
+
+    
 }

@@ -69,3 +69,30 @@ a:active{
     color: #009FE3;
     
 }
+
+.formationMichel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 50px;
+}
+
+#formation
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 50px;
+
+}
+
+.btnFormationMichel
+{
+    border: solid 1px;
+    margin-left: 45%;
+    
+}
