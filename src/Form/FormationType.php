@@ -13,6 +13,7 @@ class FormationType extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('ville')
             ->add('annee')
         ;
     }

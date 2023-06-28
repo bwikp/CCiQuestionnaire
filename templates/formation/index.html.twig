@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th>ville</th>
                 <th>Annee</th>
                 <th>actions</th>
             </tr>
@@ -19,6 +20,7 @@
             <tr>
                 <td>{{ formation.id }}</td>
                 <td>{{ formation.nom }}</td>
+                <td>{{formation.ville}}</td>
                 <td>{{ formation.annee }}</td>
                 <td>
                     <a href="{{ path('app_formation_show', {'id': formation.id}) }}">show</a>
