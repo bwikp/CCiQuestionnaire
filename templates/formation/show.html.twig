@@ -3,7 +3,8 @@
 {% block title %}Formation{% endblock %}
 
 {% block body %}
-    <h1>Formation</h1>
+<div class="FormationIndex">
+    <h1>Formation: {{formation.nom}}</h1>
 	<div class="container">
 
     <table class="table table-bordered">
@@ -26,6 +27,6 @@
     <a href="{{ path('app_formation_index') }}">back to list</a>
 
     <a href="{{ path('app_formation_edit', {'id': formation.id}) }}">edit</a>
-
-    {{ include('formation/_delete_form.html.twig') }}
+            {{ include('formation/_delete_form.html.twig') }}
+</div>
 {% endblock %}
