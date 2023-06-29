@@ -4,8 +4,10 @@
 
 {% block body %}
 <div class="formationMichel">
-    <h1>Create new Formation</h1>
+    <h1>Crée une Formation</h1>
+
     {{ include('formation/_form.html.twig') }}
-    <a href="{{ path('app_formation_index') }}">back to list</a>
+
+    <a href="{{ path('app_formation_index') }}">retourner à la  liste des formations</a>
 </div>
 {% endblock %}
