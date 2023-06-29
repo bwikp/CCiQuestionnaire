@@ -5,7 +5,8 @@
 {% block body %}
     <h1>Dossier index</h1>
 
-    <table class="table">
+    <div class="container">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
@@ -32,6 +33,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+    </div>
     <a href="{{ path('app_dossier_new') }}">Create new</a>
 {% endblock %}

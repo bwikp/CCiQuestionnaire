@@ -5,7 +5,7 @@ body,html{
     width: 15rem;
     padding: 15px;
     margin-left: 10px;
-    
+
 }
 .logo{
     display: flex;
@@ -16,7 +16,7 @@ body,html{
     align-items: center;
     width: 100%;
     justify-content: end;
-    
+
 }
 .line{
     height: 2px;
@@ -29,7 +29,7 @@ body,html{
 }
 nav{
     width: 100%;
-    
+
 }
 .menuItems{
     display: flex;
@@ -67,7 +67,7 @@ nav{
 }
 a:active{
     color: #009FE3;
-    
+
 }
 .table{
     border-color: black;
@@ -120,4 +120,8 @@ a:active{
     justify-content: center;
     height: 100%;
     gap: 50px;
+}
+#thematique>div>label
+{
+    display: block;
 }
