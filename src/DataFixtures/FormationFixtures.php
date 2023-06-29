@@ -15,6 +15,7 @@ for ($i=0; $i <3 ; $i++) {
     # code...
         $formation= new Formation();
         $formation->setNom("Formation".$i);
+        $formation->setVille("ville".$i);
         $formation->setAnnee("10/12/2022");
         $this->addReference("formation" . $i, $formation);
         $manager->persist($formation);

@@ -22,8 +22,14 @@ class Formation
     #[ORM\Column(length: 255)]
     private ?string $annee = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $ville = null;
+
     #[ORM\OneToMany(mappedBy: 'formation', targetEntity: ThemFormation::class)]
     private Collection $thematique;
+
+    #[ORM\Column(length: 255)]
+    private ?string $ville = null;
 
     public function __construct()
     {
@@ -43,6 +49,18 @@ class Formation
     public function setNom(string $nom): static
     {
         $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): static
+    {
+        $this->ville = $ville;
 
         return $this;
     }
@@ -88,10 +106,22 @@ class Formation
 
         return $this;
     }
-    
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): static
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
     public function __toString()
     {
         $reponse = "".$this->getNom();
         return $reponse;
     }
+
+    
 }
