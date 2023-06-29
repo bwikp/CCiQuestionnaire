@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MotivationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MotivationRepository::class)]
@@ -19,9 +21,13 @@ class Motivation
     #[ORM\Column(length: 255)]
     private ?string $comprehension_sur_la_formation = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Candidat $candidat = null;
+    #[ORM\OneToMany(mappedBy: 'motivation', targetEntity: Dossier::class)]
+    private Collection $dossiers;
+
+    public function __construct()
+    {
+        $this->dossiers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,14 +58,32 @@ class Motivation
         return $this;
     }
 
-    public function getCandidat(): ?Candidat
+    /**
+     * @return Collection<int, Dossier>
+     */
+    public function getDossiers(): Collection
     {
-        return $this->candidat;
+        return $this->dossiers;
     }
 
-    public function setCandidat(?Candidat $candidat): self
+    public function addDossier(Dossier $dossier): static
     {
-        $this->candidat = $candidat;
+        if (!$this->dossiers->contains($dossier)) {
+            $this->dossiers->add($dossier);
+            $dossier->setMotivation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDossier(Dossier $dossier): static
+    {
+        if ($this->dossiers->removeElement($dossier)) {
+            // set the owning side to null (unless already changed)
+            if ($dossier->getMotivation() === $this) {
+                $dossier->setMotivation(null);
+            }
+        }
 
         return $this;
     }

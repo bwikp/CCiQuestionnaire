@@ -3,7 +3,7 @@
 namespace App\Controller\Dossier;
 
 use App\Entity\Dossier;
-use App\Form\DossierType;
+use App\Form\Dossier1Type;
 use App\Repository\DossierRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +25,7 @@ class DossierController extends AbstractController
     public function new(Request $request, DossierRepository $dossierRepository): Response
     {
         $dossier = new Dossier();
-        $form = $this->createForm(DossierType::class, $dossier);
+        $form = $this->createForm(Dossier1Type::class, $dossier);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +51,7 @@ class DossierController extends AbstractController
     #[Route('/{id}/edit', name: 'app_dossier_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Dossier $dossier, DossierRepository $dossierRepository): Response
     {
-        $form = $this->createForm(DossierType::class, $dossier);
+        $form = $this->createForm(Dossier1Type::class, $dossier);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -72,3 +72,52 @@ a:active{
 .table{
     border-color: black;
 }
+
+.formationMichel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: 50px;
+}
+
+#formation>div>label
+{
+    display: block;
+}
+
+.btnFormationMichel
+{
+    margin-top: 20px ;
+    border: solid 1px;
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+    color: white;
+    background: #E50043;
+}
+.btnFormationMichel>a
+{
+    text-decoration: none;
+    color: white;
+}
+
+.btnDelete{
+    border: solid 1px;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    color: white;
+    background: #E50043;
+}
+.FormationIndex
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 50px;
+}

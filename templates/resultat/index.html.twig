@@ -4,9 +4,8 @@
 
 {% block body %}
     <h1>Resultat index</h1>
-	<div class="container">
 
-    <table class="table table-bordered">
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -33,6 +32,6 @@
         {% endfor %}
         </tbody>
     </table>
-</div>
+
     <a href="{{ path('app_resultat_new') }}">Create new</a>
 {% endblock %}
