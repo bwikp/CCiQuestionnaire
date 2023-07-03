@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\DossierRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: DossierRepository::class)]
@@ -42,6 +44,14 @@ class Dossier
 
     #[ORM\ManyToOne(inversedBy: 'dossiers')]
     private ?Motivation $motivation = null;
+
+    #[ORM\OneToMany(mappedBy: 'dossier', targetEntity: Resultat::class, orphanRemoval: true)]
+    private Collection $resultats;
+
+    public function __construct()
+    {
+        $this->resultats = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -152,6 +162,42 @@ class Dossier
     public function setMotivation(?Motivation $motivation): static
     {
         $this->motivation = $motivation;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        $reponse = "" . $this->getMotivation();
+        return $reponse;
+    }
+
+    /**
+     * @return Collection<int, Resultat>
+     */
+    public function getResultats(): Collection
+    {
+        return $this->resultats;
+    }
+
+    public function addResultat(Resultat $resultat): static
+    {
+        if (!$this->resultats->contains($resultat)) {
+            $this->resultats->add($resultat);
+            $resultat->setDossier($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResultat(Resultat $resultat): static
+    {
+        if ($this->resultats->removeElement($resultat)) {
+            // set the owning side to null (unless already changed)
+            if ($resultat->getDossier() === $this) {
+                $resultat->setDossier(null);
+            }
+        }
 
         return $this;
     }
