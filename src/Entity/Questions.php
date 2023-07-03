@@ -25,16 +25,16 @@ class Questions
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0')]
     private ?string $note = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Type $type = null;
-
     #[ORM\OneToMany(mappedBy: 'Questions', targetEntity: ThemFormaQuestions::class)]
     private Collection $themFormaQuestions;
+
+    #[ORM\OneToMany(mappedBy: 'question', targetEntity: Type::class)]
+    private Collection $types;
 
     public function __construct()
     {
         $this->themFormaQuestions = new ArrayCollection();
+        $this->types = new ArrayCollection();
     }
     
     public function getId(): ?int
@@ -78,18 +78,6 @@ class Questions
         return $this;
     }
 
-    public function getType(): ?Type
-    {
-        return $this->type;
-    }
-
-    public function setType(?Type $type): static
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, ThemFormaQuestions>
      */
@@ -123,5 +111,35 @@ class Questions
     {
         $reponse = "".$this->getDetail();
         return $reponse;
+    }
+
+    /**
+     * @return Collection<int, Type>
+     */
+    public function getTypes(): Collection
+    {
+        return $this->types;
+    }
+
+    public function addType(Type $type): static
+    {
+        if (!$this->types->contains($type)) {
+            $this->types->add($type);
+            $type->setQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeType(Type $type): static
+    {
+        if ($this->types->removeElement($type)) {
+            // set the owning side to null (unless already changed)
+            if ($type->getQuestion() === $this) {
+                $type->setQuestion(null);
+            }
+        }
+
+        return $this;
     }
 }

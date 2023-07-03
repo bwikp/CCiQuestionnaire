@@ -12,8 +12,13 @@ class ResultatFixtures extends Fixture
     {
         for ($i = 0; $i < 5; $i++) {
             $resultat = new Resultat();
-            $resultat->setScoreFinal(15);
             $resultat->setIsAdmis(1);
+            $resultat->setThematique1(12);
+            $resultat->setThematique2(12);
+            $resultat->setThematique3(12);
+            $resultat->setThematique4(12);
+            $resultat->setThematique5(12);
+            $resultat->setScoreFinal(15);
             $this->addReference("resultat" . $i, $resultat);
             $manager->persist($resultat);
             $manager->flush();

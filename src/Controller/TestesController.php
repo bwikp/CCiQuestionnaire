@@ -20,7 +20,7 @@ class TestesController extends AbstractController
 
 
         $test = $themFormationRepository->findBy(array('formation' => 24));
-        $question = $questionsRepository->findBy(array('type' => 24));
+        $question = $questionsRepository->findAll();
 
         // dd($question);
         return $this->render('testes/index.html.twig', [
