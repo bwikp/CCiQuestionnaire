@@ -15,7 +15,8 @@ class ThematiqueFixtures extends Fixture
             $thematique->setDuree(10);
             $thematique->setNombreQuestion(5);
             $thematique->setNom("tata" . $i);
-            $this->addReference("thematique" .$i, $thematique);
+            $thematique->setNote(12);
+            $this->addReference("thematique" . $i, $thematique);
             $manager->persist($thematique);
 
             $manager->flush();

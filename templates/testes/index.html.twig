@@ -23,7 +23,10 @@
 			{% for formation in formations %}
 				<div>
 					<h4>{{formation.nom}}</h4>
-
+					{# <h6>Them.$i</h6> #}
+					{% for question in questions %}
+						<div>{{question.detail}}</div>
+					{% endfor %}
 				</div>
 			{% endfor %}
 		</div>
