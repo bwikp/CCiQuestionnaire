@@ -12,9 +12,8 @@ class QuestionsFixtures extends Fixture
     {
         for ($i = 0; $i < 10; $i++) {
             $question = new Questions();
-            $question->setDetail(("balblabla?"));
-            $question->setImage("image");
-            $question->setNote(1);
+            
+    
             $this->addReference("question" . $i, $question);
             $manager->persist($question);
             $manager->flush();

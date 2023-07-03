@@ -13,7 +13,15 @@ class QuestionRemplirType extends AbstractType
     {
         $builder
             ->add('detail')
-            ->add('reponse')
+            ->add('detail_1')
+            ->add('reponse1')
+            ->add('detail2')
+            ->add('reponse2')
+            ->add('detail3')
+            ->add('reponse3')
+            ->add('detail4')
+            ->add('reponse4')
+            ->add('note')
             ->add('type')
         ;
     }

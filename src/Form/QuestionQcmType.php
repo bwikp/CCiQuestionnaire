@@ -12,6 +12,8 @@ class QuestionQcmType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('image')
+            ->add('detail')
             ->add('choix1')
             ->add('detail_choix1')
             ->add('choix2')
@@ -21,7 +23,9 @@ class QuestionQcmType extends AbstractType
             ->add('choix4')
             ->add('detail_choix4')
             ->add('reponse')
-            ->add('type');
+            ->add('note')
+            ->add('type')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

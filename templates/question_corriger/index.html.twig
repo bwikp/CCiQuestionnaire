@@ -10,7 +10,9 @@
             <tr>
                 <th>Id</th>
                 <th>Detail</th>
+                <th>DetailText</th>
                 <th>Reponse</th>
+                <th>Note</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,7 +21,9 @@
             <tr>
                 <td>{{ question_corriger.id }}</td>
                 <td>{{ question_corriger.detail }}</td>
+                <td>{{ question_corriger.detailText }}</td>
                 <td>{{ question_corriger.reponse }}</td>
+                <td>{{ question_corriger.note }}</td>
                 <td>
                     <a href="{{ path('app_question_corriger_show', {'id': question_corriger.id}) }}">show</a>
                     <a href="{{ path('app_question_corriger_edit', {'id': question_corriger.id}) }}">edit</a>
@@ -27,7 +31,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

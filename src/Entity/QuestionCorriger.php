@@ -17,12 +17,20 @@ class QuestionCorriger
     #[ORM\Column(type: Types::TEXT)]
     private ?string $detail = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $detailText = null;
+
     #[ORM\Column(length: 255)]
     private ?string $reponse = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Type $type = null;
+
+    
+
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0')]
+    private ?string $note = null;
 
     public function getId(): ?int
     {
@@ -40,6 +48,18 @@ class QuestionCorriger
 
         return $this;
     }
+    public function getDetailText(): ?string
+    {
+        return $this->detailText;
+    }
+
+    public function setDetailText(string $detailText): static
+    {
+        $this->detailText = $detailText;
+
+        return $this;
+    }
+
 
     public function getReponse(): ?string
     {
@@ -61,6 +81,19 @@ class QuestionCorriger
     public function setType(?Type $type): static
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+   
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(string $note): static
+    {
+        $this->note = $note;
 
         return $this;
     }

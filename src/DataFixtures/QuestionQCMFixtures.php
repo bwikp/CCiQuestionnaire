@@ -15,6 +15,8 @@ class QuestionQCMFixtures extends Fixture implements DependentFixtureInterface
             # code...
 
             $questionQCM = new QuestionQcm();
+            $questionQCM->setImage('A');
+            $questionQCM->setDetail('A');
             $questionQCM->setChoix1('A');
             $questionQCM->setDetailChoix1("blabla");
             $questionQCM->setChoix2('B');
@@ -24,6 +26,7 @@ class QuestionQCMFixtures extends Fixture implements DependentFixtureInterface
             $questionQCM->setChoix4('C');
             $questionQCM->setDetailChoix4("blabla");
             $questionQCM->setReponse("B");
+            $questionQCM->setNote("B");
             $questionQCM->setType($this->getReference("type" . rand(1, 3)));
 
             $manager->persist($questionQCM);

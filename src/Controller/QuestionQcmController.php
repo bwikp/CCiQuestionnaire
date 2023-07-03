@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\QuestionQcm;
+namespace App\Controller;
 
 use App\Entity\QuestionQcm;
 use App\Form\QuestionQcmType;
@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/questions/qcm')]
+#[Route('/question/qcm')]
 class QuestionQcmController extends AbstractController
 {
     #[Route('/', name: 'app_question_qcm_index', methods: ['GET'])]
@@ -69,7 +69,7 @@ class QuestionQcmController extends AbstractController
     #[Route('/{id}', name: 'app_question_qcm_delete', methods: ['POST'])]
     public function delete(Request $request, QuestionQcm $questionQcm, QuestionQcmRepository $questionQcmRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $questionQcm->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$questionQcm->getId(), $request->request->get('_token'))) {
             $questionQcmRepository->remove($questionQcm, true);
         }
 

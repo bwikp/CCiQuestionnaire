@@ -9,6 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Image</th>
+                <th>Detail</th>
                 <th>Choix1</th>
                 <th>Detail_choix1</th>
                 <th>Choix2</th>
@@ -18,6 +20,7 @@
                 <th>Choix4</th>
                 <th>Detail_choix4</th>
                 <th>Reponse</th>
+                <th>Note</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -25,6 +28,8 @@
         {% for question_qcm in question_qcms %}
             <tr>
                 <td>{{ question_qcm.id }}</td>
+                <td>{{ question_qcm.image }}</td>
+                <td>{{ question_qcm.detail }}</td>
                 <td>{{ question_qcm.choix1 }}</td>
                 <td>{{ question_qcm.detailChoix1 }}</td>
                 <td>{{ question_qcm.choix2 }}</td>
@@ -34,6 +39,7 @@
                 <td>{{ question_qcm.choix4 }}</td>
                 <td>{{ question_qcm.detailChoix4 }}</td>
                 <td>{{ question_qcm.reponse }}</td>
+                <td>{{ question_qcm.note }}</td>
                 <td>
                     <a href="{{ path('app_question_qcm_show', {'id': question_qcm.id}) }}">show</a>
                     <a href="{{ path('app_question_qcm_edit', {'id': question_qcm.id}) }}">edit</a>
@@ -41,7 +47,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="11">no records found</td>
+                <td colspan="14">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

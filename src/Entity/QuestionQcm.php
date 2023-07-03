@@ -13,6 +13,11 @@ class QuestionQcm
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+    #[ORM\Column(type: Types::BLOB)]
+    private $image = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $detail = null;
 
     #[ORM\Column(length: 255)]
     private ?string $choix1 = null;
@@ -45,9 +50,37 @@ class QuestionQcm
     #[ORM\JoinColumn(nullable: false)]
     private ?Type $type = null;
 
+
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0')]
+    private ?string $note = null;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image): static
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDetail(): ?string
+    {
+        return $this->detail;
+    }
+
+    public function setDetail(string $detail): static
+    {
+        $this->detail = $detail;
+
+        return $this;
     }
 
     public function getChoix1(): ?string
@@ -169,4 +202,20 @@ class QuestionQcm
 
         return $this;
     }
+
+    
+
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(string $note): static
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+   
 }

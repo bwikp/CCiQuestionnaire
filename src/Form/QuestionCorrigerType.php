@@ -13,7 +13,9 @@ class QuestionCorrigerType extends AbstractType
     {
         $builder
             ->add('detail')
+            ->add('detailText')
             ->add('reponse')
+            ->add('note')
             ->add('type')
         ;
     }

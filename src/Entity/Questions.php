@@ -16,14 +16,14 @@ class Questions
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $detail = null;
+    // #[ORM\Column(type: Types::TEXT)]
+    // private ?string $detail = null;
 
-    #[ORM\Column(type: Types::BLOB)]
-    private $image = null;
+    // #[ORM\Column(type: Types::BLOB)]
+    // private $image = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0')]
-    private ?string $note = null;
+    // #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0')]
+    // private ?string $note = null;
 
     #[ORM\OneToMany(mappedBy: 'Questions', targetEntity: ThemFormaQuestions::class)]
     private Collection $themFormaQuestions;
@@ -42,41 +42,41 @@ class Questions
         return $this->id;
     }
 
-    public function getDetail(): ?string
-    {
-        return $this->detail;
-    }
+    // public function getDetail(): ?string
+    // {
+    //     return $this->detail;
+    // }
 
-    public function setDetail(string $detail): static
-    {
-        $this->detail = $detail;
+    // public function setDetail(string $detail): static
+    // {
+    //     $this->detail = $detail;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function getImage()
-    {
-        return $this->image;
-    }
+    // public function getImage()
+    // {
+    //     return $this->image;
+    // }
 
-    public function setImage($image): static
-    {
-        $this->image = $image;
+    // public function setImage($image): static
+    // {
+    //     $this->image = $image;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function getNote(): ?string
-    {
-        return $this->note;
-    }
+    // public function getNote(): ?string
+    // {
+    //     return $this->note;
+    // }
 
-    public function setNote(string $note): static
-    {
-        $this->note = $note;
+    // public function setNote(string $note): static
+    // {
+    //     $this->note = $note;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * @return Collection<int, ThemFormaQuestions>
@@ -107,11 +107,11 @@ class Questions
 
         return $this;
     }
-    public function __toString()
-    {
-        $reponse = "".$this->getDetail();
-        return $reponse;
-    }
+    // public function __toString()
+    // {
+    //     $reponse = "".$this->getDetail();
+    //     return $reponse;
+    // }
 
     /**
      * @return Collection<int, Type>

@@ -10,7 +10,15 @@
             <tr>
                 <th>Id</th>
                 <th>Detail</th>
-                <th>Reponse</th>
+                <th>Detail_1</th>
+                <th>Reponse1</th>
+                <th>Detail2</th>
+                <th>Reponse2</th>
+                <th>Detail3</th>
+                <th>Reponse3</th>
+                <th>Detail4</th>
+                <th>Reponse4</th>
+                <th>Note</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,7 +27,15 @@
             <tr>
                 <td>{{ question_remplir.id }}</td>
                 <td>{{ question_remplir.detail }}</td>
-                <td>{{ question_remplir.reponse }}</td>
+                <td>{{ question_remplir.detail1 }}</td>
+                <td>{{ question_remplir.reponse1 }}</td>
+                <td>{{ question_remplir.detail2 }}</td>
+                <td>{{ question_remplir.reponse2 }}</td>
+                <td>{{ question_remplir.detail3 }}</td>
+                <td>{{ question_remplir.reponse3 }}</td>
+                <td>{{ question_remplir.detail4 }}</td>
+                <td>{{ question_remplir.reponse4 }}</td>
+                <td>{{ question_remplir.note }}</td>
                 <td>
                     <a href="{{ path('app_question_remplir_show', {'id': question_remplir.id}) }}">show</a>
                     <a href="{{ path('app_question_remplir_edit', {'id': question_remplir.id}) }}">edit</a>
@@ -27,7 +43,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="12">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
