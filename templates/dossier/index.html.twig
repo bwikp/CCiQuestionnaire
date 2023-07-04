@@ -4,7 +4,6 @@
 
 {% block body %}
     <h1>Dossier index</h1>
-
     <div class="container">
     <table class="table table-bordered">
         <thead>
@@ -16,23 +15,26 @@
             </tr>
         </thead>
         <tbody>
-        {% for dossier in dossiers %}
+
+        {% for item in dossier %}
+        
             <tr>
-                <td>{{ dossier.id }}</td>
-                <td>{{ dossier.formationInitiale }}</td>
-                <td>{{ dossier.experiencePro }}</td>
+                <td>{{ item.id }}</td>
+                <td>{{ item.formationInitiale }}</td>
+                <td>{{ item.experiencePro }}</td>
                 <td>
-                    <a href="{{ path('app_dossier_show', {'id': dossier.id}) }}">show</a>
-                    <a href="{{ path('app_dossier_edit', {'id': dossier.id}) }}">edit</a>
+                    <a href="{{ path('app_dossier_show', {'id': item.id}) }}">show</a>
+                    <a href="{{ path('app_dossier_edit', {'id': item.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                {# <td colspan="4">no records found</td> #}
             </tr>
         {% endfor %}
         </tbody>
     </table>
     </div>
+
     <a href="{{ path('app_dossier_new') }}">Create new</a>
 {% endblock %}

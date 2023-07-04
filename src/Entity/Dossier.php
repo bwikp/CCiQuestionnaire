@@ -20,7 +20,7 @@ class Dossier
     private ?string $experience_pro = null;
 
     #[ORM\ManyToOne(inversedBy: 'dossiers')]
-    private ?Resultat $resultat = null;
+    private ?Resultat $resultat ;
 
     #[ORM\ManyToOne(inversedBy: 'dossiers')]
     #[ORM\JoinColumn(nullable: false)]
@@ -35,13 +35,10 @@ class Dossier
     private ?Candidat $candidat = null;
 
     #[ORM\ManyToOne(inversedBy: 'dossiers')]
-    private ?DerniereFormation $derniereformation = null;
+    private ?DerniereFormation $derniereformation ;
 
     #[ORM\ManyToOne(inversedBy: 'dossiers')]
-    private ?DernierEmploiStage $dernieremploi = null;
-
-    #[ORM\ManyToOne(inversedBy: 'dossiers')]
-    private ?Motivation $motivation = null;
+    private ?Motivation $motivation ;
 
     public function getId(): ?int
     {
@@ -131,19 +128,6 @@ class Dossier
 
         return $this;
     }
-
-    public function getDernieremploi(): ?DernierEmploiStage
-    {
-        return $this->dernieremploi;
-    }
-
-    public function setDernieremploi(?DernierEmploiStage $dernieremploi): static
-    {
-        $this->dernieremploi = $dernieremploi;
-
-        return $this;
-    }
-
     public function getMotivation(): ?Motivation
     {
         return $this->motivation;
@@ -154,5 +138,10 @@ class Dossier
         $this->motivation = $motivation;
 
         return $this;
+    }
+    public function __toString()
+    {
+        $string ="nom:".$this->getCandidat();
+        return $string ;
     }
 }

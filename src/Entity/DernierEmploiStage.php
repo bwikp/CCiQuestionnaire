@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Nullable;
 
 #[ORM\Entity(repositoryClass: DernierEmploiStageRepository::class)]
 class DernierEmploiStage
@@ -16,8 +17,8 @@ class DernierEmploiStage
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $annee = null;
+    #[ORM\Column(type: Types::DATE_MUTABLE,nullable:true)]
+    private ?\DateTimeInterface $annee = null ;
 
     #[ORM\Column(length: 255)]
     private ?string $duree = null;
@@ -31,25 +32,27 @@ class DernierEmploiStage
     #[ORM\Column(length: 255)]
     private ?string $poste_occupe = null;
 
-    #[ORM\OneToMany(mappedBy: 'dernieremploi', targetEntity: Dossier::class)]
-    private Collection $dossiers;
+    #[ORM\ManyToOne(inversedBy: 'dossier')]
+    #[ORM\JoinColumn(nullable:false)]
+    public ?Dossier $dossier_id = null;
 
     public function __construct()
     {
-        $this->dossiers = new ArrayCollection();
+        // $this->dossier_id = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
     }
-
-    public function getAnnee(): ?\DateTimeInterface
+    public function getAnnee(): ?string 
     {
-        return $this->annee;
+        $time = $this->annee;
+        $string = $time?->format('Y-m-d');
+        return $string;
     }
 
-    public function setAnnee(\DateTimeInterface $annee): static
+    public function setAnnee(\DateTime $annee): static
     {
         $this->annee = $annee;
 
@@ -104,33 +107,20 @@ class DernierEmploiStage
         return $this;
     }
 
-    /**
-     * @return Collection<int, Dossier>
-     */
-    public function getDossiers(): Collection
+    public function getDossierId(): ?Dossier
     {
-        return $this->dossiers;
+        return $this->dossier_id;
     }
 
-    public function addDossier(Dossier $dossier): static
+    public function setDossierId(?Dossier $dossier_id): static
     {
-        if (!$this->dossiers->contains($dossier)) {
-            $this->dossiers->add($dossier);
-            $dossier->setDernieremploi($this);
-        }
+        $this->dossier_id = $dossier_id;
 
         return $this;
     }
-
-    public function removeDossier(Dossier $dossier): static
+    public function __toString()
     {
-        if ($this->dossiers->removeElement($dossier)) {
-            // set the owning side to null (unless already changed)
-            if ($dossier->getDernieremploi() === $this) {
-                $dossier->setDernieremploi(null);
-            }
-        }
-
-        return $this;
+        $string = ".".$this->getNomEntreprise();
+            return $string;
     }
 }

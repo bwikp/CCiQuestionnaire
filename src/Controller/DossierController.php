@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Controller\Dossier;
+namespace App\Controller;
 
 use App\Entity\Dossier;
-use App\Form\Dossier1Type;
+use App\Form\DossierType;
+use App\Entity\DernierEmploiStage;
 use App\Repository\DossierRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +18,7 @@ class DossierController extends AbstractController
     public function index(DossierRepository $dossierRepository): Response
     {
         return $this->render('dossier/index.html.twig', [
-            'dossiers' => $dossierRepository->findAll(),
+            'dossier' => $dossierRepository->findAll(),
         ]);
     }
 
@@ -25,7 +26,7 @@ class DossierController extends AbstractController
     public function new(Request $request, DossierRepository $dossierRepository): Response
     {
         $dossier = new Dossier();
-        $form = $this->createForm(Dossier1Type::class, $dossier);
+        $form = $this->createForm(DossierType::class, $dossier);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -34,24 +35,25 @@ class DossierController extends AbstractController
             return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('dossier/new.html.twig', [
+        return $this->render('dossier/new.html.twig', [
             'dossier' => $dossier,
             'form' => $form,
         ]);
     }
 
     #[Route('/{id}', name: 'app_dossier_show', methods: ['GET'])]
-    public function show(Dossier $dossier): Response
+    public function show(Dossier $dossier,DernierEmploiStage $dernierEmploiStage): Response
     {
         return $this->render('dossier/show.html.twig', [
             'dossier' => $dossier,
+            'dernierEmploiStage' => $dernierEmploiStage
         ]);
     }
 
     #[Route('/{id}/edit', name: 'app_dossier_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Dossier $dossier, DossierRepository $dossierRepository): Response
     {
-        $form = $this->createForm(Dossier1Type::class, $dossier);
+        $form = $this->createForm(DossierType::class, $dossier);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -60,7 +62,7 @@ class DossierController extends AbstractController
             return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('dossier/edit.html.twig', [
+        return $this->render('dossier/edit.html.twig', [
             'dossier' => $dossier,
             'form' => $form,
         ]);

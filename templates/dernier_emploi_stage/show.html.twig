@@ -4,39 +4,42 @@
 
 {% block body %}
     <h1>DernierEmploiStage</h1>
-
+        {% for item in dernierEmploiStage %}
+            
     <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ dernier_emploi_stage.id }}</td>
+                <td>{{ item.id }}</td>
             </tr>
             <tr>
                 <th>Annee</th>
-                <td>{{ dernier_emploi_stage.annee ? dernier_emploi_stage.annee|date('Y-m-d') : '' }}</td>
+                <td>{{ item.annee ? item.annee|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
                 <th>Duree</th>
-                <td>{{ dernier_emploi_stage.duree }}</td>
+                <td>{{ item.duree }}</td>
             </tr>
             <tr>
                 <th>Nom_entreprise</th>
-                <td>{{ dernier_emploi_stage.nomEntreprise }}</td>
+                <td>{{ item.nomEntreprise }}</td>
             </tr>
             <tr>
                 <th>Ville</th>
-                <td>{{ dernier_emploi_stage.ville }}</td>
+                <td>{{ item.ville }}</td>
             </tr>
             <tr>
                 <th>Poste_occupe</th>
-                <td>{{ dernier_emploi_stage.posteOccupe }}</td>
+                <td>{{ item.posteOccupe }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_dernier_emploi_stage_index') }}">back to list</a>
+    {# <a href="{{ path('app_dernierEmploiStage_index') }}">back to list</a> #}
 
-    <a href="{{ path('app_dernier_emploi_stage_edit', {'id': dernier_emploi_stage.id}) }}">edit</a>
+    {# <a href="{{ path('app_dernierEmploi_stage_edit', {'id': item.id}) }}">edit</a> #}
 
-    {{ include('dernier_emploi_stage/_delete_form.html.twig') }}
+    {# {{ include('dernierEmploiStage/_delete_form.html.twig') }} #}
+        {% endfor %}
+
 {% endblock %}

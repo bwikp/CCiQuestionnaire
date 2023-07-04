@@ -88,4 +88,11 @@ class Resultat
 
         return $this;
     }
+
+    public function __toString()
+    {
+        $string = $this->getScoreFinal();
+        return $string;
+    }
+
 }

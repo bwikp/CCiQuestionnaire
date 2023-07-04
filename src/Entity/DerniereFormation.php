@@ -28,9 +28,6 @@ class DerniereFormation
     #[ORM\Column(length: 255)]
     private ?string $nom_localite_etablissement = null;
 
-    #[ORM\OneToMany(mappedBy: 'derniereformation', targetEntity: Dossier::class)]
-    private Collection $dossiers;
-
     public function __construct()
     {
         $this->dossiers = new ArrayCollection();
@@ -117,5 +114,11 @@ class DerniereFormation
         }
 
         return $this;
+    }
+    
+    public function __toString()
+    {
+        $string = $this->getNomLocaliteEtablissement();
+        return $string;
     }
 }
