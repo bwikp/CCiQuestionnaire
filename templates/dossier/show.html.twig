@@ -61,7 +61,7 @@
             </tr>
             <tr>
                 <th>dernière Emploi</th>
-                <td><a href="{{ path('app_dernier_emploi_stage_show', {'id': dernierEmploiStage.dossierId}) }}">derniers emploi</a></td> 
+                <td><a href="{{ path('app_dernier_emploi_stage_show', {'id': dernierEmploiStage.id}) }}">derniers emploi</a></td> 
             </tr>
            <tr>
                 <th>Dernier emploi</th>
@@ -74,6 +74,6 @@
     <a href="{{ path('app_dossier_index') }}">back to list</a>
 
     <a href="{{ path('app_dossier_edit', {'id': dossier.id}) }}">edit</a>
-
+    {{ dump(dossier.derniereFormation) }}
     {{ include('dossier/_delete_form.html.twig') }}
 {% endblock %}

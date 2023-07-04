@@ -3,11 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\DernierEmploiStageRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\DerniereFormation;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use phpDocumentor\Reflection\Types\Nullable;
 
 #[ORM\Entity(repositoryClass: DernierEmploiStageRepository::class)]
 class DernierEmploiStage
