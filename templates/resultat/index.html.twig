@@ -3,6 +3,7 @@
 {% block title %}Resultat index{% endblock %}
 
 {% block body %}
+<div class="FormationIndex">
     <h1>Resultat index</h1>
 	<div class="container">
 
@@ -10,6 +11,8 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>prenom candidat</th>
+                <th>nom candidat</th>
                 <th>Score_final</th>
                 <th>Is_admis</th>
                 <th>actions</th>
@@ -18,7 +21,9 @@
         <tbody>
         {% for resultat in resultats %}
             <tr>
-                <td>{{ resultat.id }}</td>
+             <td>{{ resultat.id }}</td>
+             <td>{{ resultat.dossier.candidat.prenom }}</td>
+                <td>{{ resultat.dossier.candidat.nom }}</td>
                 <td>{{ resultat.scoreFinal }}</td>
                 <td>{{ resultat.isAdmis ? 'Yes' : 'No' }}</td>
                 <td>
@@ -34,5 +39,6 @@
         </tbody>
     </table>
 </div>
-    <a href="{{ path('app_resultat_new') }}">Create new</a>
+    <a href="{{ path('app_resultat_new') }}"><button class="btnFormationMichel">Create new</button></a>
+    </div>
 {% endblock %}

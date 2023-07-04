@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="FormationIndex">
-    <h1>Formation index</h1>
+    <h1>Les Formations </h1>
     <div class="container">
     <table class="table table-bordered">
         <thead>
@@ -35,6 +35,13 @@
         {% endfor %}
         </tbody>
     </table>
+     <div class="thematiqueflo">
+        <a href="{{ path('app_candidat_index') }}">Liste Candidats</a>
+        <a href="{{ path('app_thematique_index') }}">Les Tests </a>
+        <a href="{{ path('app_resultat_index') }}">Les resultats</a>
+        <a href="{{ path('app_promotion_index') }}">Les Promotion</a>
+    </div>
+
     </div>
     <button class="btnFormationMichel"><a href="{{ path('app_formation_new') }}">Crée une formation</a></button>
 </div>

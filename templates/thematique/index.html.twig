@@ -1,39 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Thematique index{% endblock %}
+{% block title %}Thematique index
+{% endblock %}
 
 {% block body %}
-    <h1>Thematique index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Duree</th>
-                <th>Nombre_question</th>
-                <th>Nom</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for thematique in thematiques %}
-            <tr>
-                <td>{{ thematique.id }}</td>
-                <td>{{ thematique.duree }}</td>
-                <td>{{ thematique.nombreQuestion }}</td>
-                <td>{{ thematique.nom }}</td>
-                <td>
-                    <a href="{{ path('app_thematique_show', {'id': thematique.id}) }}">show</a>
-                    <a href="{{ path('app_thematique_edit', {'id': thematique.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_thematique_new') }}">Create new</a>
+	<div class="FormationIndex">
+		<h1>Liste des testes</h1>
+		<div class="container">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Duree</th>
+						<th>Nombre_question</th>
+						<th>Nom test</th>
+						<th>actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for thematique in thematiques %}
+						<tr>
+							<td>{{ thematique.id }}</td>
+							<td>{{ thematique.duree }}</td>
+							<td>{{ thematique.nombreQuestion }}</td>
+							<td>{{ thematique.nom }}</td>
+							<td>
+								<a href="{{ path('app_thematique_show', {'id': thematique.id}) }}">show</a>
+								<a href="{{ path('app_thematique_edit', {'id': thematique.id}) }}">edit</a>
+                                <a href="{{ path('app_questions_index',{'id':thematique.id}) }}">voir questions</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="5">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		
+			<a href="{{ path('app_thematique_new') }}"><button class="btnFormationMichel">Create new</button></a>
+		
+	</div>
 {% endblock %}

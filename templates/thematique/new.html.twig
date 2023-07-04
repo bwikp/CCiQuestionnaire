@@ -3,9 +3,13 @@
 {% block title %}New Thematique{% endblock %}
 
 {% block body %}
-    <h1>Create new Thematique</h1>
+<div class="formationMichel">
+
+    <h1>Ajouter Nouveau Test</h1>
+    
 
     {{ include('thematique/_form.html.twig') }}
 
     <a href="{{ path('app_thematique_index') }}">back to list</a>
+</div>
 {% endblock %}

@@ -3,12 +3,14 @@
 {% block title %}Questions index{% endblock %}
 
 {% block body %}
+<div class="FormationIndex">
     <h1>Questions index</h1>
-
-    <table class="table">
+<div class="container">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Id thematique</th>
                 <th>Detail</th>
                 <th>Image</th>
                 <th>Note</th>
@@ -18,6 +20,7 @@
         <tbody>
         {% for question in questions %}
             <tr>
+                <td>{{ question.id }}</td>
                 <td>{{ question.id }}</td>
                 <td>{{ question.detail }}</td>
                 <td>{{ question.image }}</td>
@@ -34,6 +37,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_questions_new') }}">Create new</a>
+</div>
+    <a href="{{ path('app_questions_new') }}"><button class="btnFormationMichel">Create new</button></a>
+</div>
 {% endblock %}
