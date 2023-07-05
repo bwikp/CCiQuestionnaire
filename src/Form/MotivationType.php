@@ -14,7 +14,7 @@ class MotivationType extends AbstractType
         $builder
             ->add('projet_pro_et_motivation')
             ->add('comprehension_sur_la_formation')
-            ->add('candidat')
+            // ->add('candidat')
         ;
     }
 
