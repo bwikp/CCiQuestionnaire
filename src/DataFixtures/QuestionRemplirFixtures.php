@@ -11,13 +11,15 @@ class QuestionRemplirFixtures extends Fixture implements DependentFixtureInterfa
 {
     public function load(ObjectManager $manager): void
     {
-        $questionremplir = new QuestionRemplir();
-        $questionremplir->setDetail("blablabla?");
-        $questionremplir->setReponse("blabla");
-        $questionremplir->setType($this->getReference("type" . rand(1, 3)));
-        $manager->persist($questionremplir);
+        for ($i = 0; $i < 10; $i++) {
+            $questionremplir = new QuestionRemplir();
+            $questionremplir->setDetail("blablabla?" . $i);
+            $questionremplir->setReponse("blabla".$i);
+            $questionremplir->setType($this->getReference("type" . rand(1, 3)));
+            $manager->persist($questionremplir);
 
-        $manager->flush();
+            $manager->flush();
+        }
     }
     public function getDependencies()
     {

@@ -34,7 +34,7 @@ class QuestionQcmController extends AbstractController
             return $this->redirectToRoute('app_question_qcm_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('question_qcm/new.html.twig', [
+        return $this->render('question_qcm/new.html.twig', [
             'question_qcm' => $questionQcm,
             'form' => $form,
         ]);

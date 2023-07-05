@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Entity;
-
 use App\Repository\PromoFormationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PromoFormationRepository::class)]
@@ -20,6 +21,14 @@ class PromoFormation
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Promotion $promotion = null;
+
+    #[ORM\OneToMany(mappedBy: 'promos_formation', targetEntity: Dossier::class, orphanRemoval: true)]
+    private Collection $dossiers;
+
+    public function __construct()
+    {
+        $this->dossiers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -54,6 +63,36 @@ class PromoFormation
     {
         $reponse = "Promo: ".$this->getPromotion()."formation: ".$this->getFormation();
         return $reponse;
+    }
+
+    /**
+     * @return Collection<int, Dossier>
+     */
+    public function getDossiers(): Collection
+    {
+        return $this->dossiers;
+    }
+
+    public function addDossier(Dossier $dossier): static
+    {
+        if (!$this->dossiers->contains($dossier)) {
+            $this->dossiers->add($dossier);
+            $dossier->setPromosFormation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDossier(Dossier $dossier): static
+    {
+        if ($this->dossiers->removeElement($dossier)) {
+            // set the owning side to null (unless already changed)
+            if ($dossier->getPromosFormation() === $this) {
+                $dossier->setPromosFormation(null);
+            }
+        }
+
+        return $this;
     }
     
 }

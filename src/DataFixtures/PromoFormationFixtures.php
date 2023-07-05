@@ -16,9 +16,9 @@ class PromoFormationFixtures extends Fixture implements DependentFixtureInterfac
         for ($i = 0; $i < 5; $i++) {
             # code...
             $promoformation = new PromoFormation();
-            $this->addReference("promoformation". $i, $promoformation);
-            $promoformation->setFormation($this->getReference("formation" . rand(0, 2)));
-            $promoformation->setPromotion($this->getReference("promotion" . rand(0, 2)));
+            $this->addReference("promoformation" . $i, $promoformation);
+            $promoformation->setFormation($this->getReference("formation" . rand(1, 3)));
+            $promoformation->setPromotion($this->getReference("promotion" . rand(1, 3)));
             $manager->persist($promoformation);
 
             $manager->flush();

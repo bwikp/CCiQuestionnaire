@@ -23,6 +23,9 @@ class Thematique
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
+    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, nullable: true)]
+    private ?string $note = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -67,5 +70,17 @@ class Thematique
     {
         $reponse = $this->getNom();
         return $reponse;
+    }
+
+    public function getNote(): ?string
+    {
+        return $this->note;
+    }
+
+    public function setNote(?string $note): static
+    {
+        $this->note = $note;
+
+        return $this;
     }
 }
