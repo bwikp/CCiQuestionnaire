@@ -6,13 +6,18 @@ use App\Entity\QuestionQcm;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
+use Symfony\Component\Validator\Constraints\File;
 class QuestionQcmType extends AbstractType
+
 {
-    public function buildForm(FormBuilderInterface $builder, array $options): void
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('image')
+               ->add('imageFile',  FileType::class )
+           
+
             ->add('detail')
             ->add('choix1')
             ->add('detail_choix1')
@@ -26,7 +31,9 @@ class QuestionQcmType extends AbstractType
             ->add('note')
             ->add('type')
         ;
+        
     }
+    
 
     public function configureOptions(OptionsResolver $resolver): void
     {

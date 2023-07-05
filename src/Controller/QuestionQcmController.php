@@ -21,6 +21,55 @@ class QuestionQcmController extends AbstractController
         ]);
     }
 
+
+   // use Symfony\Component\HttpFoundation\File\UploadedFile;
+   // use Symfony\Component\HttpFoundation\File\Exception\FileException;
+    // public function new(Request $request, SluggerInterface $slugger): Response
+        // {
+        //     $questionQcm = new QuestionQcm();
+        //     $form = $this->createForm(QuestionQcmType::class, $questionQcm);
+        //     $form->handleRequest($request);
+    
+        //     if ($form->isSubmitted() && $form->isValid()) {
+        //         /** @var UploadedFile $imageFile */
+        //         $imageFile = $form->get('image')->getData();
+    
+        //         // this condition is needed because the 'brochure' field is not required
+        //         // so the PDF file must be processed only when a file is uploaded
+        //         if ($imageFile) {
+        //             $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+        //             // this is needed to safely include the file name as part of the URL
+        //             $safeFilename = $slugger->slug($originalFilename);
+        //             $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+    
+        //             // Move the file to the directory where brochures are stored
+        //             try {
+        //                 $imageFile->move(
+        //                     $this->getParameter('images_directory'),
+        //                     $newFilename
+        //                 );
+        //             } catch (FileException $e) {
+        //                 // ... handle exception if something happens during file upload
+        //             }
+    
+        //             // updates the 'brochureFilename' property to store the PDF file name
+        //             // instead of its contents
+        //             $questionQcm->setImage($newFilename);
+        //         }
+    
+        //         // ... persist the $product variable or any other work
+    
+        //         return $this->redirectToRoute('app_product_list');
+        //     }
+    
+        //     return $this->render('question_qcm/new.html.twig', [
+        //         'form' => $form,
+        //     ]);
+        // }
+    
+
+
+
     #[Route('/new', name: 'app_question_qcm_new', methods: ['GET', 'POST'])]
     public function new(Request $request, QuestionQcmRepository $questionQcmRepository): Response
     {
