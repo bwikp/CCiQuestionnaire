@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Dossier;
 use App\Form\DossierType;
 use App\Entity\DernierEmploiStage;
+use App\Repository\DernierEmploiStageRepository;
 use App\Repository\DossierRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
