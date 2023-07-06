@@ -1,30 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Resultat{% endblock %}
+{% block title %}Resultat
+{% endblock %}
 
 {% block body %}
-    <h1>Resultat</h1>
+	<h1>Resultat
+		{{ resultat.dossier.candidat.nom }}
+	</h1>
+	<div class="container">
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ resultat.id }}</td>
-            </tr>
-            <tr>
-                <th>Score_final</th>
-                <td>{{ resultat.scoreFinal }}</td>
-            </tr>
-            <tr>
-                <th>Is_admis</th>
-                <td>{{ resultat.isAdmis ? 'Yes' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
+		<table class="table table-bordered">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ resultat.id }}</td>
+				</tr>
+				<tr>
+					<th>prenom candidat</th>
+					<td>{{ resultat.dossier.candidat.prenom }}</td>
+				</tr>
+				<tr>
+					<th>nom candidat</th>
+					<td>{{ resultat.dossier.candidat.nom }}</td>
+				</tr>
+				<tr>
+					<th>Score_final</th>
+					<td>{{ resultat.scoreFinal }}</td>
+				</tr>
 
-    <a href="{{ path('app_resultat_index') }}">back to list</a>
+				<tr>
+					<th>Is_admis</th>
+					<td>{{ resultat.isAdmis ? 'Yes' : 'No' }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<a href="{{ path('app_resultat_index') }}">back to list</a>
 
-    <a href="{{ path('app_resultat_edit', {'id': resultat.id}) }}">edit</a>
+	<a href="{{ path('app_resultat_edit', {'id': resultat.id}) }}">edit</a>
 
-    {{ include('resultat/_delete_form.html.twig') }}
+	{{ include('resultat/_delete_form.html.twig') }}
 {% endblock %}

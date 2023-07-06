@@ -3,13 +3,15 @@
 {% block title %}Formation index{% endblock %}
 
 {% block body %}
-    <h1>Formation index</h1>
-
-    <table class="table">
+<div class="FormationIndex">
+    <h1>Les Formations </h1>
+    <div class="container">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
+                <th>ville</th>
                 <th>Annee</th>
                 <th>actions</th>
             </tr>
@@ -19,6 +21,7 @@
             <tr>
                 <td>{{ formation.id }}</td>
                 <td>{{ formation.nom }}</td>
+                <td>{{formation.ville}}</td>
                 <td>{{ formation.annee }}</td>
                 <td>
                     <a href="{{ path('app_formation_show', {'id': formation.id}) }}">show</a>
@@ -32,6 +35,14 @@
         {% endfor %}
         </tbody>
     </table>
+     <div class="thematiqueflo">
+        <a href="{{ path('app_candidat_index') }}">Liste Candidats</a>
+        <a href="{{ path('app_thematique_index') }}">Les Tests </a>
+        <a href="{{ path('app_resultat_index') }}">Les resultats</a>
+        <a href="{{ path('app_promotion_index') }}">Les Promotion</a>
+    </div>
 
-    <a href="{{ path('app_formation_new') }}">Create new</a>
+    </div>
+    <button class="btnFormationMichel"><a href="{{ path('app_formation_new') }}">Crée une formation</a></button>
+</div>
 {% endblock %}

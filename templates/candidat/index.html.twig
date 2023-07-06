@@ -1,51 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Candidat index{% endblock %}
+{% block title %}Candidat index
+{% endblock %}
+
 
 {% block body %}
-    <h1>Candidat index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Mail</th>
-                <th>Genre</th>
-                <th>Adresse</th>
-                <th>Ville</th>
-                <th>Code_postal</th>
-                <th>Telephone_fixe</th>
-                <th>Telephone_portable</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for candidat in candidats %}
-            <tr>
-                <td>{{ candidat.id }}</td>
-                <td>{{ candidat.nom }}</td>
-                <td>{{ candidat.prenom }}</td>
-                <td>{{ candidat.mail }}</td>
-                <td>{{ candidat.genre }}</td>
-                <td>{{ candidat.adresse }}</td>
-                <td>{{ candidat.ville }}</td>
-                <td>{{ candidat.codePostal }}</td>
-                <td>{{ candidat.telephoneFixe }}</td>
-                <td>{{ candidat.telephonePortable }}</td>
-                <td>
-                    <a href="{{ path('app_candidat_show', {'id': candidat.id}) }}">show</a>
-                    <a href="{{ path('app_candidat_edit', {'id': candidat.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<h1>Liste Candidat</h1>
 
-    <a href="{{ path('app_candidat_new') }}">Create new</a>
+	<div class="container">
+
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nom</th>
+					<th>Prenom</th>
+					<th>Mail</th>
+					<th>Genre</th>
+					<th>Adresse</th>
+					<th>Ville</th>
+					<th>Code_postal</th>
+					<th>Telephone_fixe</th>
+					<th>Telephone_portable</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for candidat in candidats %}
+					<tr>
+						<td>{{ candidat.id }}</td>
+						<td>{{ candidat.nom }}</td>
+						<td>{{ candidat.prenom }}</td>
+						<td>{{ candidat.mail }}</td>
+						<td>{{ candidat.genre }}</td>
+						<td>{{ candidat.adresse }}</td>
+						<td>{{ candidat.ville }}</td>
+						<td>{{ candidat.codePostal }}</td>
+						<td>{{ candidat.telephoneFixe }}</td>
+						<td>{{ candidat.telephonePortable }}</td>
+						<td>
+							<a href="{{ path('app_candidat_show', {'id': candidat.id}) }}">show</a>
+							<a href="{{ path('app_candidat_edit', {'id': candidat.id}) }}">edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="11">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<a href="{{ path('app_candidat_new') }}">Create new</a>
 {% endblock %}
