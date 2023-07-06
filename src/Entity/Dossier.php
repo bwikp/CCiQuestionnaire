@@ -3,8 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\DossierRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use LDAP\Result;
 
 #[ORM\Entity(repositoryClass: DossierRepository::class)]
 class Dossier
@@ -20,19 +21,37 @@ class Dossier
     #[ORM\Column(length: 255)]
     private ?string $experience_pro = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Candidat $candidat = null;
-
-    
-
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?PromoFormation $promos_formation = null;
+    #[ORM\ManyToOne(inversedBy: 'dossiers')]
+    private ?Resultat $resultat = null;
 
     #[ORM\ManyToOne(inversedBy: 'dossiers')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?ThemFormaQuestions $ThemFormationQuestions = null;
+    private ?PromoFormation $promos_formation = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ThemFormaQuestions $themformaquestions = null;
+
+    #[ORM\ManyToOne(inversedBy: 'dossiers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Candidat $candidat = null;
+
+    #[ORM\ManyToOne(inversedBy: 'dossiers')]
+    private ?DerniereFormation $derniereformation = null;
+
+    #[ORM\ManyToOne(inversedBy: 'dossiers')]
+    private ?DernierEmploiStage $dernieremploi = null;
+
+    #[ORM\ManyToOne(inversedBy: 'dossiers')]
+    private ?Motivation $motivation = null;
+
+    #[ORM\OneToMany(mappedBy: 'dossier', targetEntity: Resultat::class, orphanRemoval: true)]
+    private Collection $resultats;
+
+    public function __construct()
+    {
+        $this->resultats = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -63,14 +82,14 @@ class Dossier
         return $this;
     }
 
-    public function getCandidat(): ?Candidat
+    public function getResultat(): ?Resultat
     {
-        return $this->candidat;
+        return $this->resultat;
     }
 
-    public function setCandidat(?Candidat $candidat): static
+    public function setResultat(?Resultat $resultat): static
     {
-        $this->candidat = $candidat;
+        $this->resultat = $resultat;
 
         return $this;
     }
@@ -87,20 +106,99 @@ class Dossier
         return $this;
     }
 
-    public function getThemFormationQuestions(): ?ThemFormaQuestions
+    public function getThemformaquestions(): ?ThemFormaQuestions
     {
-        return $this->ThemFormationQuestions;
+        return $this->themformaquestions;
     }
 
-    public function setThemFormationQuestions(?ThemFormaQuestions $ThemFormationQuestions): static
+    public function setThemformaquestions(?ThemFormaQuestions $themformaquestions): static
     {
-        $this->ThemFormationQuestions = $ThemFormationQuestions;
+        $this->themformaquestions = $themformaquestions;
 
         return $this;
     }
+
+    public function getCandidat(): ?Candidat
+    {
+        return $this->candidat;
+    }
+
+    public function setCandidat(?Candidat $candidat): static
+    {
+        $this->candidat = $candidat;
+
+        return $this;
+    }
+
+    public function getDerniereformation(): ?DerniereFormation
+    {
+        return $this->derniereformation;
+    }
+
+    public function setDerniereformation(?DerniereFormation $derniereformation): static
+    {
+        $this->derniereformation = $derniereformation;
+
+        return $this;
+    }
+
+    public function getDernieremploi(): ?DernierEmploiStage
+    {
+        return $this->dernieremploi;
+    }
+
+    public function setDernieremploi(?DernierEmploiStage $dernieremploi): static
+    {
+        $this->dernieremploi = $dernieremploi;
+
+        return $this;
+    }
+
+    public function getMotivation(): ?Motivation
+    {
+        return $this->motivation;
+    }
+
+    public function setMotivation(?Motivation $motivation): static
+    {
+        $this->motivation = $motivation;
+
+        return $this;
+    }
+
     public function __toString()
     {
-        $reponse = "id: ".$this->getId()."candidat ".$this->getCandidat();
+        $reponse = "" . $this->getMotivation();
         return $reponse;
+    }
+
+    /**
+     * @return Collection<int, Resultat>
+     */
+    public function getResultats(): Collection
+    {
+        return $this->resultats;
+    }
+
+    public function addResultat(Resultat $resultat): static
+    {
+        if (!$this->resultats->contains($resultat)) {
+            $this->resultats->add($resultat);
+            $resultat->setDossier($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResultat(Resultat $resultat): static
+    {
+        if ($this->resultats->removeElement($resultat)) {
+            // set the owning side to null (unless already changed)
+            if ($resultat->getDossier() === $this) {
+                $resultat->setDossier(null);
+            }
+        }
+
+        return $this;
     }
 }

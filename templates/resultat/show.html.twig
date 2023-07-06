@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
 	<h1>Resultat
 		{{ resultat.dossier.candidat.nom }}
 	</h1>
@@ -27,6 +28,28 @@
 					<th>Score_final</th>
 					<td>{{ resultat.scoreFinal }}</td>
 				</tr>
+=======
+    <h1>Resultat</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ resultat.id }}</td>
+            </tr>
+            <tr>
+                <th>Score_final</th>
+                <td>{{ resultat.scoreFinal }}</td>
+            </tr>
+            <tr>
+                <th>Is_admis</th>
+                <td>{{ resultat.isAdmis ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_resultat_index') }}">back to list</a>
+>>>>>>> 80e0cfa8a4a3ac17105a7cc4b9bb9b43c3857a9d
 
 				<tr>
 					<th>Is_admis</th>

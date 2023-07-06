@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Resultat index{% endblock %}
+{% block title %}Resultat index
+{% endblock %}
 
 {% block body %}
+<<<<<<< HEAD
 <div class="FormationIndex">
     <h1>Resultat index</h1>
 	<div class="container">
@@ -41,4 +43,70 @@
 </div>
     <a href="{{ path('app_resultat_new') }}"><button class="btnFormationMichel">Create new</button></a>
     </div>
+=======
+	<div class="container">
+		<h1>Resultat index</h1>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>nom candidat</th>
+					<th>prenom candidat</th>
+					<th>thematique1</th>
+					<th>thematique2</th>
+					<th>thematique3</th>
+					<th>thematique4</th>
+					<th>thematique5</th>
+					<th>formation</th>
+					<th>promo</th>
+					<th>Score_final</th>
+					<th>Is_admis</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<div>
+					<h3>Filtrer</h3>
+					<div>
+						{# <h5>Par Promotion</h5> #}
+						{# {% for promo in promos %}
+							<a href="{{path('app_resultat_promo', {'id':promo.id})}}">{{promo.nom}}</a>
+						{% endfor %} #}
+					</div>
+					<div>
+						{# <h5>Par Formation</h5> #}
+						{# {% for forma in formations %}
+							<a href="{{path('app_resultat_forma', {'id':forma.id})}}">{{forma.nom}}</a>
+						{% endfor %} #}
+					</div>
+				</div>
+				{% for resultat in resultats %}
+					<tr>
+						<td>{{ resultat.id }}</td>
+						<td>{{resultat.Dossier.candidat.nom}}</td>
+						<td>{{resultat.Dossier.candidat.prenom}}</td>
+						<td>{{ resultat.thematique1}}</td>
+						<td>{{ resultat.thematique2}}</td>
+						<td>{{ resultat.thematique3}}</td>
+						<td>{{ resultat.thematique4}}</td>
+						<td>{{ resultat.thematique5}}</td>
+						<td>{{resultat.Dossier.PromosFormation.formation}}</td>
+						<td>{{resultat.Dossier.PromosFormation.promotion}}</td>
+						<td>{{ resultat.scoreFinal }}</td>
+						<td>{{ resultat.isAdmis ? 'Yes' : 'No' }}</td>
+						<td>
+							<a href="{{ path('app_resultat_show', {'id': resultat.id}) }}">show</a>
+							<a href="{{ path('app_resultat_edit', {'id': resultat.id}) }}">edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="4">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<a href="{{ path('app_resultat_new') }}">Create new</a>
+	</div>
+>>>>>>> 80e0cfa8a4a3ac17105a7cc4b9bb9b43c3857a9d
 {% endblock %}

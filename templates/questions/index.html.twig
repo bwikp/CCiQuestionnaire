@@ -10,10 +10,13 @@
         <thead>
             <tr>
                 <th>Id</th>
+<<<<<<< HEAD
                 <th>Id thematique</th>
                 <th>Detail</th>
                 <th>Image</th>
                 <th>Note</th>
+=======
+>>>>>>> 80e0cfa8a4a3ac17105a7cc4b9bb9b43c3857a9d
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,10 +24,13 @@
         {% for question in questions %}
             <tr>
                 <td>{{ question.id }}</td>
+<<<<<<< HEAD
                 <td>{{ question.id }}</td>
                 <td>{{ question.detail }}</td>
                 <td>{{ question.image }}</td>
                 <td>{{ question.note }}</td>
+=======
+>>>>>>> 80e0cfa8a4a3ac17105a7cc4b9bb9b43c3857a9d
                 <td>
                     <a href="{{ path('app_questions_show', {'id': question.id}) }}">show</a>
                     <a href="{{ path('app_questions_edit', {'id': question.id}) }}">edit</a>
@@ -32,7 +38,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="2">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

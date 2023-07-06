@@ -14,12 +14,12 @@ class DernierEmploiStageFixtures extends Fixture
             # code...
 
             $dernieremploi = new DernierEmploiStage();
-            $dernieremploi->setCandidat($this->getReference("candidat" . $i));
             $dernieremploi->setAnnee(new \DateTime());
             $dernieremploi->setDuree(10);
             $dernieremploi->setNomEntreprise('kakan');
             $dernieremploi->setVille('Lyon');
             $dernieremploi->setPosteOccupe("");
+            $this->addReference("dernieremploi" . $i, $dernieremploi);
             $manager->persist($dernieremploi);
 
             $manager->flush();

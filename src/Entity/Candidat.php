@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CandidatRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CandidatRepository::class)]
@@ -39,6 +41,14 @@ class Candidat
 
     #[ORM\Column(length: 255)]
     private ?string $telephone_portable = null;
+
+    #[ORM\OneToMany(mappedBy: 'candidat', targetEntity: Dossier::class, orphanRemoval: true)]
+    private Collection $dossiers;
+
+    public function __construct()
+    {
+        $this->dossiers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -157,4 +167,34 @@ class Candidat
             $reponse = "candidat:".$this->getId()." ".$this->getNom()." ".$this->getPrenom();
             return $reponse;
         }
+
+    /**
+     * @return Collection<int, Dossier>
+     */
+    public function getDossiers(): Collection
+    {
+        return $this->dossiers;
+    }
+
+    public function addDossier(Dossier $dossier): static
+    {
+        if (!$this->dossiers->contains($dossier)) {
+            $this->dossiers->add($dossier);
+            $dossier->setCandidat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDossier(Dossier $dossier): static
+    {
+        if ($this->dossiers->removeElement($dossier)) {
+            // set the owning side to null (unless already changed)
+            if ($dossier->getCandidat() === $this) {
+                $dossier->setCandidat(null);
+            }
+        }
+
+        return $this;
+    }
 }

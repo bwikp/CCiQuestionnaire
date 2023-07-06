@@ -13,6 +13,7 @@ class Type1Type extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('question')
         ;
     }
 

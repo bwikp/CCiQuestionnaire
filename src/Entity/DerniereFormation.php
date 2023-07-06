@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\DerniereFormationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -26,9 +28,13 @@ class DerniereFormation
     #[ORM\Column(length: 255)]
     private ?string $nom_localite_etablissement = null;
 
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Candidat $candidat = null;
+    #[ORM\OneToMany(mappedBy: 'derniereformation', targetEntity: Dossier::class)]
+    private Collection $dossiers;
+
+    public function __construct()
+    {
+        $this->dossiers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -83,14 +89,32 @@ class DerniereFormation
         return $this;
     }
 
-    public function getCandidat(): ?Candidat
+    /**
+     * @return Collection<int, Dossier>
+     */
+    public function getDossiers(): Collection
     {
-        return $this->candidat;
+        return $this->dossiers;
     }
 
-    public function setCandidat(?Candidat $candidat): static
+    public function addDossier(Dossier $dossier): static
     {
-        $this->candidat = $candidat;
+        if (!$this->dossiers->contains($dossier)) {
+            $this->dossiers->add($dossier);
+            $dossier->setDerniereformation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDossier(Dossier $dossier): static
+    {
+        if ($this->dossiers->removeElement($dossier)) {
+            // set the owning side to null (unless already changed)
+            if ($dossier->getDerniereformation() === $this) {
+                $dossier->setDerniereformation(null);
+            }
+        }
 
         return $this;
     }

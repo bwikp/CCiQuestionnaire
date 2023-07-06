@@ -2,27 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\Questions;
+use App\Entity\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class Questions1Type extends AbstractType
+class TypeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('detail')
-            ->add('image')
-            ->add('note')
-            ->add('type')
+            ->add('nom')
+            ->add('question')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Questions::class,
+            'data_class' => Type::class,
         ]);
     }
 }

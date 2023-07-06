@@ -15,7 +15,7 @@ class ThemFormationFixtures extends Fixture implements DependentFixtureInterface
             $themformation = new ThemFormation();
             $this->addReference("themformation" . $i, $themformation);
             $themformation->setThematique($this->getReference("thematique" . rand(0, 5)));
-            $themformation->setFormation($this->getReference("formation" . rand(0, 2)));
+            $themformation->setFormation($this->getReference("formation" . rand(1, 3)));
             $manager->persist($themformation);
             $manager->flush();
         }
