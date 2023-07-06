@@ -14,7 +14,7 @@ class DossierType extends AbstractType
         $builder
             ->add('formation_initiale')
             ->add('experience_pro')
-            ->add('resultat')
+            // ->add('resultat')
             ->add('promos_formation')
             ->add('themformaquestions')
             ->add('candidat')
