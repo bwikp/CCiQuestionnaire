@@ -16,31 +16,31 @@ use Symfony\Component\Routing\Annotation\Route;
 class ResultatController extends AbstractController
 {
 
-    #[Route('/filtre/{id}', name: 'app_resultat_promo', methods: ['GET', 'POST'])]
-    public function filtre_promo($id, PromotionRepository $promotionRepository)
-    {
-        return $this->render('promotion/show.html.twig', [
-            'promotion' => $promotionRepository->findBy(["id" => $id])
-        ]);
-    }
+    // #[Route('/filtre/{id}', name: 'app_resultat_promo', methods: ['GET', 'POST'])]
+    // public function filtre_promo($id, PromotionRepository $promotionRepository)
+    // {
+    //     return $this->render('promotion/show.html.twig', [
+    //         'promotion' => $promotionRepository->findBy(["id" => $id])
+    //     ]);
+    // }
 
-    #[Route('/filtre/{id}', name: 'app_resultat_forma', methods: ['GET', 'POST'])]
-    public function filtre_forma($id, FormationRepository $formationRepository)
-    {
-        return $this->render('formation/show.html.twig', [
-            'formation' => $formationRepository->findBy(["id" => $id])
-        ]);
-    }
+    // #[Route('/filtre/{id}', name: 'app_resultat_forma', methods: ['GET', 'POST'])]
+    // public function filtre_forma($id, FormationRepository $formationRepository)
+    // {
+    //     return $this->render('formation/show.html.twig', [
+    //         'formation' => $formationRepository->findBy(["id" => $id])
+    //     ]);
+    // }
 
 
 
     #[Route('/', name: 'app_resultat_index', methods: ['GET'])]
-    public function index(ResultatRepository $resultatRepository, PromotionRepository $promoRepo, FormationRepository $formarepo): Response
+    public function index(ResultatRepository $resultatRepository): Response
     {
+
+        $resultats= $resultatRepository->findSearch();
         return $this->render('resultat/index.html.twig', [
-            'resultats' => $resultatRepository->findAll(),
-            "promos" => $promoRepo->findAll(),
-            "formations" => $formarepo->findAll()
+            'resultats' => $resultats
         ]);
     }
 

@@ -28,16 +28,16 @@
 				<div>
 					<h3>Filtrer</h3>
 					<div>
-						<h5>Par Promotion</h5>
-						{% for promo in promos %}
+						{# <h5>Par Promotion</h5> #}
+						{# {% for promo in promos %}
 							<a href="{{path('app_resultat_promo', {'id':promo.id})}}">{{promo.nom}}</a>
-						{% endfor %}
+						{% endfor %} #}
 					</div>
 					<div>
-						<h5>Par Formation</h5>
-						{% for forma in formations %}
+						{# <h5>Par Formation</h5> #}
+						{# {% for forma in formations %}
 							<a href="{{path('app_resultat_forma', {'id':forma.id})}}">{{forma.nom}}</a>
-						{% endfor %}
+						{% endfor %} #}
 					</div>
 				</div>
 				{% for resultat in resultats %}
