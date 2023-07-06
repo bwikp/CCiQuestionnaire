@@ -1,5 +1,11 @@
+*{
+    box-sizing: border-box;
+}
+
 body,html{
-    margin: 0; 
+    margin: 0;
+    height: 100%; 
+    width: 100%;
 }
 .logo>img{
     width: 15rem;
@@ -124,4 +130,23 @@ a:active{
 #thematique>div>label
 {
     display: block;
+}
+
+.LoginDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 100%;
+}
+
+.loginButtonDiv{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+.loginButton{
+    margin-top:20px ;
 }
