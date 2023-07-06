@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CandidatParFormationController!{% endblock %}
+
+{% block body %}
+<h1>Candidat index </h1>
+
+	<div class="container">
+     <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Ville</th>
+                <th>Annee</th>
+                <th>Date RND</th>
+                <th>Promotion</th>
+                <th>Voir Dossier</th>
+                <th>Voir Resultat</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dossier in dossiers %}
+            <tr>
+                <td>{{dossier.candidat.id}}</td>
+                <td>{{dossier.candidat.nom}}</td>
+                <td>{{dossier.candidat.prenom}}</td>
+                <td>{{dossier.candidat.mail}}</td>
+                <td>{{dossier.candidat.ville}}</td>
+                <td>{{dossier.promosFormation.formation.annee}}</td>
+            
+                <td></td>
+                <td>{{dossier.promosFormation.promotion.nom}}</td>
+                
+                
+                <td>
+                    <a href="{{ path('app_dossier_show', {'id': dossier.id}) }}">show</a>
+                    
+                </td>
+                <td>
+                
+                  <a href="{{ path('app_resultat_show', {'id': dossier.resultat.id}) }}">show</a>
+                   
+                </td>
+            </tr>
+        {% else %}
+          
+        {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+{% endblock %}
