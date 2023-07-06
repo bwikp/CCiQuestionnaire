@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Dossier;
 
 use App\Entity\Dossier;
 use App\Entity\ThemFormaQuestions;
