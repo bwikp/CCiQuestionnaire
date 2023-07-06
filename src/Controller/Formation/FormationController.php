@@ -18,6 +18,7 @@ class FormationController extends AbstractController
     #[Route('/', name: 'app_formation_index', methods: ['GET'])]
     public function index(FormationRepository $formationRepository, QuestionsRepository $questionsRepository): Response
     {
+        $formation = $formationRepository->findSearch();
         // $question = $questionsRepository->findBy(array('id_type' => 1));
 
         // dd($question);
