@@ -4,9 +4,10 @@ namespace App\DataFixtures;
 
 use App\Entity\Resultat;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class ResultatFixtures extends Fixture
+class ResultatFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
@@ -19,9 +20,16 @@ class ResultatFixtures extends Fixture
             $resultat->setThematique4(12);
             $resultat->setThematique5(12);
             $resultat->setScoreFinal(15);
+            $resultat->setDossier($this->getReference("dossier" . $i));
             $this->addReference("resultat" . $i, $resultat);
             $manager->persist($resultat);
             $manager->flush();
         }
+    }
+    public function getDependencies()
+    {
+        return [
+            DossierFixtures::class
+        ];
     }
 }

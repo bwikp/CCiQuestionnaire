@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Repository\FormationRepository;
-use App\Repository\QuestionsRepository;
-use App\Repository\ThemFormationRepository;
+use App\Repository\QuestionQcmRepository;
+use App\Repository\QuestionCorrigerRepository;
+use App\Repository\QuestionRemplirRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,21 +12,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class TestesController extends AbstractController
 {
     #[Route('/testes', name: 'app_testes')]
-    public function index(FormationRepository $formationRepository, QuestionsRepository $questionsRepository, ThemFormationRepository $themFormationRepository): Response
-    {
-        $themForm = $themFormationRepository->findOneBy(
-            ['formation' => 24],
-        );
+    public function index(
+        QuestionRemplirRepository $questionRemplirRepository,
+        QuestionCorrigerRepository $questionCorrigerRepository,
+        QuestionQcmRepository $questionQcmRepository
+    ): Response {
 
 
-        $test = $themFormationRepository->findBy(array('formation' => 24));
-        $question = $questionsRepository->findAll();
 
-        // dd($question);
         return $this->render('testes/index.html.twig', [
             'controller_name' => 'TestesController',
-            'formations' => $formationRepository->findAll(),
-            'questions' => $question,
+            'questionsremplir' => $questionRemplirRepository->findAll(),
+            'questionscorrige' => $questionCorrigerRepository->findAll(),
+            'questionsqcm' => $questionQcmRepository->findAll()
+
         ]);
     }
 }

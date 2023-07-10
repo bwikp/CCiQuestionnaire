@@ -15,7 +15,7 @@ class QuestionQCMFixtures extends Fixture implements DependentFixtureInterface
             # code...
 
             $questionQCM = new QuestionQcm();
-            $questionQCM->setImage('A');
+            $questionQCM->setImageName('A');
             $questionQCM->setDetail('A');
             $questionQCM->setChoix1('A');
             $questionQCM->setDetailChoix1("blabla");

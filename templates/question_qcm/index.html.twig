@@ -3,13 +3,16 @@
 {% block title %}QuestionQcm index{% endblock %}
 
 {% block body %}
-    <h1>QuestionQcm index</h1>
+<div class="FormationIndex">
 
-    <table class="table">
+    <h1>QuestionQcm index</h1>
+<div class="container">
+    <table class="table table-bordered">
+    
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Image</th>
+                
                 <th>Detail</th>
                 <th>Choix1</th>
                 <th>Detail_choix1</th>
@@ -52,6 +55,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     <a href="{{ path('app_question_qcm_new') }}">Create new</a>
+    </div>
 {% endblock %}

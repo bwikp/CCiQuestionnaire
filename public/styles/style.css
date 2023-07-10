@@ -121,3 +121,44 @@ a:active{
     height: 100%;
     gap: 50px;
 }
+#question_qcm>div>label{
+    display: block;
+
+}
+#question_qcm>div>input{
+    display: block;
+    width: 100%;
+
+}
+#question_remplir>div>label{
+    display: block;
+
+}
+#question_remplir>div>input{
+    display: block;
+    width: 100%;
+
+}
+#question_corriger>div>label{
+    display: block;
+
+}
+#question_corriger>div>input{
+    display: block;
+    width: 100%;
+
+}
+#questions1>div>label{
+    display: block;
+
+}
+#questions1>div>label>select{
+    display: block;
+    width: 200px;
+
+}
+#questions1_type{
+    display: block;
+    width: 200px;
+
+}

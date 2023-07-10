@@ -3,9 +3,11 @@
 {% block title %}New QuestionCorriger{% endblock %}
 
 {% block body %}
+<div class ="formationMichel">
     <h1>Create new QuestionCorriger</h1>
 
     {{ include('question_corriger/_form.html.twig') }}
 
     <a href="{{ path('app_question_corriger_index') }}">back to list</a>
+    </div>
 {% endblock %}

@@ -22,7 +22,6 @@ class DossierFixtures extends Fixture implements DependentFixtureInterface
             $dossier->setMotivation($this->getReference("motivation" . rand(0, 4)));
             $dossier->setDernieremploi($this->getReference("dernieremploi" . rand(0, 4)));
             $dossier->setDerniereformation($this->getReference("derniereformation" . rand(0, 4)));
-            $dossier->setResultat($this->getReference("resultat" . rand(0, 4)));
             $this->addReference("dossier" . $i, $dossier);
             $manager->persist($dossier);
 

@@ -3,9 +3,11 @@
 {% block title %}QuestionRemplir index{% endblock %}
 
 {% block body %}
+<div class="FormationIndex">
     <h1>QuestionRemplir index</h1>
 
-    <table class="table">
+   <div class="container">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
@@ -48,6 +50,8 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
 
     <a href="{{ path('app_question_remplir_new') }}">Create new</a>
+    </div>
 {% endblock %}

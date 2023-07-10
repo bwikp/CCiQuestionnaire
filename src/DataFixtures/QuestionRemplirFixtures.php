@@ -26,8 +26,9 @@ class QuestionRemplirFixtures extends Fixture implements DependentFixtureInterfa
         $questionremplir->setType($this->getReference("type" . rand(1, 3)));
         $manager->persist($questionremplir);
 
-        $manager->flush();
-    }
+            $manager->flush();
+        }
+    
     public function getDependencies()
     {
         return [

@@ -16,6 +16,11 @@ class Questions
     #[ORM\Column]
     private ?int $id = null;
 
+
+     #[ORM\ManyToOne(inversedBy: 'types')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Type $type = null;
+
     // #[ORM\Column(type: Types::TEXT)]
     // private ?string $detail = null;
 
@@ -121,25 +126,40 @@ class Questions
         return $this->types;
     }
 
-    public function addType(Type $type): static
+    // public function addType(Type $type): static
+    // {
+    //     if (!$this->types->contains($type)) {
+    //         $this->types->add($type);
+    //         $type->setQuestion($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeType(Type $type): static
+    // {
+    //     if ($this->types->removeElement($type)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($type->getQuestion() === $this) {
+    //             $type->setQuestion(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
+    public function getType(): ?Type
     {
-        if (!$this->types->contains($type)) {
-            $this->types->add($type);
-            $type->setQuestion($this);
-        }
+        return $this->type;
+    }
+
+    public function setType(?Type $type): static
+    {
+        $this->type = $type;
 
         return $this;
     }
-
-    public function removeType(Type $type): static
-    {
-        if ($this->types->removeElement($type)) {
-            // set the owning side to null (unless already changed)
-            if ($type->getQuestion() === $this) {
-                $type->setQuestion(null);
-            }
-        }
-
-        return $this;
-    }
+    // public function __toString(){
+    //     $result= $this->id ;
+    //     return $result;
+    // }
 }

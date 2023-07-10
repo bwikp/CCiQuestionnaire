@@ -3,16 +3,14 @@
 {% block title %}New QuestionQcm{% endblock %}
 
 {% block body %}
-<style>
-		.btn{
-            background :red;
-        }
-	</style>
-    <h1>Create new QuestionQcm</h1>
 
+   
+<div class ="formationMichel">
+<h1>Create new QuestionQcm</h1>
     {{ include('question_qcm/_form.html.twig') }}
 
     <a href="{{ path('app_question_qcm_index') }}">back to list</a>
+    </div>
 {% endblock %}
 
 

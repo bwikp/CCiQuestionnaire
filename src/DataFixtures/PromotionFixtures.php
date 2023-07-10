@@ -10,7 +10,7 @@ class PromotionFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 1; $i < 4; $i++) {
             # code...
 
             $promotion = new Promotion();

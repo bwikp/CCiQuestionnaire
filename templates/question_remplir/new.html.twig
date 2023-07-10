@@ -2,15 +2,14 @@
 
 
 {% block title %}New QuestionRemplir{% endblock %}
-{% block stylesheets %}
-			<link rel="stylesheet" href="{{ asset('styles/style.css') }}">
-            
-{% endblock %}
+
 
 {% block body %}
+<div class ="formationMichel">
     <h1>Remplir les phrase</h1>
 
     {{ include('question_remplir/_form.html.twig') }}
 
     <a href="{{ path('app_question_remplir_index') }}">back to list</a>
+    </div>
 {% endblock %}

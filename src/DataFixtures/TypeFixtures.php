@@ -7,7 +7,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class TypeFixtures extends Fixture implements DependentFixtureInterface
+class TypeFixtures extends Fixture 
 {
     public function load(ObjectManager $manager): void
     {
@@ -15,15 +15,10 @@ class TypeFixtures extends Fixture implements DependentFixtureInterface
             $type = new Type();
             $type->setNom("type" . $i);
             $this->addReference("type" . $i, $type);
-            $type->setQuestion($this->getReference("question" . rand(0, 9)));
+            
             $manager->persist($type);
             $manager->flush();
         }
     }
-    public function getDependencies()
-    {
-        return [
-            QuestionsFixtures::class
-        ];
-    }
+  
 }

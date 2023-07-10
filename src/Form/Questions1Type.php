@@ -12,9 +12,6 @@ class Questions1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('detail')
-            ->add('image')
-            ->add('note')
             ->add('type')
         ;
     }

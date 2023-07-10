@@ -16,9 +16,9 @@ class Type
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[ORM\ManyToOne(inversedBy: 'types')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Questions $question = null;
+    // #[ORM\ManyToOne(inversedBy: 'types')]
+    // #[ORM\JoinColumn(nullable: false)]
+    // private ?Questions $question = null;
 
     public function getId(): ?int
     {
@@ -41,15 +41,5 @@ class Type
         return $this->getNom();
     }
 
-    public function getQuestion(): ?Questions
-    {
-        return $this->question;
-    }
-
-    public function setQuestion(?Questions $question): static
-    {
-        $this->question = $question;
-
-        return $this;
-    }
+    
 }
