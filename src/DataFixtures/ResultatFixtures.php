@@ -7,7 +7,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class ResultatFixtures extends Fixture implements DependentFixtureInterface
+class ResultatFixtures extends Fixture 
 {
     public function load(ObjectManager $manager): void
     {
@@ -25,11 +25,5 @@ class ResultatFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($resultat);
             $manager->flush();
         }
-    }
-    public function getDependencies()
-    {
-        return [
-            DossierFixtures::class
-        ];
     }
 }

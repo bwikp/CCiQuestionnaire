@@ -19,6 +19,17 @@
 
 	<div class="example-wrapper">
 		<h1>Les testes ✅</h1>
+<<<<<<< HEAD
+		<div>
+			{% for formation in formations %}
+				<div>
+					<h4>{{formation.nom}}</h4>
+					{# <h6>Them.$i</h6> #}
+					{% for question in questions %}
+						<div>{{question.detail}}</div>
+					{% endfor %}
+				</div>
+=======
 		<div class="container">
 
 			<h4>Questions a completer</h4>
@@ -34,6 +45,7 @@
 			<h4>Questions QCM</h4>
 			{% for question in questionsqcm %}
 				<p>{{question.DetailChoix1}}</p>
+>>>>>>> 80e0cfa8a4a3ac17105a7cc4b9bb9b43c3857a9d
 			{% endfor %}
 		</div>
 	{% endblock %}

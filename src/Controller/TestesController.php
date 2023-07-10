@@ -2,9 +2,15 @@
 
 namespace App\Controller;
 
+
+use App\Repository\FormationRepository;
+use App\Repository\QuestionsRepository;
+use App\Repository\ThemFormationRepository;
+
 use App\Repository\QuestionQcmRepository;
 use App\Repository\QuestionCorrigerRepository;
 use App\Repository\QuestionRemplirRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

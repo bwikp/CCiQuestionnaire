@@ -5,12 +5,23 @@
 {% block body %}
 <div class="FormationIndex">
     <h1>Questions index</h1>
+<<<<<<< HEAD
 
     <div class="container">
+=======
+<div class="container">
+>>>>>>> 0c8b635a2baced23790d8e1c9c72a84f7091569d
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
+<<<<<<< HEAD
+                <th>Id thematique</th>
+                <th>Detail</th>
+                <th>Image</th>
+                <th>Note</th>
+=======
+>>>>>>> 80e0cfa8a4a3ac17105a7cc4b9bb9b43c3857a9d
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +29,13 @@
         {% for question in questions %}
             <tr>
                 <td>{{ question.id }}</td>
+<<<<<<< HEAD
+                <td>{{ question.id }}</td>
+                <td>{{ question.detail }}</td>
+                <td>{{ question.image }}</td>
+                <td>{{ question.note }}</td>
+=======
+>>>>>>> 80e0cfa8a4a3ac17105a7cc4b9bb9b43c3857a9d
                 <td>
                     <a href="{{ path('app_questions_show', {'id': question.id}) }}">show</a>
                     <a href="{{ path('app_questions_edit', {'id': question.id}) }}">edit</a>
@@ -31,6 +49,11 @@
         </tbody>
     </table>
 </div>
+<<<<<<< HEAD
     <a href="{{ path('app_questions_new') }}">Create new</a>
     </div>
+=======
+    <a href="{{ path('app_questions_new') }}"><button class="btnFormationMichel">Create new</button></a>
+</div>
+>>>>>>> 0c8b635a2baced23790d8e1c9c72a84f7091569d
 {% endblock %}
