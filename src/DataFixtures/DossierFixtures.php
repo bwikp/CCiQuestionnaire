@@ -16,12 +16,11 @@ class DossierFixtures extends Fixture implements DependentFixtureInterface
             $dossier = new Dossier();
             $dossier->setFormationInitiale("DEV" . $i);
             $dossier->setExperiencePro("DEV" . $i);
-            $dossier->setCandidat($this->getReference("candidat" . rand(0, 4)));
-            $dossier->setThemformaquestions($this->getReference("themformaquestion" . rand(0, 4)));
-            $dossier->setPromosFormation($this->getReference("promoformation" . rand(1, 4)));
-            $dossier->setMotivation($this->getReference("motivation" . rand(0, 4)));
-            $dossier->setDernieremploi($this->getReference("dernieremploi" . rand(0, 4)));
-            $dossier->setDerniereformation($this->getReference("derniereformation" . rand(0, 4)));
+            $dossier->setCandidat($this->getReference("candidat".$i));
+            $dossier->setThemformaquestions($this->getReference("themformaquestion" .$i));
+            $dossier->setPromosFormation($this->getReference("promoformation" .$i));
+            $dossier->setMotivation($this->getReference("motivation" .$i));
+            $dossier->setDerniereformation($this->getReference("derniereformation" . $i));
             $this->addReference("dossier" . $i, $dossier);
             $manager->persist($dossier);
 
@@ -36,9 +35,8 @@ class DossierFixtures extends Fixture implements DependentFixtureInterface
             ThemFormaQuestionsFixtures::class,
             PromoFormationFixtures::class,
             MotivationFixtures::class,
-            DernierEmploiStageFixtures::class,
             DerniereFormationFixtures::class,
-            // resultatFixtures::class
+            // ResultatFixtures::class
         ];
     }
 }

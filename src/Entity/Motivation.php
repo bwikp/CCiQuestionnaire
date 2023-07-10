@@ -87,4 +87,9 @@ class Motivation
 
         return $this;
     }
+    public function __toString()
+        {
+            $string = $this->getProjetProEtMotivation();
+            return $string;
+        }
 }

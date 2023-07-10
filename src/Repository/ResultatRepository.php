@@ -2,6 +2,8 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
+use App\Entity\PromoFormation;
 use App\Entity\Resultat;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -42,10 +44,24 @@ class ResultatRepository extends ServiceEntityRepository
     /** Recupere les resultats en lien avec une recherche
         @return Resultat[]
      */
-    public function findSearch(): array
-    {
-        return $this->findAll();
-    }
+    // public function findSearch(SearchData $search): array
+    // {
+    //     $query = $this
+    //         ->createQueryBuilder('p')
+    //         ->select('p')
+    //         // ->addSelect('c');
+    //         ->join('p.dossier', 'c')
+    //         // ->join('c.promoformation', 'd')
+    //         // ->join('d.Promotion', 'e');
+    //     ;
+    //     if (!empty($search->q)) {
+    //         $query = $query
+    //             ->andWhere('p.name LIKE :q')
+    //             ->setParameter('q', "%{search->q}%");
+    //     }
+
+    //     return $query->getQuery()->getResult();
+    // }
     //    /**
     //     * @return Resultat[] Returns an array of Resultat objects
     //     */

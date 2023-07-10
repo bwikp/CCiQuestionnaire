@@ -1,32 +1,29 @@
+{% extends 'base.html.twig' %}
 
-		<div class="header1">
-			<div class="logo">
-				<img src="../img/Logo.png">
-				<div class="buttonnav">
-					<a href='#' class="profil">Mon profil</a>
-					<a href='/login' class="deconnection">Se déconnecter</a>
-				</div>
-			</div>
-			<div class="line">
-				<h3>Bienvenue Admin</h3>
-				<p>Naviguez a votre guise</p>
-				<div>
-					<button>
-						<a href="\candidat">Candidats</a>
-					</button>
-					<button>
-						<a href="\formation">Formations</a>
-					</button>
-					<button>
-						<a href="\testes">Les test</a>
-					</button>
-					<button>
-						<a href="\dossier">Dossiers Candidats</a>
-					</button>
-					<button>
-						<a href="\resultat">Resultats par test</a>
-					</button>
+{% block title  %}
+	Home
+{% endblock %}
 
-				</div>
-			</div>
+{% block body %}
+	<div class="homeDiv">
+		<h3>Bienvenue Admin</h3>
+		<p>Naviguez a votre guise</p>
+		<div>
+			<button>
+				<a href="\candidat">Candidats</a>
+			</button>
+			<button>
+				<a href="\formation">Formations</a>
+			</button>
+			<button>
+				<a href="\testes">Les test</a>
+			</button>
+			<button>
+				<a href="\dossier">Dossiers Candidats</a>
+			</button>
+			<button>
+				<a href="\resultat">Resultats par test</a>
+			</button>
 		</div>
+	</div>
+</div>{% endblock %}

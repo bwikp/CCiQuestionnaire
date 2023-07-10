@@ -19,6 +19,7 @@
 					<th>thematique5</th>
 					<th>formation</th>
 					<th>promo</th>
+					<th>Annee</th>
 					<th>Score_final</th>
 					<th>Is_admis</th>
 					<th>actions</th>
@@ -28,44 +29,73 @@
 				<div>
 					<h3>Filtrer</h3>
 					{# <div> #}
-						{# <h5>Par Promotion</h5> #}
-						{# {% for promo in promos %}
-							<a href="{{path('app_resultat_promo', {'id':promo.id})}}">{{promo.nom}}</a>
-						{% endfor %} #}
+					{# <h5>Par Promotion</h5> #}
+					{# {% for promo in promos %}
+																																										<a href="{{path('app_resultat_promo', {'id':promo.id})}}">{{promo.nom}}</a>
+																																									{% endfor %} #}
 					{# </div> #}
 					{# <div> #}
-						{# <h5>Par Formation</h5> #}
-						{# {% for forma in formations %}
-							<a href="{{path('app_resultat_forma', {'id':forma.id})}}">{{forma.nom}}</a>
-						{% endfor %} #}
+					{# <h5>Par Formation</h5> #}
+					{# {% for forma in formations %}
+																																										<a href="{{path('app_resultat_forma', {'id':forma.id})}}">{{forma.nom}}</a>
+																																									{% endfor %} #}
 					{# </div> #}
-				{# </div> #}
-				{% for resultat in resultats %}
-					<tr>
-						<td>{{ resultat.id }}</td>
-						<td>{{resultat.Dossier.candidat.nom}}</td>
-						<td>{{resultat.Dossier.candidat.prenom}}</td>
-						<td>{{ resultat.thematique1}}</td>
-						<td>{{ resultat.thematique2}}</td>
-						<td>{{ resultat.thematique3}}</td>
-						<td>{{ resultat.thematique4}}</td>
-						<td>{{ resultat.thematique5}}</td>
-						<td>{{resultat.Dossier.PromosFormation.formation}}</td>
-						<td>{{resultat.Dossier.PromosFormation.promotion}}</td>
-						<td>{{ resultat.scoreFinal }}</td>
-						<td>{{ resultat.isAdmis ? 'Yes' : 'No' }}</td>
-						<td>
-							<a href="{{ path('app_resultat_show', {'id': resultat.id}) }}">show</a>
-							<a href="{{ path('app_resultat_edit', {'id': resultat.id}) }}">edit</a>
-						</td>
-					</tr>
-				{% else %}
-					<tr>
-						<td colspan="4">no records found</td>
-					</tr>
-				{% endfor %}
+					{# </div> #}
+
+						{% for resultat in resultats %}
+							<tr>
+								<td>
+							{{ resultat.id }}
+							</td>
+								<td>
+							{{resultat.Dossier.candidat.nom}}
+							</td>
+								<td>
+							{{resultat.Dossier.candidat.prenom}}
+							</td>
+								<td>
+							{{ resultat.thematique1}}
+							</td>
+								<td>
+							{{ resultat.thematique2}}
+							</td>
+								<td>
+							{{ resultat.thematique3}}
+							</td>
+								<td>
+							{{ resultat.thematique4}}
+							</td>
+								<td>
+							{{ resultat.thematique5}}
+							</td>
+								<td>
+							{{resultat.Dossier.PromosFormation.formation}}
+							</td>
+								<td>
+							{{resultat.Dossier.PromosFormation.promotion}}
+							</td>
+								<td>
+							{{resultat.Dossier.PromosFormation.formation.Annee}}
+							</td>
+								<td>
+							{{ resultat.scoreFinal }}
+							</td>
+								<td>
+							{{ resultat.isAdmis ? 'Yes' : 'No' }}
+							</td>
+								<td>
+									<a href="{{ path('app_resultat_show', {'id': resultat.id}) }}"> show</a>
+								<a href="{{ path('app_resultat_edit', {'id': resultat.id}) }}">edit</a>
+							</td>
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="4">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
 			</tbody>
 		</table>
 		<a href="{{ path('app_resultat_new') }}">Create new</a>
 	</div>
-{% endblock %}
+</div>{% endblock %}

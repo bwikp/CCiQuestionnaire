@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Testes;
 
 use App\Repository\QuestionQcmRepository;
 use App\Repository\QuestionCorrigerRepository;

@@ -12,5 +12,7 @@ class SearchData
     /** @var Promotion[] */
     public $promos= [];
 
-
+    
+    /** @var Formation[] */
+    public $formation=[];
 }

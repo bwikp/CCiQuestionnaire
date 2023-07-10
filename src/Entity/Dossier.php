@@ -21,8 +21,8 @@ class Dossier
     #[ORM\Column(length: 255)]
     private ?string $experience_pro = null;
 
-    #[ORM\ManyToOne(inversedBy: 'dossiers')]
-    private ?Resultat $resultat = null;
+    // #[ORM\ManyToOne(inversedBy: 'dossiers')]
+    // private ?Resultat $resultat ;
 
     #[ORM\ManyToOne(inversedBy: 'dossiers')]
     #[ORM\JoinColumn(nullable: false)]
@@ -37,21 +37,19 @@ class Dossier
     private ?Candidat $candidat = null;
 
     #[ORM\ManyToOne(inversedBy: 'dossiers')]
-    private ?DerniereFormation $derniereformation = null;
+    private ?DerniereFormation $derniereformation ;
 
     #[ORM\ManyToOne(inversedBy: 'dossiers')]
-    private ?DernierEmploiStage $dernieremploi = null;
+    private ?Motivation $motivation ;
 
-    #[ORM\ManyToOne(inversedBy: 'dossiers')]
-    private ?Motivation $motivation = null;
+    // #[ORM\OneToMany(mappedBy: 'dossier', targetEntity: Resultat::class, orphanRemoval: true)]
+    // private Collection $resultats;
 
-    #[ORM\OneToMany(mappedBy: 'dossier', targetEntity: Resultat::class, orphanRemoval: true)]
-    private Collection $resultats;
+    // public function __construct()
+    // {
+    //     $this->resultats = new ArrayCollection();
+    // }
 
-    public function __construct()
-    {
-        $this->resultats = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -82,17 +80,17 @@ class Dossier
         return $this;
     }
 
-    public function getResultat(): ?Resultat
-    {
-        return $this->resultat;
-    }
+    // public function getResultat(): ?Resultat
+    // {
+    //     return $this->resultat;
+    // }
 
-    public function setResultat(?Resultat $resultat): static
-    {
-        $this->resultat = $resultat;
+    // public function setResultat(?Resultat $resultat): static
+    // {
+    //     $this->resultat = $resultat;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getPromosFormation(): ?PromoFormation
     {
@@ -141,19 +139,6 @@ class Dossier
 
         return $this;
     }
-
-    public function getDernieremploi(): ?DernierEmploiStage
-    {
-        return $this->dernieremploi;
-    }
-
-    public function setDernieremploi(?DernierEmploiStage $dernieremploi): static
-    {
-        $this->dernieremploi = $dernieremploi;
-
-        return $this;
-    }
-
     public function getMotivation(): ?Motivation
     {
         return $this->motivation;
@@ -168,37 +153,38 @@ class Dossier
 
     public function __toString()
     {
-        $reponse = "" . $this->getMotivation();
-        return $reponse;
+        $string ="nom:".$this->getCandidat();
+        return $string ;
     }
 
-    /**
-     * @return Collection<int, Resultat>
-     */
-    public function getResultats(): Collection
-    {
-        return $this->resultats;
-    }
+    // /**
+    //  * @return Collection<int, Resultat>
+    //  */
+    // public function getResultats(): Collection
+    // {
+    //     return $this->resultats;
+    // }
 
-    public function addResultat(Resultat $resultat): static
-    {
-        if (!$this->resultats->contains($resultat)) {
-            $this->resultats->add($resultat);
-            $resultat->setDossier($this);
-        }
+    // public function addResultat(Resultat $resultat): static
+    // {
+    //     if (!$this->resultats->contains($resultat)) {
+    //         $this->resultats->add($resultat);
+    //         $resultat->setDossier($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeResultat(Resultat $resultat): static
-    {
-        if ($this->resultats->removeElement($resultat)) {
-            // set the owning side to null (unless already changed)
-            if ($resultat->getDossier() === $this) {
-                $resultat->setDossier(null);
-            }
-        }
+    // public function removeResultat(Resultat $resultat): static
+    // {
+    //     if ($this->resultats->removeElement($resultat)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($resultat->getDossier() === $this) {
+    //             $resultat->setDossier(null);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+
+    // }
 }

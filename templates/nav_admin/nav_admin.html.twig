@@ -2,34 +2,34 @@
 		<nav>
 			<div class="header">
 				<div class="logo">
-					<img src="../../img/Logo.png">
+					<img src="{{'/img/Logo.png'}}">
 				</div>
 				<ul class="menuItems">
 					<li>
-						<a class="active" href='/admin'>Accueil</a>
+						<a href="\candidat">Candidats</a>
 					</li>
 					<li>
-						<a href='/candidat'>Candidat</a>
+						<a href="\formation">Formations</a>
 					</li>
 					<li>
-						<a href='/dossier'>Dossier</a>
+						<a href="\testes">Les test</a>
 					</li>
 					<li>
-						<a href='/formation'>Formation</a>
+						<a href="\dossier">Dossiers Candidats</a>
 					</li>
 					<li>
-						<a href='/thematique'>Test</a>
-					</li>
-					<li>
-						<a href='/resultat'>Résultat</a>
+						<a href="\resultat">Resultats par test</a>
 					</li>
 
 
 				</ul>
 				<div class="button">
 					<a href='#' class="profil">Mon profil</a>
-
+					{% if  is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 					<a href="{{path('app_logout')}}" class="deconnection">Se déconnecter</a>
+					{% else  %}
+					<a href="{{path('app_login')}}" class="deconnection">Se connecter</a>
+					{% endif %}
 				</div>
 			</nav>
 		</div>

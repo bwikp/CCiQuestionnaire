@@ -11,7 +11,7 @@ class FormationFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-for ($i=1; $i <4 ; $i++) { 
+for ($i=0; $i <5 ; $i++) { 
     # code...
         $formation= new Formation();
         $formation->setNom("Formation".$i);

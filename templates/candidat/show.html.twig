@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+<div class="candidatIndex">
 	<h1>Candidat</h1>
 	<div class="container">
 		<table class="table table-bordered">
@@ -50,10 +51,9 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
+</div>
 	<a href="{{ path('app_candidat_index') }}">back to list</a>
-
 	<a href="{{ path('app_candidat_edit', {'id': candidat.id}) }}">edit</a>
-
 	{{ include('candidat/_delete_form.html.twig') }}
+</div>
 {% endblock %}

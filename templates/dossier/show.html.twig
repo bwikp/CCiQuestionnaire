@@ -4,34 +4,81 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container">
-		<h1>Dossier</h1>
+    <h1>Dossier</h1>
+        <div class="container">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dossier.id }}</td>
+            </tr>
+            <tr>
+                <th>nom</th>
+                <td>{{dossier.candidat.nom}}</td>
+            </tr>
+             <tr>
+                <th>Prenom</th>
+                <td>{{dossier.candidat.prenom}}</td>
+            </tr>
+             <tr>
+                <th>genre</th>
+                <td>{{dossier.candidat.genre}}</td>
+            </tr>
+             {# <tr>
+                <th>mail</th>
+                <td>{{dossier.candidat.mail}}</td>
+            </tr> #}
+             <tr>
+                <th>adress</th>
+                <td>{{dossier.candidat.adresse}}</td>
+            </tr>
+             <tr>
+                <th>code_postal</th>
+                <td>{{dossier.candidat.codePostal}}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{dossier.candidat.ville}}</td>
+            </tr>
+            <tr>
+                <th>telephone portable</th>
+                <td>{{dossier.candidat.telephonePortable}}</td>
+            </tr>
+            <tr>
+                <th>Telephone fixe</th>
+                <td>{{dossier.candidat.telephoneFixe}}</td>
+            </tr>
+             <tr>
+                <th>Formation_initiale</th>
+                <td>{{ dossier.formationInitiale }}</td>
+            </tr>
+            <tr>
+                <th>Experience_pro</th>
+                <td>{{ dossier.experiencePro }}</td>
+            </tr>
+            <tr>
+                 <th>motivation</th>
+                <td><a href="{{ path('app_motivation_show', {'id': dossier.motivation.id}) }}">motivation</a></td>            
+            </tr>
+            <tr>
+                <th>dernière Emploi</th>
+                {# <td><a href="{{ path('app_dernier_emploi_stage_show', {'id': dernierEmploiStage.id}) }}">derniers emploi</a></td>  #}
+            </tr>
+               
 
-		<table class="table table-bordered">
-			<tbody>
-				<tr>
-					<th>candidat</th>
-					<th>Thematique</th>
-					<th>Note</th>
-					<th>Resulat</th>
-					<th>Formation_initiale</th>
-					<th>Experience_pro</th>
-				</tr>
-				<tr>
-					<td>{{ dossier.candidat.nom }}</td>
-					<td>{{ dossier.themformaquestions.themformations.thematique.nom }}</td>
-					<td>5</td>
-					<td>{{ dossier.resultat.scorefinal }}</td>
-					<td>{{ dossier.formationInitiale }}</td>
-					<td>{{ dossier.experiencePro }}</td>
-				</tr>
-			</tbody>
-		</table>
+           <tr>
+                <th>Dernier emploi</th>
+                <td><a href="{{ path('app_formation_show', {'id': dossier.derniereFormation.id}) }}">parcours pro</a></td>            
+            </tr> 
+        </tbody>
+    </table>
+    </div>
 
 		<a href="{{ path('app_dossier_index') }}">back to list</a>
 
 		<a href="{{ path('app_dossier_edit', {'id': dossier.id}) }}">edit</a>
 
 		{{ include('dossier/_delete_form.html.twig') }}
+         {{ dump(dernierEmploiStage.id) }}
 	</div>
 {% endblock %}

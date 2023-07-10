@@ -17,8 +17,62 @@ class DernierEmploiStageController extends AbstractController
     public function index(DernierEmploiStageRepository $dernierEmploiStageRepository): Response
     {
         return $this->render('dernier_emploi_stage/index.html.twig', [
-            'dernier_emploi_stages' => $dernierEmploiStageRepository->findAll(),
+            'dernierEmploiStage' => $dernierEmploiStageRepository->findAll(),
         ]);
     }
 
+    #[Route('/new', name: 'app_dernier_emploi_stage_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, DernierEmploiStageRepository $dernierEmploiStageRepository): Response
+    {
+        $dernierEmploiStage = new DernierEmploiStage();
+        $form = $this->createForm(DernierEmploiStageType::class, $dernierEmploiStage);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $dernierEmploiStageRepository->save($dernierEmploiStage, true);
+
+            return $this->redirectToRoute('app_dernier_emploi_stage_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('dernier_emploi_stage/new.html.twig', [
+            'dernierEmploiStage' => $dernierEmploiStage,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/{id}', name: 'app_dernier_emploi_stage_show', methods: ['GET'])]
+    public function show($id,DernierEmploiStage $dernierEmploiStage,DernierEmploiStageRepository $dernierEmploiStageRepository): Response
+    {
+        return $this->render('dernier_emploi_stage/show.html.twig', [
+            'dernierEmploiStage' => $dernierEmploiStageRepository->findBy(['dossier_id'=> $id ]),
+        ]);
+    }
+
+    #[Route('/{id}/edit', name: 'app_dernier_emploi_stage_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, DernierEmploiStage $dernierEmploiStage, DernierEmploiStageRepository $dernierEmploiStageRepository): Response
+    {
+        $form = $this->createForm(DernierEmploiStageType::class, $dernierEmploiStage);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $dernierEmploiStageRepository->save($dernierEmploiStage, true);
+
+            return $this->redirectToRoute('app_dernier_emploi_stage_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('dernier_emploi_stage/edit.html.twig', [
+            'dernierEmploiStage' => $dernierEmploiStage,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/{id}', name: 'app_dernier_emploi_stage_delete', methods: ['POST'])]
+    public function delete(Request $request, DernierEmploiStage $dernierEmploiStage, DernierEmploiStageRepository $dernierEmploiStageRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$dernierEmploiStage->getId(), $request->request->get('_token'))) {
+            $dernierEmploiStageRepository->remove($dernierEmploiStage, true);
+        }
+
+        return $this->redirectToRoute('app_dernier_emploi_stage_index', [], Response::HTTP_SEE_OTHER);
+    }
 }

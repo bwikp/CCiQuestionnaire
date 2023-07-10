@@ -29,6 +29,9 @@ class UsersCCI implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Candidat $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -110,5 +113,22 @@ class UsersCCI implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->addRoles("ROLE_USER");
+    }
+
+    public function getUser(): ?Candidat
+    {
+        return $this->user;
+    }
+
+    public function setUser(Candidat $user): static
+    {
+        // set the owning side of the relation if necessary
+        if ($user->getUser() !== $this) {
+            $user->setUser($this);
+        }
+
+        $this->user = $user;
+
+        return $this;
     }
 }
