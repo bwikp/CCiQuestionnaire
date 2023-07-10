@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CandidatDossierController!
+{% endblock %}
+
+{% block body %}
+	<div>
+		<div>
+			<h3>Dossier candidature</h3>
+			<section>
+				<h4>Formation</h4>
+				<p>nom de la formation:</p>
+				<p>Ville</p>
+				<p>Date de demarrage</p>
+			</section>
+			<section>
+				<h3>Coordonnées</h3>
+				<input type="radio" name="Mr">
+				<label for="Mr">Mr</label>
+				<input type="radio" name="Mme">
+				<label for="Mme">Mme</label>
+				<p>nom :</p>
+				<p>prenom:</p>
+				<p>Adresse:</p>
+				<p>Code Postal</p>
+				<p>mail:</p>
+				<p>Ville:</p>
+				<p>téléphone fixe</p>
+				<p>telephone portable</p>
+			</section>
+		</div>
+		<div>
+			<h3>PARCOURS PEDAGOGIQUE</h3>
+			<div>
+				<h6>Formation Initiale</h6>
+				<div>
+					<input type="checkbox">
+					<label for="">sans formation</label>
+					<input type="checkbox">
+					<label for="">BEP/CAP</label>
+					<input type="checkbox">
+					<label for="">Bac</label>
+					<input type="checkbox">
+					<label for="">Bac+2</label>
+					<input type="checkbox">
+					<label for="">Bac +3</label>
+					<input type="checkbox">
+					<label for="">Bac +4</label>
+					<input type="checkbox">
+					<label for="">Bac +5 et au-delà</label>
+				</div>
+			</div>
+			<div>
+				<h6>Dernières Formations (les 2 plus recentes</h6>
+				<table class="table-bordered">
+					<thead>
+						<th>Année Scolaire</th>
+						<th>Classe fréquentée</th>
+						<th>Diplome obtenu ou en cours de préparation</th>
+						<th>Nom et localité de l'etablissement</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="text">
+								<label for=""></label>
+							</td>
+							<td>
+								<input type="text">
+								<label for=""></label>
+							</td>
+							<td>
+								<input type="text">
+								<label for=""></label>
+							</td>
+							<td>
+								<input type="text">
+								<label for=""></label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<h3>PARCOURS PROFESSIONNEL</h3>
+			<H6>Experience pro</H6>
+			<div>
+				<input type="checkbox">
+				<label for="">sans experience</label>
+				<input type="checkbox">
+				<label for="">moins de 5 ans</label>
+				<input type="checkbox">
+				<label for="">de 5 à 10 ans</label>
+				<input type="checkbox">
+				<label for="">de 10 à 20 ans</label>
+				<input type="checkbox">
+				<label for="">plus de 20 ans
+				</label>
+				<input type="checkbox">
+				<label for="">experience de chef d'entreprise</label>
+			</div>
+			<h6>Derniers emplois/Stages(les 3 plus récents)</h6>
+			<div>
+				<table class="table-bordered">
+					<thead>
+						<th>Année</th>
+						<th>Durée</th>
+						<th>Nom de l'entreprise</th>
+						<th>Ville</th>
+						<th>Poste occupé</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="text">
+								<label for=""></label>
+							</td>
+							<td>
+								<input type="text">
+								<label for=""></label>
+							</td>
+							<td>
+								<input type="text">
+								<label for=""></label>
+							</td>
+							<td>
+								<input type="text">
+								<label for=""></label>
+							</td>
+							<td>
+								<input type="text">
+								<label for=""></label>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<h3>VOS MOTIVATIONS</h3>
+				<div>
+					<p>Decrivez votre projet professionnel et vos motivations pour suivre la formation</p>
+					(Minimum 15 lignes)
+					<input type="text" minlenght="15" required>
+					<label for=""></label>
+					<ul>
+						<li>L'orthographe et la grammaire feront partie de votre test de positionnement</li>
+					</ul>
+				</div>
+				<div>
+					<p>Décrivez nous en 5 lignes ce que vous avez compris de la formation</p>
+				</div>
+			</div>
+		</div>
+		<button class="btn btn-primary">Valider</button>
+	</div>
+{% endblock %}

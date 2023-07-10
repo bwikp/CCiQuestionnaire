@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChoixCandidatController!
+{% endblock %}
+
+{% block body %}
+	<div>
+		<h5>Bonjour, veuillez faire vos choix</h5>
+		<h3>Choisir la formation</h3>
+		<select name="" id="">
+
+			{% for formation in formations %}
+				<option value="">
+					{{formation.nom}}
+				{% endfor %}
+			</option>
+		</select>
+		<h3>Choisir la ville</h3>
+		<select name="" id="">
+
+			{% for formation in formations %}
+				<option value="">
+					{{formation.ville}}
+				{% endfor %}
+			</option>
+		</select> 
+		<h3>Choisir la promotion</h3>
+		<select name="" id="">
+
+			{% for promotion in promotions %}
+				<option value="">
+					{{promotion.nom}}
+				{% endfor %}
+			</option>
+		</select>
+		<p>
+			<button class="btn btn-primary">Valider</button>
+		</p>
+	</div>
+{% endblock %}
