@@ -7,37 +7,44 @@ body,html{
     height: 100%; 
     width: 100%;
 }
-.logo>img{
+
+.logo>img {
     width: 15rem;
     padding: 15px;
     margin-left: 10px;
 
 }
-.logo{
+
+.logo {
     display: flex;
     align-items: center;
 }
-.buttonnav{
+
+.buttonnav {
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: end;
 
 }
-.line{
+
+.line {
     height: 2px;
     background-color: rgb(98, 98, 98);
 }
-.header{
+
+.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-nav{
+
+nav {
     width: 100%;
 
 }
-.menuItems{
+
+.menuItems {
     display: flex;
     list-style: none;
     align-items: center;
@@ -46,13 +53,14 @@ nav{
     padding: 0;
     margin: 0;
 }
-.menuItems>li>a{
+
+.menuItems>li>a {
     text-decoration: none;
     color: black;
     font-size: 1.3rem;
 }
 
-.profil{
+.profil {
     background-color: #E50043;
     border-radius: 10px;
     text-decoration: none;
@@ -61,25 +69,29 @@ nav{
     font-size: 1.3rem;
     margin-right: 30px;
 }
-.deconnection{
+
+.deconnection {
     color: #009FE3;
     font-size: 1.2rem;
     text-decoration: none;
     margin-right: 30px;
 }
-.menuItems>li>a:hover{
+
+.menuItems>li>a:hover {
     color: #009FE3;
     transition: 0.3s;
 }
-a:active{
+
+a:active {
     color: #009FE3;
 
 }
-.table{
+
+.table {
     border-color: black;
 }
 
-.formationMichel{
+.formationMichel {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,14 +101,12 @@ a:active{
     gap: 50px;
 }
 
-#formation>div>label
-{
+#formation>div>label {
     display: block;
 }
 
-.btnFormationMichel
-{
-    margin-top: 20px ;
+.btnFormationMichel {
+    margin-top: 20px;
     border: solid 1px;
     border-radius: 10px;
     width: 200px;
@@ -104,13 +114,13 @@ a:active{
     color: white;
     background: #E50043;
 }
-.btnFormationMichel>a
-{
+
+.btnFormationMichel>a {
     text-decoration: none;
     color: white;
 }
 
-.btnDelete{
+.btnDelete {
     border: solid 1px;
     border-radius: 10px;
     width: 100px;
@@ -118,8 +128,8 @@ a:active{
     color: white;
     background: #E50043;
 }
-.FormationIndex
-{
+
+.FormationIndex {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -150,4 +160,9 @@ a:active{
 }
 .loginButton{
     margin-top:20px ;
+}
+.filtre {
+    display: block;
+    position: sticky;
+    top: 20px;
 }

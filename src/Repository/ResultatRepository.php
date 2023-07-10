@@ -2,6 +2,8 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
+use App\Entity\PromoFormation;
 use App\Entity\Resultat;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -39,28 +41,49 @@ class ResultatRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Resultat[] Returns an array of Resultat objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('r.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /** Recupere les resultats en lien avec une recherche
+        @return Resultat[]
+     */
+    // public function findSearch(SearchData $search): array
+    // {
+    //     $query = $this
+    //         ->createQueryBuilder('p')
+    //         ->select('p')
+    //         // ->addSelect('c');
+    //         ->join('p.dossier', 'c')
+    //         // ->join('c.promoformation', 'd')
+    //         // ->join('d.Promotion', 'e');
+    //     ;
+    //     if (!empty($search->q)) {
+    //         $query = $query
+    //             ->andWhere('p.name LIKE :q')
+    //             ->setParameter('q', "%{search->q}%");
+    //     }
 
-//    public function findOneBySomeField($value): ?Resultat
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //     return $query->getQuery()->getResult();
+    // }
+    //    /**
+    //     * @return Resultat[] Returns an array of Resultat objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('r')
+    //            ->andWhere('r.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('r.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?Resultat
+    //    {
+    //        return $this->createQueryBuilder('r')
+    //            ->andWhere('r.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }
