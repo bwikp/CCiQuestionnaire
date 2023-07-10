@@ -5,8 +5,9 @@ namespace App\DataFixtures;
 use App\Entity\Candidat;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class CandidatFixtures extends Fixture
+class CandidatFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
@@ -18,7 +19,8 @@ class CandidatFixtures extends Fixture
             $candidat = new Candidat();
             $candidat->setnom('Lamin-' . $i);
             $candidat->setPrenom('Moha');
-            $candidat->setMail('moha@gmail.com');
+            // $candidat->setMail('moha@gmail.com');
+            $candidat->setUser($this->getReference("user".$i));
             $candidat->setGenre('Homme');
             $candidat->setAdresse('33 rue de ...');
             $candidat->setVille('Lyon');
@@ -30,4 +32,10 @@ class CandidatFixtures extends Fixture
             $manager->flush();
         }
     }
+    public function getDependencies()
+        {
+            return [
+                UsersCCIFixtures::class
+            ];
+        }
 }

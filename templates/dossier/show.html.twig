@@ -24,10 +24,10 @@
                 <th>genre</th>
                 <td>{{dossier.candidat.genre}}</td>
             </tr>
-             <tr>
+             {# <tr>
                 <th>mail</th>
                 <td>{{dossier.candidat.mail}}</td>
-            </tr>
+            </tr> #}
              <tr>
                 <th>adress</th>
                 <td>{{dossier.candidat.adresse}}</td>
@@ -62,8 +62,10 @@
             </tr>
             <tr>
                 <th>dernière Emploi</th>
-                <td><a href="{{ path('app_dernier_emploi_stage_show', {'id': dernierEmploiStage.id}) }}">derniers emploi</a></td> 
+                {# <td><a href="{{ path('app_dernier_emploi_stage_show', {'id': dernierEmploiStage.id}) }}">derniers emploi</a></td>  #}
             </tr>
+               
+
            <tr>
                 <th>Dernier emploi</th>
                 <td><a href="{{ path('app_formation_show', {'id': dossier.derniereFormation.id}) }}">parcours pro</a></td>            
@@ -77,5 +79,6 @@
 		<a href="{{ path('app_dossier_edit', {'id': dossier.id}) }}">edit</a>
 
 		{{ include('dossier/_delete_form.html.twig') }}
+         {{ dump(dernierEmploiStage.id) }}
 	</div>
 {% endblock %}

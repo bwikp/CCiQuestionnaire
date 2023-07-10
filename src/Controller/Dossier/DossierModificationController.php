@@ -4,7 +4,7 @@ namespace App\Controller\Dossier;
 
 use App\Entity\Dossier;
 use App\Entity\ThemFormaQuestions;
-use App\Form\Dossier1Type;
+use App\Form\DossierType;
 use App\Repository\CandidatRepository;
 use App\Repository\DossierRepository;
 use App\Repository\PromoFormationRepository;
@@ -17,11 +17,21 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/dossier')]
 class DossierModificationController extends AbstractController
 {
-    #[Route('/{id}', name: 'app_dossier_show', methods: ['GET'])]
-    public function show(Dossier $dossier): Response
+     #[Route('/{id}/edit', name: 'app_dossier_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Dossier $dossier, DossierRepository $dossierRepository): Response
     {
-        return $this->render('dossier/show.html.twig', [
+        $form = $this->createForm(DossierType::class, $dossier);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $dossierRepository->save($dossier, true);
+
+            return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('dossier/edit.html.twig', [
             'dossier' => $dossier,
+            'form' => $form,
         ]);
     }
 }

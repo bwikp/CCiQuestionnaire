@@ -4,7 +4,7 @@ namespace App\Controller\Dossier;
 
 use App\Entity\Dossier;
 use App\Entity\ThemFormaQuestions;
-use App\Form\Dossier1Type;
+use App\Form\DossierType;
 use App\Repository\CandidatRepository;
 use App\Repository\DossierRepository;
 use App\Repository\PromoFormationRepository;
@@ -21,7 +21,7 @@ class DossierCreationController extends AbstractController
     public function new(Request $request, DossierRepository $dossierRepository): Response
     {
         $dossier = new Dossier();
-        $form = $this->createForm(Dossier1Type::class, $dossier);
+        $form = $this->createForm(DossierType::class, $dossier);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

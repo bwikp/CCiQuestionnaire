@@ -129,13 +129,13 @@ a:active {
     background: #E50043;
 }
 
-.FormationIndex {
+.candidatIndex,.FormationIndex {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-    gap: 50px;
+    gap: 2.5%;
 }
 #thematique>div>label
 {

@@ -34,59 +34,50 @@ class DossierController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_dossier_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, DossierRepository $dossierRepository): Response
-    {
-        $dossier = new Dossier();
-        $form = $this->createForm(DossierType::class, $dossier);
-        $form->handleRequest($request);
+    // #[Route('/new', name: 'app_dossier_new', methods: ['GET', 'POST'])]
+    // public function new(Request $request, DossierRepository $dossierRepository): Response
+    // {
+    //     $dossier = new Dossier();
+    //     $form = $this->createForm(DossierType::class, $dossier);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $dossierRepository->save($dossier, true);
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $dossierRepository->save($dossier, true);
 
-            return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
-        }
+    //         return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
+    //     }
 
-        return $this->render('dossier/new.html.twig', [
-            'dossier' => $dossier,
-            'form' => $form,
-        ]);
-    }
+    //     return $this->render('dossier/new.html.twig', [
+    //         'dossier' => $dossier,
+    //         'form' => $form,
+    //     ]);
+    // }
 
-    #[Route('/{id}', name: 'app_dossier_show', methods: ['GET'])]
-    public function show(Dossier $dossier,DernierEmploiStage $dernierEmploiStage): Response
-    {
-        return $this->render('dossier/show.html.twig', [
-            'dossier' => $dossier,
-            'dernierEmploiStage' => $dernierEmploiStage
-        ]);
-    }
+    // #[Route('/{id}/edit', name: 'app_dossier_edit', methods: ['GET', 'POST'])]
+    // public function edit(Request $request, Dossier $dossier, DossierRepository $dossierRepository): Response
+    // {
+    //     $form = $this->createForm(DossierType::class, $dossier);
+    //     $form->handleRequest($request);
 
-    #[Route('/{id}/edit', name: 'app_dossier_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Dossier $dossier, DossierRepository $dossierRepository): Response
-    {
-        $form = $this->createForm(DossierType::class, $dossier);
-        $form->handleRequest($request);
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $dossierRepository->save($dossier, true);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $dossierRepository->save($dossier, true);
+    //         return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
+    //     }
 
-            return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
-        }
+    //     return $this->render('dossier/edit.html.twig', [
+    //         'dossier' => $dossier,
+    //         'form' => $form,
+    //     ]);
+    // }
 
-        return $this->render('dossier/edit.html.twig', [
-            'dossier' => $dossier,
-            'form' => $form,
-        ]);
-    }
+    // #[Route('/{id}', name: 'app_dossier_delete', methods: ['POST'])]
+    // public function delete(Request $request, Dossier $dossier, DossierRepository $dossierRepository): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete' . $dossier->getId(), $request->request->get('_token'))) {
+    //         $dossierRepository->remove($dossier, true);
+    //     }
 
-    #[Route('/{id}', name: 'app_dossier_delete', methods: ['POST'])]
-    public function delete(Request $request, Dossier $dossier, DossierRepository $dossierRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete' . $dossier->getId(), $request->request->get('_token'))) {
-            $dossierRepository->remove($dossier, true);
-        }
-
-        return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
-    }
+    //     return $this->redirectToRoute('app_dossier_index', [], Response::HTTP_SEE_OTHER);
+    // }
 }

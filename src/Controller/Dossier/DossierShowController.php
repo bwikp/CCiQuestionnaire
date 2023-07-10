@@ -8,6 +8,7 @@ use App\Form\Dossier1Type;
 use App\Repository\CandidatRepository;
 use App\Repository\DossierRepository;
 use App\Repository\PromoFormationRepository;
+use App\Entity\DernierEmploiStage;
 use App\Repository\ThemFormaQuestionsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,10 +19,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class DossierShowController extends AbstractController
 {
     #[Route('/{id}', name: 'app_dossier_show', methods: ['GET'])]
-    public function show(Dossier $dossier): Response
+    public function show(Dossier $dossier,DernierEmploiStage $dernierEmploiStage): Response
     {
         return $this->render('dossier/show.html.twig', [
             'dossier' => $dossier,
+            'dernierEmploiStage' => $dernierEmploiStage
         ]);
     }
 

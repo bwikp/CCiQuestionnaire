@@ -21,8 +21,8 @@ class Candidat
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $mail = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $mail = null;
 
     #[ORM\Column(length: 255)]
     private ?string $genre = null;
@@ -44,6 +44,10 @@ class Candidat
 
     #[ORM\OneToMany(mappedBy: 'candidat', targetEntity: Dossier::class, orphanRemoval: true)]
     private Collection $dossiers;
+
+    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?UsersCCI $user = null;
 
     public function __construct()
     {
@@ -79,17 +83,17 @@ class Candidat
         return $this;
     }
 
-    public function getMail(): ?string
-    {
-        return $this->mail;
-    }
+    // public function getMail(): ?string
+    // {
+    //     return $this->mail;
+    // }
 
-    public function setMail(string $mail): static
-    {
-        $this->mail = $mail;
+    // public function setMail(string $mail): static
+    // {
+    //     $this->mail = $mail;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getGenre(): ?string
     {
@@ -194,6 +198,18 @@ class Candidat
                 $dossier->setCandidat(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?UsersCCI
+    {
+        return $this->user;
+    }
+
+    public function setUser(UsersCCI $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

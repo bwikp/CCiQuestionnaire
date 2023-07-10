@@ -54,13 +54,14 @@ class ResultatController extends AbstractController
         $promo_formations = $promoFormationRepository->findAll();
         $promotion = $promotionRepository->findAll();
         $dossier = $dossierRepository->findAll();
+        $resultats = $resultatRepository->findAll();
         $data = new SearchData();
         $form = $this->createForm(SearchForm::class, $data);
         $form->handleRequest($request);
         // dd($data);
         // $resultats = $resultatRepository->findSearch($data);
         return $this->render('resultat/index.html.twig', [
-            // 'resultats' => $resultats,
+            'resultats' => $resultats,
             'form' => $form->createView(),
             'promo' => $promotion,
             'dossier' => $dossier,
