@@ -3,7 +3,7 @@
 namespace App\Controller\Resultat;
 
 use App\Entity\Resultat;
-use App\Form\Resultat1Type;
+use App\Form\ResultatType;
 use App\Repository\FormationRepository;
 use App\Repository\PromotionRepository;
 use App\Repository\ResultatRepository;
@@ -48,7 +48,7 @@ class ResultatController extends AbstractController
     public function new(Request $request, ResultatRepository $resultatRepository): Response
     {
         $resultat = new Resultat();
-        $form = $this->createForm(Resultat1Type::class, $resultat);
+        $form = $this->createForm(ResultatType::class, $resultat);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -57,7 +57,7 @@ class ResultatController extends AbstractController
             return $this->redirectToRoute('app_resultat_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('resultat/new.html.twig', [
+        return $this->render('resultat/new.html.twig', [
             'resultat' => $resultat,
             'form' => $form,
         ]);
@@ -74,7 +74,7 @@ class ResultatController extends AbstractController
     #[Route('/{id}/edit', name: 'app_resultat_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Resultat $resultat, ResultatRepository $resultatRepository): Response
     {
-        $form = $this->createForm(Resultat1Type::class, $resultat);
+        $form = $this->createForm(ResultatType::class, $resultat);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

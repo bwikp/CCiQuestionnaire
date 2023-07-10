@@ -19,7 +19,7 @@ class Questions
     }
     public function __toString()
     {
-        $reponse = $this->getId();
+        $reponse = "".$this->getId();
         return $reponse;
     }
 }

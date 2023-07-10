@@ -16,7 +16,12 @@
 	</head>
 	<body>
 	{% block nav_admin %}
+		{# {% if role == "ROLE_ADMIN"  %} #}
 				 {% include("./nav_admin/nav_admin.html.twig") %}
+		{# {% elseif role == "ROLE_USER" %} #}
+			{# {% include("./nav_admin/nav.html.twig")  %} #}
+		{# {% endif %} #}
+		{# {{ dump(user.getroles)}} #}
 	{% endblock %}
 		{% block contenu %}
 			

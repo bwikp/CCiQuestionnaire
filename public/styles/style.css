@@ -132,7 +132,7 @@ a:active{
     display: block;
 }
 
-.LoginDiv{
+.LoginDiv,.homeDiv{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -140,6 +140,7 @@ a:active{
     height: 80%;
     width: 100%;
 }
+
 
 .loginButtonDiv{
     display: flex;
