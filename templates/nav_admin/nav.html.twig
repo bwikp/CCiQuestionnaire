@@ -26,7 +26,7 @@
 
 				</ul>
 				<div class="button">
-					<a href='#' class="profil">Mon profil</a>
+					<a href='profile' class="profil">Mon profil</a>
 					{% if  is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 					<a href="{{path('app_logout')}}" class="deconnection">Se déconnecter</a>
 					{% else  %}
